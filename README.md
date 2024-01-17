@@ -32,7 +32,7 @@ In the simplicity of this blog lies my way of understanding myself and my projec
   <img src="https://img.shields.io/mastodon/follow/110580864516294518?domain=https://datasci.social&style=social" alt="Mastodon follow">
 </a>
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/tmwProjects/Blog) 
-[![HackSide](https://img.shields.io/badge/Visit-HackSide_$-003366)](https://tmwprojects.github.io/HackSide/)
+[![HackSide](https://img.shields.io/badge/Visit-HackSide_$-003366)](https://tmwprojects.github.io/Blog/)
 [![Visit my site](https://img.shields.io/badge/Visit%20my%20site-Online-important)](https://tmwprojects.github.io/)
 [![Donate on Liberapay](https://img.shields.io/badge/Donate-Liberapay-yellow)](https://liberapay.com/tmwProjects/donate)
 <a href="https://www.buymeacoffee.com/tmwcontactQ"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" height="20.4px"></a>
