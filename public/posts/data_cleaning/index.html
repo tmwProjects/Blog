@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>DATA CLEANING METHODS - HackSide $</title>
+
+    
+    
+    <meta name="description" content="Data cleaning is an important step in geosciences to ensure accurate and reliable analysis results. Python provides a powerful toolset for data cleaning in this field, offering scalability, automation, and adaptability. With libraries such as Pandas, NumPy, and Matplotlib, geoscientists can efficiently clean, organize, and analyze their data. To use Python for data cleaning in the geosciences, it is important to understand basic programming concepts and become familiar with the relevant libraries while adhering to best practices." />
+    <meta name="author" content="tmwProjects" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/" class="mr-3 font:extralight">
+              
+              HackSide $
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">DATA CLEANING METHODS</div>
+        <div class="mt:16 f:fade-60">
+            <time>Mar 6, 2023</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>Data cleaning is an important step in geosciences to ensure accurate and reliable analysis results. Python provides a
+powerful toolset for data cleaning in this field, offering scalability, automation, and adaptability. With libraries
+such as Pandas, NumPy, and Matplotlib, geoscientists can efficiently clean, organize, and analyze their data. To use
+Python for data cleaning in the geosciences, it is important to understand basic programming concepts and become familiar
+with the relevant libraries while adhering to best practices. By using Python, geoscientists can improve the effectiveness
+and efficiency of their research to produce meaningful and insightful results.</p>
+<p>This project is only intended to provide some overview of what common techniques and workflows might occur. It is
+important to note that each data set is a new challenge and one should not be tempted to run a quickly assembled script
+over a data set. Especially in a scientific context, a lot of analysis and planning is required. Writing code, running it,
+and possibly having a matching dataset is only a small part.</p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366" alt="License"></a></p>
+<hr>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#python-vs-excel-and-co">Python vs. Excel and co.</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#data-quality---defining-requirements-for-data">Data Quality - Defining Requirements for Data</a></li>
+<li><a href="#analysis-of-the-data">Analysis of the data</a>
+<ul>
+<li><a href="#loading-the-data-set">Loading the data set</a></li>
+<li><a href="#missing-data">Missing data</a>
+<ul>
+<li><a href="#technique-1-missing-data-heatmap">Technique 1: Missing data heatmap</a></li>
+<li><a href="#technique-2-percentage-list-of-missing-data">Technique 2: Percentage list of missing data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#create-a-backup-copy-of-the-filetable">Create a backup copy of the file/table</a></li>
+<li><a href="#data-standardization">Data standardization</a></li>
+<li><a href="#data-types---technical-level">Data Types - Technical level</a>
+<ul>
+<li><a href="#data-type-1-inconsistent-data">Data type 1: Inconsistent data</a></li>
+<li><a href="#data-type-2-irregular-data-outliers">Data type 2: Irregular data (outliers)</a>
+<ul>
+<li><a href="#boxplot-of-observations">Boxplot of observations</a></li>
+<li><a href="#histogram-of-observations">Histogram of observations</a></li>
+<li><a href="#descriptive-statistics">Descriptive statistics</a></li>
+<li><a href="#lof---local-outlier-factors">LOF - Local Outlier Factors</a></li>
+<li><a href="#isolation-forest">Isolation Forest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#data-types---meaning-level">Data Types - Meaning level</a>
+<ul>
+<li><a href="#type-1-non-informativerepetitive">Type 1: Non-informative/repetitive</a></li>
+<li><a href="#type-2-irrelevant-data-type">Type 2: Irrelevant data type</a></li>
+<li><a href="#type-3-duplicates">Type 3: Duplicates</a>
+<ul>
+<li><a href="#duplicate-type-1">Duplicate Type 1</a></li>
+<li><a href="#duplicate-type-2">Duplicate Type 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#scaling-transformation-and-normalization">Scaling, transformation and normalization</a></li>
+<li><a href="#cleaning-the-data">Cleaning the data</a>
+<ul>
+<li><a href="#missing-values">Missing values</a></li>
+</ul>
+</li>
+<li><a href="#verification">Verification</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="cleaning-the-data">Cleaning the data</h2>
+<h3 id="missing-values">Missing values</h3>
+<hr>
+<h2 id="python-vs-excel-and-co">Python vs. Excel and co.</h2>
+<p>Python offers advantages over Excel and GUI-based tools in the data cleaning space, including automation, scalability,
+flexibility, integration, repeatability, traceability, version control, and improved error handling. This makes Python
+particularly suitable for large, complex data sets and demanding tasks.
+Some disadvantages of Python compared to GUI-based tools include a steeper learning curve, greater time investment,
+lack of visual tools, lack of immediate feedback, more complicated installation and configuration, and less suitability
+for small or simple data sets. These drawbacks stem mainly from the programming expertise required and the additional
+effort required for scripting and execution. However, Python remains a powerful and flexible option for data cleaning
+for larger, more complex data sets and advanced requirements.</p>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h3 id="workflow">Workflow</h3>
+<ol>
+<li>Data quality (define requirements for data).
+↓</li>
+<li>Analysis of data (appraisal of raw data).
+<ol>
+<li>Loading of the data set</li>
+<li>Missing data
+<ol>
+<li>Create heat map</li>
+<li>Percentage list of missing data.
+↓</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Create backup copy of file/table.
+↓</li>
+<li>Data standardization
+<ol>
+<li>Uniform units of measurement</li>
+<li>Coordinate systems</li>
+<li>Consistent sample designations</li>
+<li>Standardization of analytical methods</li>
+<li>Quality control and assurance</li>
+<li>Inconsistent data</li>
+<li>Irregular data (outliers)</li>
+<li>Unnecessary data
+<ol>
+<li>Not informative/repetitive</li>
+<li>Irrelevant data type</li>
+<li>Duplicates
+↓</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Scaling, transformation and normalization
+↓</li>
+<li>Verification
+↓</li>
+<li>Formatting
+↓</li>
+<li>Documentation</li>
+</ol>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h3 id="data-quality---defining-requirements-for-data">Data Quality - Defining Requirements for Data</h3>
+<p>When analyzing geoscience data, five data quality criteria can be applied to quantify the quality of the data. These
+criteria include completeness, uniqueness, accuracy and correctness, consistency and uniformity, and freedom from redundancy.
+Depending on the specific research interest and applicability, a selection is made from these criteria, starting with
+the initial definition of the most obvious criteria. Over time, additional criteria may be added in an iterative process.
+A measurement and evaluation of data quality as well as the derivation of targeted improvement measures therefore requires
+a definition of appropriate data quality criteria in advance.</p>
+<ol>
+<li>
+<p><strong>Completeness</strong>: This is about identifying missing data and deciding how to deal with it - for example, by imputation, exclusion of incomplete data, or acceptance of the incompleteness.</p>
+</li>
+<li>
+<p><strong>Uniqueness</strong>: Duplicate entries should be identified and removed in this step.</p>
+</li>
+<li>
+<p><strong>Accuracy and correctness</strong>: data cleaning may also involve correcting obvious errors, such as implausible values or obviously incorrectly assigned categories.</p>
+</li>
+<li>
+<p><strong>Consistency and uniformity</strong>: It is important to clean inconsistencies and ensure that the data is in a consistent format. This may include, for example, converting units of measurement or standardizing text entries.</p>
+</li>
+<li>
+<p><strong>Freedom from redundancy</strong>: This step also addresses redundancy by removing duplicate or redundant data.</p>
+</li>
+</ol>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h2 id="analysis-of-the-data">Analysis of the data</h2>
+<p>Review of the raw data - checklist</p>
+<ol>
+<li>
+<p>Check the data for completeness and correctness: Is there missing data or obviously wrong data?</p>
+</li>
+<li>
+<p>Check the expected form and data type of all variables: Are there columns with incorrect data types or formatting issues?</p>
+</li>
+<li>
+<p>Check for duplicates: are there individual records or rows in the table more than once?</p>
+</li>
+<li>
+<p>Analyze outliers and missing values: are outliers useful or are they data errors? How can missing values be handled?</p>
+</li>
+<li>
+<p>Check the consistency of the data: do the data in different columns and rows match each other?</p>
+</li>
+<li>
+<p>Analyze the distribution of the data: Are there any particular patterns or trends?</p>
+</li>
+<li>
+<p>Check the units of the measured variables: Are all units consistent? Are they in the unit required for the analysis?</p>
+</li>
+<li>
+<p>Check that the data are within the analytical detection limits: Are the measured values within the detection limits of the analytical method?</p>
+</li>
+<li>
+<p>Examine the data for possible sources of error: Are the measurement devices calibrated? Were there errors in sample collection?</p>
+</li>
+<li>
+<p>Examine variations within the data: Are there seasonal or other periodic variations in the data?</p>
+</li>
+<li>
+<p>Analyze the data in the context of the geology: are the data consistent with the geology at the sampling site?</p>
+</li>
+<li>
+<p>Check for correlations between variables: Are there strong correlations between the measured variables?</p>
+</li>
+<li>
+<p>Analyze the accuracy and reproducibility of the analytical methods: How accurate and reproducible are the analytical methods used?</p>
+</li>
+<li>
+<p>Check whether the data are sufficient to perform the desired statistical analyses: If not, what steps need to be taken to get the data into an appropriate form?</p>
+</li>
+</ol>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h3 id="loading-the-data-set">Loading the data set</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># adjust display options to show all columns  </span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>set_option(<span style="color:#e6db74">&#34;display.max_columns&#34;</span>, <span style="color:#66d9ef">None</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;path/to/Data.csv&#34;</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>print(data<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">10</span>),<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>, data<span style="color:#f92672">.</span>dtypes)
+</span></span></code></pre></div><p>If the dataset is not displayed correctly due to incorrect column names, the skiprows parameter should be used:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>, skiprows<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)  
+</span></span></code></pre></div><p>If necessary, the usecols parameter can be used to remove additional columns.</p>
+<p><a href="#contents">Back to content</a></p>
+<h3 id="missing-data">Missing data</h3>
+<h4 id="technique-1-missing-data-heatmap">Technique 1: Missing data heatmap</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> missingno <span style="color:#66d9ef">as</span> msno
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;path/to/Data.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>data2 <span style="color:#f92672">=</span> msno<span style="color:#f92672">.</span>nullity_sort(data)
+</span></span><span style="display:flex;"><span>msno<span style="color:#f92672">.</span>matrix(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/missingno.png?raw=true" alt="Heatmap"></p>
+<p>To get an overview of the completeness of the data, it can still be sorted by the zero values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> missingno <span style="color:#66d9ef">as</span> msno
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;path/to/Data.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data_sorted_rows <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>loc[data<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>sort_values(ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>index]
+</span></span><span style="display:flex;"><span>data_sorted_rows <span style="color:#f92672">=</span> data_sorted_rows<span style="color:#f92672">.</span>reset_index(drop<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>null_counts <span style="color:#f92672">=</span> data_sorted_rows<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum()
+</span></span><span style="display:flex;"><span>sorted_columns <span style="color:#f92672">=</span> null_counts<span style="color:#f92672">.</span>sort_values(ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>index
+</span></span><span style="display:flex;"><span>data_sorted_rows <span style="color:#f92672">=</span> data_sorted_rows[sorted_columns]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>msno<span style="color:#f92672">.</span>matrix(data_sorted_rows)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/missingno_sorted.png?raw=true" alt="Sorted heatmap"></p>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h4 id="technique-2-percentage-list-of-missing-data">Technique 2: Percentage list of missing data</h4>
+<p>Create a list with the percentages of missing values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Iterate through each column in cols</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> column <span style="color:#f92672">in</span> cols:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Calculate the percentage of missing values in the column</span>
+</span></span><span style="display:flex;"><span>    missing_value_pct <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(data[column]<span style="color:#f92672">.</span>isnull())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Print column name and percentage of missing values</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;Column: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">, Missing Values: </span><span style="color:#e6db74">{:.2f}</span><span style="color:#e6db74">%&#39;</span><span style="color:#f92672">.</span>format(column, missing_value_pct <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Output:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Column: SampleID, Missing Values: 0.00%
+</span></span><span style="display:flex;"><span>Column: AL2O3, Missing Values: 56.00%
+</span></span><span style="display:flex;"><span>Column: BA, Missing Values: 56.00%
+</span></span><span style="display:flex;"><span>Column: CAO, Missing Values: 59.00%
+</span></span><span style="display:flex;"><span>Column: CE, Missing Values: 56.00%
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>Column: Longitude, Missing Values: 0%
+</span></span><span style="display:flex;"><span>Column: Latitude, Missing Values: 0%
+</span></span><span style="display:flex;"><span>Column: Units, Missing Values: 26%
+</span></span><span style="display:flex;"><span>Column: Item_Group, Missing Values: 0%
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h3 id="create-a-backup-copy-of-the-filetable">Create a backup copy of the file/table</h3>
+<p>Before performing data cleansing, it is advisable to create a copy of the original and erroneous data to ensure the
+traceability of the cleansing and to guarantee an audit-proof procedure. Simply deleting the original data after the
+cleanup is not recommended, as this would make it impossible to verify possible sources of error. An alternative method,
+especially in the case of multiple cleanup runs, is to store the corrected value in an additional column or row.
+If there are a large number of columns and rows to be corrected, it may also make sense to create a separate table.
+The decision which method to choose depends on various factors, including the available storage space.</p>
+<p><a href="#contents">Back to content</a></p>
+<h3 id="data-standardization">Data standardization</h3>
+<h4 id="some-examples">Some examples</h4>
+<p><strong>Uniform Units of Measurement</strong>:</p>
+<p>Ensure that all data are in the same units of measurement (e.g., ppm, ppb, mg/kg, etc.). This may require conversion of
+units to provide a consistent basis for comparison.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Convert mg/kg to ppm (1 mg/kg = 1 ppm)</span>
+</span></span><span style="display:flex;"><span>data[<span style="color:#e6db74">&#39;Element_in_mg/kg&#39;</span>] <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;Element_in_mg/kg&#39;</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Element_in_mg/kg&#39;</span>: <span style="color:#e6db74">&#39;Element_in_ppm&#39;</span>}, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><strong>Coordinate Systems</strong>:</p>
+<p>Geochemical data are often tied to geographic locations, so it is important to use a uniform coordinate system
+(e.g., WGS84, UTM, etc.). This may require the conversion of coordinates between different systems.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pyproj
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define Coordinate system</span>
+</span></span><span style="display:flex;"><span>in_proj <span style="color:#f92672">=</span> pyproj<span style="color:#f92672">.</span>Proj(proj<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;utm&#39;</span>, zone<span style="color:#f92672">=</span><span style="color:#ae81ff">33</span>, ellps<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;WGS84&#39;</span>)
+</span></span><span style="display:flex;"><span>out_proj <span style="color:#f92672">=</span> pyproj<span style="color:#f92672">.</span>Proj(proj<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;latlong&#39;</span>, datum<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;WGS84&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Convert your coordinates</span>
+</span></span><span style="display:flex;"><span>data[<span style="color:#e6db74">&#39;Longitude&#39;</span>], data[<span style="color:#e6db74">&#39;Latitude&#39;</span>] <span style="color:#f92672">=</span> pyproj<span style="color:#f92672">.</span>transform(in_proj, out_proj, data[<span style="color:#e6db74">&#39;X&#39;</span>]<span style="color:#f92672">.</span>values, data[<span style="color:#e6db74">&#39;Y&#39;</span>]<span style="color:#f92672">.</span>values)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><strong>Consistent Sample Identifiers</strong>:</p>
+<p>Ensure that all samples are labeled with consistent names to avoid confusion and potential errors in data analysis.
+This may include replacing abbreviations or standardizing naming schemes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Replace abbreviations in the &#34;Item_Group&#34; column</span>
+</span></span><span style="display:flex;"><span>data[<span style="color:#e6db74">&#39;Item_Group&#39;</span>] <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;Item_Group&#39;</span>]<span style="color:#f92672">.</span>replace({<span style="color:#e6db74">&#39;mj&#39;</span>: <span style="color:#e6db74">&#39;Major&#39;</span>, <span style="color:#e6db74">&#39;ree&#39;</span>: <span style="color:#e6db74">&#39;Rare Earth Elements&#39;</span>, <span style="color:#e6db74">&#39;te&#39;</span>: <span style="color:#e6db74">&#39;Trace Elements&#39;</span>})
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><strong>Unification of analytical methods</strong>:</p>
+<p>Geochemical data can be obtained by a variety of analytical methods. To ensure comparability, it is helpful to
+standardize the data based on a common analytical method or at least to clearly document the methods used.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Document the analysis method for each column</span>
+</span></span><span style="display:flex;"><span>analysis_methods <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;AL2O3&#39;</span>: <span style="color:#e6db74">&#39;XRF&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;BA&#39;</span>: <span style="color:#e6db74">&#39;ICP-MS&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data[<span style="color:#e6db74">&#39;Analysis_Method&#39;</span>] <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>columns<span style="color:#f92672">.</span>map(analysis_methods)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><strong>Unification of detection limits</strong>:</p>
+<p>Different analyses have different detection limits. To make the data more comparable, it may be useful to mark all
+values below a certain detection limit as &ldquo;undetectable&rdquo; or &ldquo;below detection limit&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set values below the detection limit to &#34;not detectable&#34;</span>
+</span></span><span style="display:flex;"><span>detection_limit <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>
+</span></span><span style="display:flex;"><span>data[data <span style="color:#f92672">&lt;</span> detection_limit] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;not detectable&#39;</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><strong>Quality Control and Assurance</strong>:</p>
+<p>Establishing standard procedures for quality control and assurance can help improve the accuracy and reliability of data.
+This includes reviewing sampling, analytical procedures, and data entry.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check if all necessary columns are present</span>
+</span></span><span style="display:flex;"><span>required_columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;SampleID&#39;</span>, <span style="color:#e6db74">&#39;AL2O3&#39;</span>, <span style="color:#e6db74">&#39;BA&#39;</span>, <span style="color:#e6db74">&#39;Longitude&#39;</span>, <span style="color:#e6db74">&#39;Latitude&#39;</span>]
+</span></span><span style="display:flex;"><span>missing_columns <span style="color:#f92672">=</span> set(required_columns) <span style="color:#f92672">-</span> set(data<span style="color:#f92672">.</span>columns)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> missing_columns:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Missing columns: </span><span style="color:#e6db74">{</span>missing_columns<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check for duplicates in the &#34;SampleID&#34; column</span>
+</span></span><span style="display:flex;"><span>duplicate_sample_ids <span style="color:#f92672">=</span> data[data<span style="color:#f92672">.</span>duplicated(subset<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SampleID&#39;</span>, keep<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> duplicate_sample_ids<span style="color:#f92672">.</span>empty:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Duplicate in SampleID: </span><span style="color:#e6db74">{</span>duplicate_sample_ids[<span style="color:#e6db74">&#34;SampleID&#34;</span>]<span style="color:#f92672">.</span>tolist()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<hr>
+<h3 id="data-types---technical-level">Data Types - Technical level</h3>
+<h4 id="data-type-1-inconsistent-data">Data type 1: Inconsistent data</h4>
+<p>There may be additional strings concatenated to some numeric values that we need to remove. For this we define a
+function that removes these specific strings:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove_string</span>(x):  
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> type(x) <span style="color:#f92672">is</span> str:  
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;string&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)  
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>:  
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> x
+</span></span></code></pre></div><p>Here &lsquo;string&rsquo; can be removed in the replace function with the desired string.</p>
+<!-- raw HTML omitted -->
+<p>Depending on the dataset it can be very helpful to get the datatypes of each column:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;/path/to/csv&#34;</span>)
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>dtypes
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>output:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SampleID int64
+</span></span><span style="display:flex;"><span>AL2O3 float64
+</span></span><span style="display:flex;"><span>BA float64
+</span></span><span style="display:flex;"><span>CAO float64
+</span></span><span style="display:flex;"><span>CE float64
+</span></span><span style="display:flex;"><span>CO float64
+</span></span><span style="display:flex;"><span>CR float64
+</span></span><span style="display:flex;"><span>CR2O3 float64
+</span></span><span style="display:flex;"><span>CS float64
+</span></span><span style="display:flex;"><span>DY float64
+</span></span><span style="display:flex;"><span>ER float64
+</span></span><span style="display:flex;"><span>EU float64
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>Certain values in the columns may be defined as objects, although we need numeric ones. For this we can redefine them:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df[<span style="color:#e6db74">&#34;LA&#34;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_numeric(df[<span style="color:#e6db74">&#34;LA&#34;</span>])  
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#34;NA2O&#34;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_numeric(df[<span style="color:#e6db74">&#34;NA2O&#34;</span>])  
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>dtypes
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Output:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SampleID int64
+</span></span><span style="display:flex;"><span>AL2O3 float64
+</span></span><span style="display:flex;"><span>BA float64
+</span></span><span style="display:flex;"><span>CAO float64
+</span></span><span style="display:flex;"><span>CE float64
+</span></span><span style="display:flex;"><span>CO float64
+</span></span><span style="display:flex;"><span>CR float64
+</span></span><span style="display:flex;"><span>CR2O3 float64
+</span></span><span style="display:flex;"><span>CS float64
+</span></span><span style="display:flex;"><span>DY float64
+</span></span><span style="display:flex;"><span>ER float64
+</span></span><span style="display:flex;"><span>EU float64
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>The same applies to column names or categorical values, here you often have to pay attention to upper and lower case.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># make everything lower case.</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;author_lower&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;LA&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>lower()
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;author_lower&#39;</span>]<span style="color:#f92672">.</span>value_counts(dropna<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><p>For example, all author names are all lowercase, in case it is necessary for the upcoming analysis method.</p>
+<p>A common hurdle with processing the data is that some or all of the features are not recognized. This occurs when you
+have columns with strings. Here, it can happen that one or more spaces are placed before or after that of the string.
+These should be removed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># getting all the columns with string/mixed type values</span>
+</span></span><span style="display:flex;"><span>str_cols <span style="color:#f92672">=</span> list(df<span style="color:#f92672">.</span>columns)
+</span></span><span style="display:flex;"><span>str_cols<span style="color:#f92672">.</span>remove(<span style="color:#e6db74">&#39;MNO&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># removing leading and trailing characters from columns with str type</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> str_cols:
+</span></span><span style="display:flex;"><span>	df[i] <span style="color:#f92672">=</span> df[i]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>strip()
+</span></span></code></pre></div><p>In the context of the Tidy Data structure it becomes indispensable to pay attention to these hurdles.</p>
+<p>Before you want to set out to remove missing values or possibly even use complex methods to fill them in, take a closer
+look at the data set. You may be able to extract missing values based on valid information from the dataset.</p>
+<p><a href="#contents">Back to content</a></p>
+<h4 id="data-type-2-irregular-data-outliers">Data type 2: Irregular data (outliers)</h4>
+<p>If the values are numeric, we can use a histogram and boxplot to detect outliers. The disadvantage of boxplots can be
+that numerical outliers can be very pronounced and that this is not correctly represented in the boxplot. However,
+the advantage of boxplots is that you can quickly visually see if the values are normally distributed.</p>
+<h5 id="boxplot-of-observations">Boxplot of observations</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># read in data  </span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;restructed_data.csv&#34;</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># draw boxplot and get quartiles  </span>
+</span></span><span style="display:flex;"><span>fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots()  
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>boxplot(df[<span style="color:#e6db74">&#39;MNO&#39;</span>])  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># identify outliers  </span>
+</span></span><span style="display:flex;"><span>q1 <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;MNO&#39;</span>]<span style="color:#f92672">.</span>quantile(<span style="color:#ae81ff">0.25</span>)  
+</span></span><span style="display:flex;"><span>q3 <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;MNO&#39;</span>]<span style="color:#f92672">.</span>quantile(<span style="color:#ae81ff">0.75</span>)  
+</span></span><span style="display:flex;"><span>iqr <span style="color:#f92672">=</span> q3 <span style="color:#f92672">-</span> q1  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>lower_bound <span style="color:#f92672">=</span> q1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.5</span> <span style="color:#f92672">*</span> iqr  
+</span></span><span style="display:flex;"><span>upper_bound <span style="color:#f92672">=</span> q3 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.5</span> <span style="color:#f92672">*</span> iqr  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>outliers_indices <span style="color:#f92672">=</span> [i <span style="color:#66d9ef">for</span> i, value <span style="color:#f92672">in</span> enumerate(df[<span style="color:#e6db74">&#39;MNO&#39;</span>]) <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&lt;</span> lower_bound <span style="color:#f92672">or</span> value <span style="color:#f92672">&gt;</span> upper_bound]  
+</span></span><span style="display:flex;"><span>outliers_y <span style="color:#f92672">=</span> [value <span style="color:#66d9ef">for</span> value <span style="color:#f92672">in</span> df[<span style="color:#e6db74">&#39;MNO&#39;</span>] <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&lt;</span> lower_bound <span style="color:#f92672">or</span> value <span style="color:#f92672">&gt;</span> upper_bound]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># find sampleIDs of outliers  </span>
+</span></span><span style="display:flex;"><span>outliers_sample_ids <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>iloc[outliers_indices][<span style="color:#e6db74">&#39;SampleID&#39;</span>]<span style="color:#f92672">.</span>tolist()  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># add SampleIDs as text to the boxplot  </span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index, outlier, sample_id <span style="color:#f92672">in</span> zip(outliers_indices, outliers_y, outliers_sample_ids):  
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>annotate(str(sample_id), (<span style="color:#ae81ff">1</span>, outlier), textcoords<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;offset points&#34;</span>, xytext<span style="color:#f92672">=</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>), ha<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;center&#39;</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># add x-axis labels  </span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xticks([<span style="color:#ae81ff">1</span>]) <span style="color:#75715e"># Here we set the position of the x-tick  </span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xticklabels([<span style="color:#e6db74">&#39;MnO&#39;</span>]) <span style="color:#75715e"># Here we set the label of the x-tick  </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true" alt="Boxplot"></p>
+<p><a href="#contents">Back to content</a></p>
+<h5 id="histogram-of-observations">Histogram of observations</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>column_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;MNO&#39;</span> <span style="color:#75715e"># replace &#39;column_name&#39; with the actual column name  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># create histogram of the selected column  </span>
+</span></span><span style="display:flex;"><span>data[column_name]<span style="color:#f92672">.</span>hist(bins<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(column_name)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Number of observations&#39;</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Histogram of </span><span style="color:#e6db74">{</span>column_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> column&#39;</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;Hist_mno.png&#39;</span>)  
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/Hist_mno.png?raw=true" alt="Histogram"></p>
+<p><a href="#contents">Back to content</a></p>
+<h5 id="descriptive-statistics">Descriptive statistics</h5>
+<p>Then we can use the methods of descriptive statistics. Here it can be helpful to find out whether a characteristic and
+its values are normally distributed or not. For example, the Shapiro-Wilk test can be used for this purpose.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> stats  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># exclude columns  </span>
+</span></span><span style="display:flex;"><span>exclude_columns <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;SampleID&#39;</span>, <span style="color:#e6db74">&#39;Longitude&#39;</span>, <span style="color:#e6db74">&#39;Latitude&#39;</span>, <span style="color:#e6db74">&#39;Units&#39;</span>, <span style="color:#e6db74">&#39;Item_Group&#39;</span>]  
+</span></span><span style="display:flex;"><span>selected_columns <span style="color:#f92672">=</span> [col <span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>columns <span style="color:#66d9ef">if</span> col <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> exclude_columns]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># perform Shapiro-Wilk test for each selected column  </span>
+</span></span><span style="display:flex;"><span>alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.05</span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> column_name <span style="color:#f92672">in</span> selected_columns:  
+</span></span><span style="display:flex;"><span>    selected_data <span style="color:#f92672">=</span> data[column_name]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># check if the data has a value range greater than zero  </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> np<span style="color:#f92672">.</span>ptp(selected_data) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:  
+</span></span><span style="display:flex;"><span>        statistic, p_value <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>shapiro(selected_data)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Shapiro-Wilk test for column &#39;</span><span style="color:#e6db74">{</span>column_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;:&#34;</span>)  
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34; statistics: </span><span style="color:#e6db74">{</span>statistic<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34; p-value: </span><span style="color:#e6db74">{</span>p_value<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> p_value <span style="color:#f92672">&gt;</span> alpha:  
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34; The data in column &#39;</span><span style="color:#e6db74">{</span>column_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; appears to be normally distributed (H0 not rejected).&#34;</span>)  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:  
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34; The data in column &#39;</span><span style="color:#e6db74">{</span>column_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; does not appear to be normally distributed (H0 rejected).&#34;</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:  
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">The data in column &#39;</span><span style="color:#e6db74">{</span>column_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; has a range of zero. Shapiro-Wilk test is not performed.&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Shapiro-Wilk test <span style="color:#66d9ef">for</span> column <span style="color:#e6db74">&#39;AL2O3&#39;</span>:
+</span></span><span style="display:flex;"><span>  Statistic: 0.9374846816062927
+</span></span><span style="display:flex;"><span>  p-value: 0.4661906361579895
+</span></span><span style="display:flex;"><span>  Data in column <span style="color:#e6db74">&#39;AL2O3&#39;</span> appear to be normally distributed <span style="color:#f92672">(</span>H0 not rejected<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Shapiro-Wilk test <span style="color:#66d9ef">for</span> column <span style="color:#e6db74">&#39;BA&#39;</span>:
+</span></span><span style="display:flex;"><span>  Statistic: 0.8701132535934448
+</span></span><span style="display:flex;"><span>  p-value: 0.0655660405755043
+</span></span><span style="display:flex;"><span>  Data in column <span style="color:#e6db74">&#39;BA&#39;</span> appear to be normally distributed <span style="color:#f92672">(</span>H0 not rejected<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Shapiro-Wilk test <span style="color:#66d9ef">for</span> column <span style="color:#e6db74">&#39;CAO&#39;</span>:
+</span></span><span style="display:flex;"><span>  Statistic: 0.777439534664154
+</span></span><span style="display:flex;"><span>  p-value: 0.005249298643320799
+</span></span><span style="display:flex;"><span>  Data in column <span style="color:#e6db74">&#39;CAO&#39;</span> does not appear to be normally distributed <span style="color:#f92672">(</span>H0 rejected<span style="color:#f92672">)</span>.
+</span></span></code></pre></div><p>Further methods like IQR can be used to statistically distinguish between outliers and errors. Here, of course,
+the outliers must be assessed and decide how to deal with outliers depending on the data set and the goal of the
+project.Outliers are innocent until proven guilty. Other than that, they should not be removed unless there is a
+valid reason to do so.</p>
+<p>Suitable methods are still to use to detect anomalies/outliers algorithms. Two are presented here that are
+included in <strong>sklearn</strong> by default:</p>
+<p><a href="#contents">Back to content</a></p>
+<h3 id="lof---local-outlier-factors">LOF - Local Outlier Factors</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.neighbors <span style="color:#f92672">import</span> LocalOutlierFactor  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove the columns you don&#39;t want to analyze  </span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;SampleID&#34;</span>, <span style="color:#e6db74">&#34;Longitude&#34;</span>, <span style="color:#e6db74">&#34;Latitude&#34;</span>, <span style="color:#e6db74">&#34;Units&#34;</span>, <span style="color:#e6db74">&#34;Item_Group&#34;</span>])  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># scale the data to make sure that all columns have a similar impact  </span>
+</span></span><span style="display:flex;"><span>scaler <span style="color:#f92672">=</span> StandardScaler()  
+</span></span><span style="display:flex;"><span>scaled_data <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>fit_transform(data)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the Local Outlier Factor model  </span>
+</span></span><span style="display:flex;"><span>lof <span style="color:#f92672">=</span> LocalOutlierFactor(n_neighbors<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>, contamination<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>) <span style="color:#75715e"># set the desired parameters  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Train the model and get the predictions  </span>
+</span></span><span style="display:flex;"><span>outlier_predictions <span style="color:#f92672">=</span> lof<span style="color:#f92672">.</span>fit_predict(scaled_data)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the predictions to your original data set  </span>
+</span></span><span style="display:flex;"><span>data[<span style="color:#e6db74">&#34;outlier&#34;</span>] <span style="color:#f92672">=</span> outlier_predictions  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># outliers are marked with -1, inliers with 1  </span>
+</span></span><span style="display:flex;"><span>outliers <span style="color:#f92672">=</span> data[data[<span style="color:#e6db74">&#34;outlier&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]  
+</span></span><span style="display:flex;"><span>inliers <span style="color:#f92672">=</span> data[data[<span style="color:#e6db74">&#34;outlier&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Outliers:&#34;</span>)  
+</span></span><span style="display:flex;"><span>print(outliers)  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Inliers:&#34;</span>)  
+</span></span><span style="display:flex;"><span>print(inliers)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Outliers:
+</span></span><span style="display:flex;"><span>   AL2O3   BA   CAO    CE     CO  ...     V    Y     YB    ZR  outlier
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>   2.68  8.4  2.32  4.31  107.0  ...  61.0  0.0  0.291  2.15       -1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span> rows x <span style="color:#ae81ff">45</span> columns<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Inliers:
+</span></span><span style="display:flex;"><span>    AL2O3     BA   CAO     CE     CO  ...     V       Y     YB     ZR  outlier
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    2.21  39.90  0.02  3.940  107.0  ...  34.0   0.470  0.047   0.73        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    1.02  30.40  0.83  3.850  107.0  ...  37.0   0.490  0.052   0.32        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    1.08  47.70  0.95  4.290  111.0  ...  35.0   0.297  0.036   0.43        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    2.59  17.60  0.04  1.610  114.0  ...  30.0   0.000  0.037   0.48        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>    3.13   0.64  0.04  5.900   82.0  ...  77.0  10.800  1.100  24.70        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>    3.65  40.00  3.73  1.410   95.0  ...  83.0   0.000  0.390   4.40        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>    3.99  21.20  4.28  3.390   98.0  ...  77.0   4.780  0.530   8.70        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>    4.49   1.39  0.04  0.390  104.0  ...  75.0   0.000  0.380   3.53        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>    4.28   0.09  0.03  0.950  102.0  ...  82.0  17.100  1.960  13.00        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>   3.42   0.83  3.24  0.261  103.0  ...  74.0   3.270  0.390   2.70        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>   3.13   7.00  0.00  0.750    0.0  ...  68.0   0.000  0.330   2.65        <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h3 id="isolation-forest">Isolation Forest</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.ensemble <span style="color:#f92672">import</span> IsolationForest  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> StandardScaler  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove the columns you don&#39;t want to analyze  </span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;SampleID&#34;</span>, <span style="color:#e6db74">&#34;Longitude&#34;</span>, <span style="color:#e6db74">&#34;Latitude&#34;</span>, <span style="color:#e6db74">&#34;Units&#34;</span>, <span style="color:#e6db74">&#34;Item_Group&#34;</span>])  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># scale the data to make sure that all columns have a similar impact  </span>
+</span></span><span style="display:flex;"><span>scaler <span style="color:#f92672">=</span> StandardScaler()  
+</span></span><span style="display:flex;"><span>scaled_data <span style="color:#f92672">=</span> scaler<span style="color:#f92672">.</span>fit_transform(data)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the isolation forest model  </span>
+</span></span><span style="display:flex;"><span>isolation_forest <span style="color:#f92672">=</span> IsolationForest(contamination<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>) <span style="color:#75715e"># set the desired proportion of expected outliers  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Train the model and get the predictions  </span>
+</span></span><span style="display:flex;"><span>outlier_predictions <span style="color:#f92672">=</span> isolation_forest<span style="color:#f92672">.</span>fit_predict(scaled_data)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the predictions to your original dataset  </span>
+</span></span><span style="display:flex;"><span>data[<span style="color:#e6db74">&#34;outlier&#34;</span>] <span style="color:#f92672">=</span> outlier_predictions  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># outliers are marked with -1, inliers with 1  </span>
+</span></span><span style="display:flex;"><span>outliers <span style="color:#f92672">=</span> data[data[<span style="color:#e6db74">&#34;outlier&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]  
+</span></span><span style="display:flex;"><span>inliers <span style="color:#f92672">=</span> data[data[<span style="color:#e6db74">&#34;outlier&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Outliers:&#34;</span>)  
+</span></span><span style="display:flex;"><span>print(outliers)  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Inliers:&#34;</span>)  
+</span></span><span style="display:flex;"><span>print(inliers)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Outliers:
+</span></span><span style="display:flex;"><span>   AL2O3    BA   CAO   CE    CO      CR  ...      U     V     Y   YB    ZR  outlier
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>   3.13  0.64  0.04  5.9  82.0  5230.0  ...  0.127  77.0  10.8  1.1  24.7       -1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span> rows x <span style="color:#ae81ff">45</span> columns<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Inliers:
+</span></span><span style="display:flex;"><span>    AL2O3     BA   CAO     CE     CO  ...     V       Y     YB     ZR  outlier
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>    2.68   8.40  2.32  4.310  107.0  ...  61.0   0.000  0.291   2.15        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>    2.21  39.90  0.02  3.940  107.0  ...  34.0   0.470  0.047   0.73        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>    1.02  30.40  0.83  3.850  107.0  ...  37.0   0.490  0.052   0.32        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>    1.08  47.70  0.95  4.290  111.0  ...  35.0   0.297  0.036   0.43        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>    2.59  17.60  0.04  1.610  114.0  ...  30.0   0.000  0.037   0.48        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>    3.65  40.00  3.73  1.410   95.0  ...  83.0   0.000  0.390   4.40        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>    3.99  21.20  4.28  3.390   98.0  ...  77.0   4.780  0.530   8.70        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>    4.49   1.39  0.04  0.390  104.0  ...  75.0   0.000  0.380   3.53        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>    4.28   0.09  0.03  0.950  102.0  ...  82.0  17.100  1.960  13.00        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>   3.42   0.83  3.24  0.261  103.0  ...  74.0   3.270  0.390   2.70        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>   3.13   7.00  0.00  0.750    0.0  ...  68.0   0.000  0.330   2.65        <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Depending on the specific goals of a study and the available data, these and other algorithms and methods can help
+extract the information and insights needed to answer your scientific questions.</p>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h2 id="data-types---meaning-level">Data Types - Meaning level</h2>
+<h3 id="type-1-non-informativerepetitive">Type 1: Non-informative/repetitive</h3>
+<p>To identify such data types, we can create a lists of features with a high percentage of the same value. A suitable
+example would be to show us columns where over 95% of the rows have the same value.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load the data</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Calculate the number of rows in the dataset</span>
+</span></span><span style="display:flex;"><span>total_rows <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a list to hold columns with low information density</span>
+</span></span><span style="display:flex;"><span>low_info_columns <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Go through each column in the dataset</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> column <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>columns:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Count the number of unique values in the column, including NaN values</span>
+</span></span><span style="display:flex;"><span>    unique_counts <span style="color:#f92672">=</span> data[column]<span style="color:#f92672">.</span>value_counts(dropna<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Calculate the percentage of the most common value</span>
+</span></span><span style="display:flex;"><span>    dominant_value_pct <span style="color:#f92672">=</span> (unique_counts <span style="color:#f92672">/</span> total_rows)<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># If the percentage is more than 95%, add the column to the list and print relevant info</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> dominant_value_pct <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.95</span>:
+</span></span><span style="display:flex;"><span>        low_info_columns<span style="color:#f92672">.</span>append(column)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;Column: </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74">, Dominant Value Percentage: </span><span style="color:#e6db74">{1:.5f}</span><span style="color:#e6db74">%&#39;</span><span style="color:#f92672">.</span>format(column, dominant_value_pct <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>))
+</span></span><span style="display:flex;"><span>        print(unique_counts)
+</span></span><span style="display:flex;"><span>        print()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a new DataFrame with the columns of low information density</span>
+</span></span><span style="display:flex;"><span>low_info_data <span style="color:#f92672">=</span> data[low_info_columns]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Save the new DataFrame as a CSV file</span>
+</span></span><span style="display:flex;"><span>low_info_data<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#34;low_information_data.csv&#34;</span>, index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>K: 100.00000%
+</span></span><span style="display:flex;"><span>0.0 <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>name: K, dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>RB87_SR86: 100.00000%
+</span></span><span style="display:flex;"><span>0.0 <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>Name: RB87_SR86, dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SR87_SR86: 100.00000%
+</span></span><span style="display:flex;"><span>0.0 <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>Name: SR87_SR86, dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Longitude: 100.00000%
+</span></span><span style="display:flex;"><span>38.21 <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>Name: Longitude, dtype: int64
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Latitude: 100.00000%
+</span></span><span style="display:flex;"><span>3.9 <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>Name: Latitude, dtype: int64
+</span></span></code></pre></div><p>In such cases the individual columns/values must be examined individually whether they are informative or not. It is
+important to find out the decisive reason why the values are repeated. If the values are not informative, they can
+be removed.</p>
+<p><a href="#contents">Back to content</a></p>
+<h3 id="type-2-irrelevant-data-type">Type 2: Irrelevant data type</h3>
+<p>The quality of the data collected plays an essential role in providing meaningful information for the successful
+implementation of a project. Characteristics that are not related to the project&rsquo;s problem are irrelevant to the analysis.</p>
+<p>A systematic examination of all available characteristics is required to determine their relevance. Characteristics
+that are not meaningful to the project goals should be removed from the analysis to ensure focused and purposeful results.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove row based on index n OR:</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove column &#39;name&#39; OR:</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;MNO&#39;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove columns &#39;MNO&#39; and &#39;FEO</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;MNO&#39;</span>, <span style="color:#e6db74">&#39;FEO&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="type-3-duplicates">Type 3: Duplicates</h3>
+<p>Duplicate data exists when copies of the same observation are present. It often happens that there are several types
+of data in one column, which we have to handle separately. In this case we can use the split function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>splitted_columns <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;author, column&#39;</span>]<span style="color:#f92672">.</span>str<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;,&#39;</span>,expand<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)  
+</span></span><span style="display:flex;"><span>splitted_columns
+</span></span></code></pre></div><p>Followed by clearly mapping the new columns and removing the old column that contained multiple pieces of information:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;author&#39;</span>] <span style="color:#f92672">=</span> splitted_columns[<span style="color:#ae81ff">0</span>]  
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;column&#39;</span>] <span style="color:#f92672">=</span> splitted_columns[<span style="color:#ae81ff">1</span>]  
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>head()
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;author, column&#39;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)  
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">15</span>)
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h4 id="duplicate-type-1">Duplicate Type 1</h4>
+<p>In geochemistry, datasets may contain duplicates where all variable values within an observation are the same.
+Identifying and removing such duplicates is an important step in data preparation to ensure the integrity and validity
+of statistical analyses.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># Considering &#39;MNO&#39; column is unique, let&#39;s see the effect of removing it</span>
+</span></span><span style="display:flex;"><span>deduplicated_data <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;MNO&#39;</span>)<span style="color:#f92672">.</span>drop_duplicates()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Compare the shape before and after deduplication</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Original DataFrame shape: </span><span style="color:#e6db74">{</span>df<span style="color:#f92672">.</span>shape<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Deduplicated DataFrame shape: </span><span style="color:#e6db74">{</span>deduplicated_data<span style="color:#f92672">.</span>shape<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Output:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Original DataFrame shape: <span style="color:#f92672">(</span>12, 49<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Deduplicated DataFrame shape: <span style="color:#f92672">(</span>12, 48<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h4 id="duplicate-type-2">Duplicate Type 2</h4>
+<p>In some cases, it is appropriate to weed out redundant records based on a set of specific, unique identifiers.</p>
+<p>For example, in a geochemical context, it is extremely unlikely that two samples will be collected at exactly the same
+time and location, and will also have identical chemical compositions.</p>
+<p>A grouping of essential characteristics can serve as unique identifiers for such samples. These include, for example,
+the time of sampling, geographic coordinates, pH, heavy metal and mineral content, and organic compound content.
+These characteristics can be used to identify and remove possible duplicates.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>key <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;SampleID&#39;</span>, <span style="color:#e6db74">&#39;AL2O3&#39;</span>, <span style="color:#e6db74">&#39;FEO&#39;</span>, <span style="color:#e6db74">&#39;FEOT&#39;</span>, <span style="color:#e6db74">&#39;K&#39;</span>, <span style="color:#e6db74">&#39;Longitude&#39;</span>, <span style="color:#e6db74">&#39;Latitude&#39;</span>]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>fillna(<span style="color:#f92672">-</span><span style="color:#ae81ff">999</span>)<span style="color:#f92672">.</span>groupby(key)[<span style="color:#e6db74">&#39;SampleID&#39;</span>]<span style="color:#f92672">.</span>count()<span style="color:#f92672">.</span>sort_values(ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">20</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>df_dedupped2 <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop_duplicates(subset<span style="color:#f92672">=</span>key)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>print(df)  
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>shape)  
+</span></span><span style="display:flex;"><span>print(df_dedupped2<span style="color:#f92672">.</span>shape)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>    SampleID  AL2O3     BA   CAO  ...  Longitude  Latitude  Units  Item_Group
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">137833</span>   2.68   8.40  2.32  ...      38.21       3.9    WT%          mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>     <span style="color:#ae81ff">137834</span>   2.21  39.90  0.02  ...      38.21       3.9    WT%          mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>     <span style="color:#ae81ff">137835</span>   1.02  30.40  0.83  ...      38.21       3.9    PPM         ree
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>     <span style="color:#ae81ff">137836</span>   1.08  47.70  0.95  ...      38.21       3.9    PPM          te
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>     <span style="color:#ae81ff">137837</span>   2.59  17.60  0.04  ...      38.21       3.9    WT%          mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>     <span style="color:#ae81ff">137838</span>   3.13   0.64  0.04  ...      38.21       3.9    WT%          mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>     <span style="color:#ae81ff">137839</span>   3.65  40.00  3.73  ...      38.21       3.9    PPM          te
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>     <span style="color:#ae81ff">137840</span>   3.99  21.20  4.28  ...      38.21       3.9    PPM          te
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>     <span style="color:#ae81ff">137841</span>   4.49   1.39  0.04  ...      38.21       3.9    WT%          mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>     <span style="color:#ae81ff">137842</span>   4.28   0.09  0.03  ...      38.21       3.9    WT%          mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>    <span style="color:#ae81ff">137843</span>   3.42   0.83  3.24  ...      38.21       3.9    WT%          mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>    <span style="color:#ae81ff">137844</span>   3.13   7.00  0.00  ...      38.21       3.9    PPM         ree
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#ae81ff">12</span> rows x <span style="color:#ae81ff">49</span> columns<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>12, 49<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>12, 49<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h3 id="scaling-transformation-and-normalization">Scaling, transformation and normalization</h3>
+<p>Scaling and transformation refer to the fitting of data to a specific scale, such as in the range of 0-100 or 0-1.
+This can facilitate the presentation and interpretation of data, especially in reducing skewness and handling outliers.
+Examples of transformations include logarithm, square root, and inverse. Using these techniques can help optimize data
+visualization and improve comparability of data points within a dataset.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># select numerical columns only  </span>
+</span></span><span style="display:flex;"><span>numerical_columns <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>select_dtypes(include<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;number&#39;</span>])<span style="color:#f92672">.</span>columns  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># min-max scaling  </span>
+</span></span><span style="display:flex;"><span>data_min_max <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>copy()  
+</span></span><span style="display:flex;"><span>data_min_max[numerical_columns] <span style="color:#f92672">=</span> (data[numerical_columns] <span style="color:#f92672">-</span> data[numerical_columns]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">/</span> (data[numerical_columns]<span style="color:#f92672">.</span>max() <span style="color:#f92672">-</span> data[numerical_columns]<span style="color:#f92672">.</span>min())  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># standardization (Z-score normalization)  </span>
+</span></span><span style="display:flex;"><span>data_standardized <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>copy()  
+</span></span><span style="display:flex;"><span>data_standardized[numerical_columns] <span style="color:#f92672">=</span> (data[numerical_columns] <span style="color:#f92672">-</span> data[numerical_columns]<span style="color:#f92672">.</span>mean()) <span style="color:#f92672">/</span> data[numerical_columns]<span style="color:#f92672">.</span>std()  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Logarithmic transformation  </span>
+</span></span><span style="display:flex;"><span>data_log <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>copy()  
+</span></span><span style="display:flex;"><span>data_log[numerical_columns] <span style="color:#f92672">=</span> data[numerical_columns]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>apply(np<span style="color:#f92672">.</span>log) <span style="color:#75715e"># x+1 to avoid errors with logarithm of 0  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># square root transformation  </span>
+</span></span><span style="display:flex;"><span>data_sqrt <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>copy()  
+</span></span><span style="display:flex;"><span>data_sqrt[numerical_columns] <span style="color:#f92672">=</span> data[numerical_columns]<span style="color:#f92672">.</span>apply(np<span style="color:#f92672">.</span>sqrt)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Inverse transformation  </span>
+</span></span><span style="display:flex;"><span>data_inverse <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>copy()  
+</span></span><span style="display:flex;"><span>data_inverse[numerical_columns] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">/</span> (data[numerical_columns] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1e-9</span>) <span style="color:#75715e"># 1e-9 to avoid division by zero  </span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># output transformed data sets  </span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Min-Max scaled data:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, data_min_max)  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Standardized data:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, data_standardized)  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Logarithmically transformed data:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, data_log)  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Square root transformed data:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, data_sqrt)  
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Inverse-transformed data:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, data_inverse)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Min-Max scaled data:
+</span></span><span style="display:flex;"><span>     SampleID AL2O3 BA ...  Latitude Units Item_Group
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> 0.000000 0.478386 0.174543 ...       NaN WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> 0.090909 0.342939 0.836169 ...       NaN WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> 0.181818 0.000000 0.636631 ...       NaN PPM ree
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Standardized data:
+</span></span><span style="display:flex;"><span>     SampleID AL2O3 BA ...  Latitude Units Item_Group
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> -1.525426 -0.259611 -0.540761 ...       NaN WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> -1.248075 -0.676764 1.246800 ...       NaN WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> -0.970725 -1.732959 0.707694 ...       NaN PPM ree
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Logarithmically transformed data:
+</span></span><span style="display:flex;"><span>      SampleID AL2O3 BA ...  Latitude Units Item_Group
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> 11.833805 1.302913 2.240710 ...  1.589235 WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> 11.833813 1.166271 3.711130 ...  1.589235 WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> 11.833820 0.703098 3.446808 ...  1.589235 PPM ree
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Square root transformed data:
+</span></span><span style="display:flex;"><span>       SampleID AL2O3 BA ...  Latitude Units Item_Group
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> 371.258670 1.637071 2.898275 ...  1.974842 WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> 371.260017 1.486607 6.316645 ...  1.974842 WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> 371.261363 1.009950 5.513620 ...  1.974842 PPM ree
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Inverse-transformed data:
+</span></span><span style="display:flex;"><span>     SampleID AL2O3 BA ...  Latitude Units Item_Group
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> 0.000007 0.373134 0.119048 ...   0.25641 WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> 0.000007 0.452489 0.025063 ...   0.25641 WT% mj
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> 0.000007 0.980392 0.032895 ...   0.25641 PPM ree
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<hr>
+<h2 id="cleaning-the-data-1">Cleaning the data</h2>
+<h3 id="missing-values-1">Missing values</h3>
+<p>Missing values in geochemical data can be handled in several ways:</p>
+<ol>
+<li>elimination, in which rows or columns with missing values are removed.</li>
+<li>imputation, where missing values are calculated based on existing data, using various methods such as statistical values, linear regression, or hot deck imputation.</li>
+<li>labeling, in which missing data are replaced with special values or categories to maintain the information content. It is important to distinguish between missing values, default values, and unknown values, and to consider the loss of information when deciding on a method.</li>
+</ol>
+<p><strong>Elimination</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove rows with missing values</span>
+</span></span><span style="display:flex;"><span>data_cleaned_rows <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove columns with missing values</span>
+</span></span><span style="display:flex;"><span>data_cleaned_columns <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>dropna(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p><strong>Imputation</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># replace missing values with the median of the column</span>
+</span></span><span style="display:flex;"><span>data_median_imputed <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>fillna(data<span style="color:#f92672">.</span>median())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example: Replace missing values in column &#39;AL2O3&#39; with random values in the range of 2 standard deviations from the average</span>
+</span></span><span style="display:flex;"><span>mean_AL2O3 <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;AL2O3&#39;</span>]<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>std_AL2O3 <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;AL2O3&#39;</span>]<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>count_nan_AL2O3 <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;AL2O3&#39;</span>]<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>rand_AL2O3 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(mean_AL2O3 <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> std_AL2O3, mean_AL2O3 <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> std_AL2O3, size<span style="color:#f92672">=</span>count_nan_AL2O3)
+</span></span><span style="display:flex;"><span>data[<span style="color:#e6db74">&#39;AL2O3&#39;</span>][data[<span style="color:#e6db74">&#39;AL2O3&#39;</span>]<span style="color:#f92672">.</span>isnull()] <span style="color:#f92672">=</span> rand_AL2O3
+</span></span></code></pre></div><p><strong>Labeling</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Load your Dataset</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># replace missing numeric values with 0</span>
+</span></span><span style="display:flex;"><span>data_zero_filled <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>fillna(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># replace missing categorical values in &#39;Units&#39; column with &#39;Missing</span>
+</span></span><span style="display:flex;"><span>data_category_flagged <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>fillna({<span style="color:#e6db74">&#39;Units&#39;</span>: <span style="color:#e6db74">&#39;Missing&#39;</span>})
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h2 id="verification">Verification</h2>
+<p>Verification should be performed both <strong>before</strong> and <strong>after</strong> scaling, transformation, and normalization. Performing
+verification before scaling ensures that the changes made in the data cleaning process are correct and will not have
+an unintended effect on the data. Performing verification after scaling, transformation, and normalization allows you
+to verify the quality and consistency of the scaled and transformed data and ensure that the methods used have not
+changed the data in an undesirable way.</p>
+<p><strong>Visualizations</strong>:</p>
+<p>Re-create visualizations such as histograms, boxplots, or scatterplots to verify that the distribution of the data and
+the relationships between columns are as expected.</p>
+<p><strong>Check the number of missing values</strong>:</p>
+<p>You can do this again with the heatmap or the list of percentages of missing values.</p>
+<p><strong>Sample check</strong>:</p>
+<p>Manually check a few data points to make sure the values are correct and consistent.</p>
+<p><strong>Check data types</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;/path/to/csv&#34;</span>)
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>dtypes
+</span></span></code></pre></div><p><strong>Check the uniqueness of IDs or keys</strong>:</p>
+<p>If your dataset contains an ID column or unique key, make sure there are no duplicates.</p>
+<p><strong>Statistical Summaries</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> ydata_profiling <span style="color:#f92672">import</span> ProfileReport  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;restructed_data.csv&#34;</span>)  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>columns_to_ignore <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;SampleID&#39;</span>, <span style="color:#e6db74">&#39;Units&#39;</span>, <span style="color:#e6db74">&#39;Item_Group&#39;</span>, <span style="color:#e6db74">&#39;Latitude&#39;</span>, <span style="color:#e6db74">&#39;Longitude&#39;</span>]  
+</span></span><span style="display:flex;"><span>columns_to_profile <span style="color:#f92672">=</span> [col <span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> data<span style="color:#f92672">.</span>columns <span style="color:#66d9ef">if</span> col <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> columns_to_ignore]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>profile <span style="color:#f92672">=</span> ProfileReport(data[columns_to_profile], title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dataset&#34;</span>)  
+</span></span><span style="display:flex;"><span>profile<span style="color:#f92672">.</span>to_file(<span style="color:#e6db74">&#34;dataset.html&#34;</span>)
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/report.png?raw=true" alt="Report"></p>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h2 id="documentation">Documentation</h2>
+<p>Documentation of the data cleaning process is an essential part of processing geochemical data sets. Careful
+documentation helps to ensure transparency, traceability, and reproducibility of results. This is critical to
+maintaining scientific integrity and enhancing the credibility of research results. When documenting data cleaning
+related to geochemical datasets, there are several aspects to consider:</p>
+<ol>
+<li>
+<p><strong>Describe the raw data</strong>: Document the source and extent of geochemical data, including analytical methods used, sampling processes, and initial dataset structure.</p>
+</li>
+<li>
+<p><strong>Determine Data Quality Requirements</strong>: Determine the data quality and consistency criteria required for your specific geochemical question and document these requirements.</p>
+</li>
+<li>
+<p><strong>Steps of the Data Cleaning Process</strong>: List a detailed description of all steps performed in the data cleaning process, such as identifying and removing outliers, correcting inconsistent data, standardizing units of measure, or removing duplicates.</p>
+</li>
+<li>
+<p><strong>Tools and Scripts Used</strong>: Document all Python libraries, functions, and scripts used in the Data Cleaning process to ensure reproducibility of results.</p>
+</li>
+<li>
+<p><strong>Decisions and Justifications</strong>: Explain the decisions made during the Data Cleaning process and provide the rationale for those decisions. This may include, for example, selecting specific thresholds for removing outliers or applying specific normalization procedures.</p>
+</li>
+<li>
+<p><strong>Changes and Impacts</strong>: Describe how the data cleaning steps performed affected the structure, volume, and quality of the geochemical data and, if applicable, show the impact of these changes on the results of your analysis.</p>
+</li>
+<li>
+<p><strong>Versioning and Change History</strong>: Maintain a change history of the various versions of your Data Cleaning scripts and documentation to facilitate collaboration and tracking of changes over time.</p>
+</li>
+</ol>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h3 id="references">References</h3>
+<p><strong>Walker, M. (2020)</strong>
+Python Data Cleaning Cookbook: Modern Techniques and Python Tools to Detect and Remove Dirty Data and Extract Key Insights. Packt Publishing.</p>
+<p><strong>pandas</strong>
+McKinney, W. (2010). &ldquo;Data Structures for Statistical Computing in Python.&rdquo; Proceedings of the 9th Python in Science Conference. pp. 56-61.</p>
+<p><strong>missingno</strong>
+Bilogur, (2018). Missingno: a missing data visualization suite. Journal of Open Source Software, 3(22), 547, <a href="https://doi.org/10.21105/joss.00547">https://doi.org/10.21105/joss.00547</a></p>
+<p><strong>matplotlib</strong>
+Hunter, J. D. (2007). &ldquo;Matplotlib: A 2D Graphics Environment.&rdquo; Computing in Science &amp; Engineering, 9(3), pp. 90-95.</p>
+<p><strong>pyproj</strong>
+The pyproj library is a Python interface to PROJ (software for converting between geographic coordinate systems). The main reference would therefore be the PROJ software:
+PROJ contributors (2020). &ldquo;PROJ, a library for cartographic projections and coordinate transformations.&rdquo;</p>
+<p><strong>scipy</strong>
+Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., &hellip; &amp; SciPy 1.0 Contributors. (2020). &ldquo;SciPy 1.0: fundamental algorithms for scientific computing in Python.&rdquo; Nature methods, 17(3), pp. 261-272.</p>
+<p><strong>sklearn.ensemble.IsolationForest</strong>
+Liu, F. T., Ting, K. M., &amp; Zhou, Z. H. (2008). &ldquo;Isolation Forest.&rdquo; 2008 Eighth IEEE International Conference on Data Mining. pp. 413-422.</p>
+<p><strong>sklearn.preprocessing.StandardScaler</strong>
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., &hellip; &amp; Vanderplas, J. (2011). &ldquo;Scikit-learn: Machine Learning in Python.&rdquo; Journal of Machine Learning Research, 12, pp. 2825–2830.</p>
+<p><strong>numpy</strong>
+Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., &hellip; &amp; SciPy 1.0 Contributors. (2020). &ldquo;Array programming with NumPy.&rdquo; Nature, 585(7825), pp. 357-362.</p>
+<p><strong>ydata_profiling.ProfileReport</strong>
+As of my knowledge cutoff in September 2021, there was no specific scientific literature available for the ydata_profiling library. It&rsquo;s recommended to cite the library&rsquo;s GitHub repository: <a href="https://github.com/ydataai/ydata-quality">https://github.com/ydataai/ydata-quality</a></p>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h3 id="license">License</h3>
+<p><strong>CC BY-NC-SA 4.0 Licence</strong></p>
+<p>With this licence, you may use, modify and share the work as long as you credit the original author. However, you may
+not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work,
+it must be shared under the same conditions.</p>
+<p><a href="#contents">Back to content</a></p>
+</div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

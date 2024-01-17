@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geoscience on HackSide $</title>
+    <link>/tags/geoscience/</link>
+    <description>Recent content in Geoscience on HackSide $</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Mar 2023 18:45:35 +0100</lastBuildDate>
+    <atom:link href="/tags/geoscience/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DATA CLEANING METHODS</title>
+      <link>/posts/data_cleaning/</link>
+      <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
+      <guid>/posts/data_cleaning/</guid>
+      <description>Data cleaning is an important step in geosciences to ensure accurate and reliable analysis results. Python provides a powerful toolset for data cleaning in this field, offering scalability, automation, and adaptability. With libraries such as Pandas, NumPy, and Matplotlib, geoscientists can efficiently clean, organize, and analyze their data. To use Python for data cleaning in the geosciences, it is important to understand basic programming concepts and become familiar with the relevant libraries while adhering to best practices.</description>
+    </item>
+  </channel>
+</rss>

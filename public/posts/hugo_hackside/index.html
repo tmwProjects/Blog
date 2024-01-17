@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>CREATE AND DEPLOY HACKSIDE WITH HUGO - HackSide $</title>
+
+    
+    
+    <meta name="description" content="I&rsquo;m excited to share with you how I created HackSide with the help of Hugo. My adventure began on a rainy day when I decided to turn my ideas and technical skills into a unique digital project.
+My journey was a fascinating mix of creativity and technical challenge. I came across Hugo and was immediately impressed by its simplicity and efficiency. It was like discovering a new tool that was tailored to my exact needs." />
+    <meta name="author" content="tmwProjects" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/" class="mr-3 font:extralight">
+              
+              HackSide $
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">CREATE AND DEPLOY HACKSIDE WITH HUGO</div>
+        <div class="mt:16 f:fade-60">
+            <time>Dec 11, 2023</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>I&rsquo;m excited to share with you how I created HackSide with the help of Hugo. My adventure began on a rainy day when I
+decided to turn my ideas and technical skills into a unique digital project.</p>
+<p>My journey was a fascinating mix of creativity and technical challenge. I came across Hugo and was immediately impressed
+by its simplicity and efficiency. It was like discovering a new tool that was tailored to my exact needs. The beauty of
+Hugo is that it is written in Go, a language known for its speed and power. This made the whole process not only faster,
+but also more enjoyable.</p>
+<p>In this post, I&rsquo;ll take you on a little journey through the steps I took to create HackSide. From the first installation
+of Hugo to the initialization of the HackSide project to the final configuration. You&rsquo;ll see how I used commands in Bash,
+how I managed my repository on GitHub and how I finally brought my content to life with Hugo.</p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366" alt="License"></a></p>
+<hr>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#installation-and-setup">Installation and setup</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#create-posts-and-build-site">Create posts and build site</a></li>
+<li><a href="#deployment">Deployment</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<hr>
+<h3 id="installation-and-setup">Installation and setup</h3>
+<p>With the following command I download and install Hugo on your Linux system - it&rsquo;s like opening a door to a room full
+of creative possibilities for web projects.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>sudo apt install hugo
+</span></span></code></pre></div><p>This command lays the foundation for the &ldquo;HackSide&rdquo; project. It is the first step in bringing the website ideas into a
+structured form.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo new site Blog
+</span></span></code></pre></div><p>Now we switch to the newly created HackSide directory to work on the development of our website.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>cd Blog
+</span></span></code></pre></div><p>Here we initialize a git repository in our project directory. This allows us to effectively track all changes to the project.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>git init
+</span></span></code></pre></div><p>This command connects our Hugo project to a module on GitHub, giving us additional management options and a clear
+project structure.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo mod init github.com/tmwProjects/Blog
+</span></span></code></pre></div><p>Here we add an external Hugo module, the &ldquo;Risotto&rdquo; theme, to our project. This gives our website a specific design and layout.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo mod get github.com/serkodev/holy
+</span></span></code></pre></div><p>With this command, we enter the configuration for our selected theme in the Hugo configuration file to determine the
+appearance of our website.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;theme = &#39;github.com/serkodev/holy&#39;&#34;</span> &gt;&gt; hugo.toml
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h3 id="configuration">Configuration</h3>
+<p>Now we create and edit the configuration files for our GitHub workflows to ensure seamless integration and automation.
+There is a direct configuration in the Hugo documentation, which only needs to be copied into the file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>mkdir .github/workflows
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd .github/workflows
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;# Sample workflow for building and deploying a Hugo site to GitHub Pages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">name: Deploy Hugo site to Pages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">on:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # Runs on pushes targeting the default branch
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  push:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    branches:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - main
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # Allows you to run this workflow manually from the Actions tab
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  workflow_dispatch:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">permissions:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  contents: read
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  pages: write
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  id-token: write
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">concurrency:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  group: &#34;</span>pages<span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  cancel-in-progress: false
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># Default to bash
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">defaults:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  run:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    shell: bash
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">jobs:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # Build job
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  build:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    runs-on: ubuntu-latest
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    env:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      HUGO_VERSION: 0.121.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    steps:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Install Hugo CLI
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        run: |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          wget -O </span><span style="color:#e6db74">${</span>{ runner.temp <span style="color:#e6db74">}</span><span style="color:#e6db74">}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v</span><span style="color:#e6db74">${</span>HUGO_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">/hugo_extended_</span><span style="color:#e6db74">${</span>HUGO_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">_linux-amd64.deb \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &amp;&amp; sudo dpkg -i </span><span style="color:#e6db74">${</span>{ runner.temp <span style="color:#e6db74">}</span><span style="color:#e6db74">}/hugo.deb          
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Install Dart Sass
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        run: sudo snap install dart-sass
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Checkout
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        uses: actions/checkout@v4
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        with:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          submodules: recursive
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          fetch-depth: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Setup Pages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        id: pages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        uses: actions/configure-pages@v4
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Install Node.js dependencies
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        run: &#34;</span><span style="color:#f92672">[[</span> -f package-lock.json <span style="color:#f92672">||</span> -f npm-shrinkwrap.json <span style="color:#f92672">]]</span> <span style="color:#f92672">&amp;&amp;</span> npm ci <span style="color:#f92672">||</span> true<span style="color:#e6db74">&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Build with Hugo
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        env:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          # For maximum backward compatibility with Hugo modules
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          HUGO_ENVIRONMENT: production
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          HUGO_ENV: production
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        run: |
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          hugo \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            --gc \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            --minify \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            --baseURL &#34;</span><span style="color:#e6db74">${</span>{ steps.pages.outputs.base_url <span style="color:#e6db74">}</span><span style="color:#f92672">}</span>/<span style="color:#e6db74">&#34;          
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Upload artifact
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        uses: actions/upload-pages-artifact@v2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        with:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          path: ./public
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  # Deployment job
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  deploy:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    environment:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      name: github-pages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      url: </span><span style="color:#e6db74">${</span>{ steps.deployment.outputs.page_url <span style="color:#e6db74">}</span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    runs-on: ubuntu-latest
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    needs: build
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    steps:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      - name: Deploy to GitHub Pages
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        id: deployment
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        uses: actions/deploy-pages@v3&#34;</span> &gt;&gt; hugo.yaml
+</span></span></code></pre></div><p>This command adds the .hugo_build.lock file to our .gitignore so that it is not included in our repository.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;.hugo_build.lock&#39;</span> &gt;&gt; .gitignore
+</span></span></code></pre></div><p>This is where we create our first post for our website, which marks the beginning of our content production.</p>
+<p><a href="#contents">Back to content</a></p>
+<h3 id="create-posts-and-build-site">Create posts and build site</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo new content posts/my-first-post.md
+</span></span></code></pre></div><p>We start our local Hugo server to preview our website and check changes in real time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><p>These commands allow us to view drafts of our website so we can work on unfinished content.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo server --buildDrafts 
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div><p>This command gives us detailed information about the build process of our website and helps us identify any issues.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo -v --debug -D
+</span></span></code></pre></div><p><a href="#contents">Back to content</a></p>
+<h3 id="deployment">Deployment</h3>
+<p>This command sequence is essential for our work with Git. We check the status, add changes, save them with a commit and upload everything to GitHub.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>git status
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#39;Initial commit&#39;</span>
+</span></span><span style="display:flex;"><span>git status
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div><p>Finally, the source had to be set to &ldquo;GitHub Actions&rdquo; for &ldquo;Building and Deployment&rdquo; on Github and only the workflow
+&ldquo;Deploy Hugo site to Pages&rdquo; had to be started for actions in the repository. Within a few seconds, the process was
+complete and the raw version of HackSide was online. The specific documentation can be found <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">here</a>.</p>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h2 id="references">References</h2>
+<p>[1] <strong>Git</strong> - Chacon, S., Straub, B., et al. (2023). &ldquo;Git Documentation: A Comprehensive Guide for Version Control.&rdquo; Git Community. <a href="https://git-scm.com/doc">https://git-scm.com/doc</a></p>
+<p>[2] <strong>GitHub</strong> - GitHub, Inc. (2023). &ldquo;GitHub: A Platform for Version Control and Collaboration.&rdquo; GitHub.</p>
+<p>[3] <strong>Mike F. Robbins</strong> - Building and Deploying a Blog with Hugo and GitHub Pages (26.10.2023). <a href="https://mikefrobbins.com/2023/10/26/building-and-deploying-a-blog-with-hugo-and-github-pages/">https://mikefrobbins.com/2023/10/26/building-and-deploying-a-blog-with-hugo-and-github-pages/</a></p>
+<p>[4] <strong>Hugo</strong> - Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. (2023) <a href="https://gohugo.io/">https://gohugo.io/</a></p>
+<p>[5] <strong>Hugo Documentation</strong> - <a href="https://gohugo.io/documentation/">https://gohugo.io/documentation/</a></p>
+<p>[6] <strong>Risotto</strong> - A minimalist, responsive theme inspired by terminal ricing aesthetics. <a href="https://themes.gohugo.io/themes/risotto/">https://themes.gohugo.io/themes/risotto/</a></p>
+<p><a href="#contents">Back to content</a></p>
+<hr>
+<h3 id="license">License</h3>
+<p><strong>CC BY-NC-SA 4.0 Licence</strong></p>
+<p>With this licence, you may use, modify and share the work as long as you credit the original author. However, you may
+not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work,
+it must be shared under the same conditions.</p>
+<p><a href="#contents">Back to content</a></p>
+</div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

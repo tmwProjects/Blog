@@ -1,0 +1,4 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'HackSide $'
+theme = 'github.com/serkodev/holy'
