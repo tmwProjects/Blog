@@ -49,4 +49,9 @@ Thank you very much for your support!
 
 [![Donate on BuyMeACoffee](https://img.shields.io/badge/Donate-BuyMeACoffee-orange)](https://www.buymeacoffee.com/tmwcontactQ)
 
+[![Visit my site](https://img.shields.io/badge/Visit%20my%20site-Online-important)](https://tmwprojects.github.io/)
+
+<a href='http://www.catb.org/hacker-emblem/'>
+<img src='http://www.catb.org/hacker-emblem/glider.png' alt='hacker emblem' style="float:right"/></a>
+
 ***

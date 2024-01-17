@@ -3,20 +3,19 @@ title = 'DATA CLEANING METHODS'
 date = 2023-03-06T18:45:35+01:00
 draft = true
 author = "tmwProjects"
-description = "Python enhances data cleaning in geosciences by offering a robust toolset with libraries like Pandas, NumPy, and Matplotlib, enabling geoscientists to efficiently organize and analyze data for more effective and insightful research outcomes."
+description = "Python enhances data cleaning by offering a robust toolset with libraries like Pandas, NumPy, and Matplotlib, enabling to efficiently organize and analyze data for more effective and insightful research outcomes."
 tags = [
     "Python",
-    "Data cleaning",
-    "Geoscience"
+    "Data cleaning"
 ]
 +++
 
-Data cleaning is an important step in geosciences to ensure accurate and reliable analysis results. Python provides a 
-powerful toolset for data cleaning in this field, offering scalability, automation, and adaptability. With libraries 
-such as Pandas, NumPy, and Matplotlib, geoscientists can efficiently clean, organize, and analyze their data. To use 
-Python for data cleaning in the geosciences, it is important to understand basic programming concepts and become familiar 
-with the relevant libraries while adhering to best practices. By using Python, geoscientists can improve the effectiveness 
-and efficiency of their research to produce meaningful and insightful results.
+Data cleaning is a crucial process in many fields to ensure accurate and reliable analysis results. Python offers a 
+powerful toolset for this purpose, providing scalability, automation, and adaptability. With libraries such as Pandas, 
+NumPy, and Matplotlib, professionals across various disciplines can efficiently clean, organize, and analyze their data. 
+To effectively use Python for data cleaning, it is essential to grasp basic programming concepts and become familiar with 
+these relevant libraries, while adhering to best practices. By utilizing Python, researchers and analysts can enhance the 
+effectiveness and efficiency of their work, leading to meaningful and insightful outcomes.
 
 This project is only intended to provide some overview of what common techniques and workflows might occur. It is 
 important to note that each data set is a new challenge and one should not be tempted to run a quickly assembled script 
@@ -24,7 +23,6 @@ over a data set. Especially in a scientific context, a lot of analysis and plann
 and possibly having a matching dataset is only a small part.
 
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
-
 
 ***
 
@@ -62,10 +60,6 @@ and possibly having a matching dataset is only a small part.
 * [References](#references)
 * [License](#license)
 
-## Cleaning the data
-
-### Missing values
-
 ***
 
 ## Python vs. Excel and co.
@@ -79,7 +73,7 @@ for small or simple data sets. These drawbacks stem mainly from the programming 
 effort required for scripting and execution. However, Python remains a powerful and flexible option for data cleaning 
 for larger, more complex data sets and advanced requirements.
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -116,31 +110,30 @@ for larger, more complex data sets and advanced requirements.
    ↓
 8) Documentation
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
 ### Data Quality - Defining Requirements for Data
 
-When analyzing geoscience data, five data quality criteria can be applied to quantify the quality of the data. These 
-criteria include completeness, uniqueness, accuracy and correctness, consistency and uniformity, and freedom from redundancy. 
-Depending on the specific research interest and applicability, a selection is made from these criteria, starting with 
-the initial definition of the most obvious criteria. Over time, additional criteria may be added in an iterative process. 
-A measurement and evaluation of data quality as well as the derivation of targeted improvement measures therefore requires 
-a definition of appropriate data quality criteria in advance.
+When analyzing data, five data quality criteria can be applied to quantify the data's quality. These criteria include 
+completeness, uniqueness, accuracy and correctness, consistency and uniformity, and freedom from redundancy. Depending 
+on the specific research interest and applicability, a selection is made from these criteria, starting with the initial 
+definition of the most obvious criteria. Over time, additional criteria may be added in an iterative process. Therefore, 
+measuring and evaluating data quality and deriving targeted improvement measures requires a definition of appropriate 
+data quality criteria in advance.
 
+1. **Completeness**: This involves identifying missing data and deciding how to handle it - for instance, through imputation, exclusion of incomplete data, or acceptance of the incompleteness.
 
-1. **Completeness**: This is about identifying missing data and deciding how to deal with it - for example, by imputation, exclusion of incomplete data, or acceptance of the incompleteness.
+2. **Uniqueness**: Duplicate entries should be identified and removed at this stage.
 
-2. **Uniqueness**: Duplicate entries should be identified and removed in this step.
+3. **Accuracy and Correctness**: Data cleaning may also involve correcting obvious errors, such as implausible values or obviously incorrectly assigned categories.
 
-3. **Accuracy and correctness**: data cleaning may also involve correcting obvious errors, such as implausible values or obviously incorrectly assigned categories.
+4. **Consistency and Uniformity**: It's important to clean up inconsistencies and ensure the data is in a consistent format. This may include converting units of measurement or standardizing text entries.
 
-4. **Consistency and uniformity**: It is important to clean inconsistencies and ensure that the data is in a consistent format. This may include, for example, converting units of measurement or standardizing text entries.
+5. **Freedom from Redundancy**: This step also addresses redundancy by removing duplicate or redundant data.
 
-5. **Freedom from redundancy**: This step also addresses redundancy by removing duplicate or redundant data.
-
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -148,35 +141,21 @@ a definition of appropriate data quality criteria in advance.
 
 Review of the raw data - checklist
 
-1. Check the data for completeness and correctness: Is there missing data or obviously wrong data?
+1. **Data Integrity**: Check for completeness, correctness, and formatting of data. This includes identifying missing or erroneous data and issues with data formatting.
 
-2. Check the expected form and data type of all variables: Are there columns with incorrect data types or formatting issues?
+2. **Data Consistency and Duplicates**: Ensure data across all columns and rows are consistent and free from duplicates.
 
-3. Check for duplicates: are there individual records or rows in the table more than once?
+3. **Outlier and Missing Value Analysis**: Assess whether outliers provide relevant information or indicate errors. Develop strategies for handling missing values.
 
-4. Analyze outliers and missing values: are outliers useful or are they data errors? How can missing values be handled?
+4. **Measurement and Analytical Accuracy**: Review the precision and accuracy of the analytical methods used, including compliance with analytical detection limits.
 
-5. Check the consistency of the data: do the data in different columns and rows match each other?
+5. **Variability and Pattern Analysis**: Investigate seasonal, periodic, or systematic variations, as well as patterns and trends in the data.
 
-6. Analyze the distribution of the data: Are there any particular patterns or trends?
+6. **Correlation and Contextual Analysis**: Examine correlations between variables and analyze data in the context of a specific area of study.
 
-7. Check the units of the measured variables: Are all units consistent? Are they in the unit required for the analysis?
+7. **Readiness for Statistical Analyses**: Confirm that the data are sufficient and appropriate for the intended statistical analyses, and outline necessary steps for data preparation.
 
-8. Check that the data are within the analytical detection limits: Are the measured values within the detection limits of the analytical method?
-
-9. Examine the data for possible sources of error: Are the measurement devices calibrated? Were there errors in sample collection?
-
-10. Examine variations within the data: Are there seasonal or other periodic variations in the data?
-
-11. Analyze the data in the context of the geology: are the data consistent with the geology at the sampling site?
-
-12. Check for correlations between variables: Are there strong correlations between the measured variables?
-
-13. Analyze the accuracy and reproducibility of the analytical methods: How accurate and reproducible are the analytical methods used?
-
-14. Check whether the data are sufficient to perform the desired statistical analyses: If not, what steps need to be taken to get the data into an appropriate form?
-
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -201,7 +180,7 @@ df = pd.read_csv('path/to/Data.csv', skiprows=2)
 
 If necessary, the usecols parameter can be used to remove additional columns.
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ### Missing data
 
@@ -246,7 +225,7 @@ plt.show()
 
 ![Sorted heatmap](https://github.com/tmwProjects/Blog/blob/master/content/grafics/missingno_sorted.png?raw=true)
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -281,7 +260,7 @@ Column: Units, Missing Values: 26%
 Column: Item_Group, Missing Values: 0%
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ### Create a backup copy of the file/table
 
@@ -292,7 +271,7 @@ especially in the case of multiple cleanup runs, is to store the corrected value
 If there are a large number of columns and rows to be corrected, it may also make sense to create a separate table. 
 The decision which method to choose depends on various factors, including the available storage space.
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ### Data standardization
 
@@ -420,7 +399,7 @@ if not duplicate_sample_ids.empty:
     print(f'Duplicate in SampleID: {duplicate_sample_ids["SampleID"].tolist()}')
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -526,7 +505,7 @@ In the context of the Tidy Data structure it becomes indispensable to pay attent
 Before you want to set out to remove missing values or possibly even use complex methods to fill them in, take a closer 
 look at the data set. You may be able to extract missing values based on valid information from the dataset. 
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 #### Data type 2: Irregular data (outliers)
 
@@ -575,7 +554,7 @@ plt.show()
 
 ![Boxplot](https://github.com/tmwProjects/Blog/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true)
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ##### Histogram of observations
 
@@ -598,7 +577,7 @@ plt.show()
 
 ![Histogram](https://github.com/tmwProjects/Blog/blob/master/content/grafics/Hist_mno.png?raw=true)
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ##### Descriptive statistics
 
@@ -665,7 +644,7 @@ valid reason to do so.
 Suitable methods are still to use to detect anomalies/outliers algorithms. Two are presented here that are 
 included in **sklearn** by default:
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ### LOF - Local Outlier Factors
 
@@ -724,7 +703,7 @@ Inliers:
 11   3.13   7.00  0.00  0.750    0.0  ...  68.0   0.000  0.330   2.65        1
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ### Isolation Forest
 
@@ -786,7 +765,7 @@ Inliers:
 Depending on the specific goals of a study and the available data, these and other algorithms and methods can help 
 extract the information and insights needed to answer your scientific questions.
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -857,7 +836,7 @@ In such cases the individual columns/values must be examined individually whethe
 important to find out the decisive reason why the values are repeated. If the values are not informative, they can 
 be removed.
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ### Type 2: Irrelevant data type
 
@@ -909,7 +888,7 @@ df.drop('author, column', axis=1, inplace=True)
 df.head(15)
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 #### Duplicate Type 1
 
@@ -934,7 +913,7 @@ Original DataFrame shape: (12, 49)
 Deduplicated DataFrame shape: (12, 48)
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 #### Duplicate Type 2
 
@@ -986,7 +965,7 @@ print(df_dedupped2.shape)
 (12, 49)
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ### Scaling, transformation and normalization
 
@@ -1070,7 +1049,7 @@ Inverse-transformed data:
 2 0.000007 0.980392 0.032895 ...   0.25641 PPM ree
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -1136,7 +1115,7 @@ data_zero_filled = data.fillna(0)
 data_category_flagged = data.fillna({'Units': 'Missing'})
 ```
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ## Verification
 
@@ -1193,7 +1172,7 @@ profile.to_file("dataset.html")
 
 ![Report](https://github.com/tmwProjects/Blog/blob/master/content/grafics/report.png?raw=true)
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -1218,7 +1197,7 @@ related to geochemical datasets, there are several aspects to consider:
     
 7. **Versioning and Change History**: Maintain a change history of the various versions of your Data Cleaning scripts and documentation to facilitate collaboration and tracking of changes over time.
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -1255,7 +1234,7 @@ Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., C
 **ydata_profiling.ProfileReport**
 As of my knowledge cutoff in September 2021, there was no specific scientific literature available for the ydata_profiling library. It's recommended to cite the library's GitHub repository: https://github.com/ydataai/ydata-quality
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)
 
 ***
 
@@ -1267,4 +1246,4 @@ With this licence, you may use, modify and share the work as long as you credit 
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work, 
 it must be shared under the same conditions.
 
-[Back to content](#contents)
+[**[Back to content]**](#contents)

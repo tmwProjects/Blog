@@ -112,7 +112,7 @@ as developers worldwide can contribute to each other&rsquo;s work with modificat
 <p>For research, the <a href="https://docs.github.com/en" title="Github Docs">Docs</a> of Github or the
 <a href="https://git-scm.com/doc" title="Git Docs">Docs</a> of Git can be used. For the workflow, an initial exposure to Git is extremely
 helpful, allowing the work processes to be understood concretely. are understood.</p>
-<h1 id="hint-currently-this-repository-refers-to-working-with-git-on-a-local-level-only-more-and-working-with-remote-repositories-will-follow">Hint: Currently, this repository refers to working with Git on a local level only. More and working with remote repositories will follow.</h1>
+<h6 id="hint-currently-this-repository-refers-to-working-with-git-on-a-local-level-only-more-and-working-with-remote-repositories-will-follow">Hint: Currently, this repository refers to working with Git on a local level only. More and working with remote repositories will follow.</h6>
 <!-- raw HTML omitted -->
 <p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366" alt="License"></a></p>
 <hr>
@@ -179,7 +179,7 @@ steps in using Git in conjunction with Gibhub is to configure Git on your own co
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>Furthermore, extremely complex configurations are possible.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <hr>
 <h2 id="create-a-new-repository">Create a new repository</h2>
 <p>The initialisation command of Git is necessary for this:</p>
@@ -199,7 +199,7 @@ we have changed our programme.</p>
 <!-- raw HTML omitted -->
 <p>The folder /.git contains various subfolders, which we won&rsquo;t be doing much with at the moment, as Git automatically
 manages all versions.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <hr>
 <h2 id="working-with-git">Working with git</h2>
 <p>The following will be about understanding how the different versions are managed within a project and what nutritional
@@ -209,7 +209,7 @@ Here, everyone is free to do version management relatively automatically or manu
 <p>In the following, we will first introduce version management with Git. It should be noted that we will work exclusively
 locally. This means that all changes and subsequent work will be done exclusively on our own computer and nothing will
 be put online.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-add---bridge-between-working-directory-and-staging-area">git add - Bridge between working directory and staging area</h3>
 <p>With a <strong>commit</strong>, the state of a project is saved at the corresponding time where the command was listed. Here, a
 commit corresponds to a version of the project, so to speak.</p>
@@ -227,7 +227,7 @@ changes we have made would not be adopted by the version stored in the staging a
 the git add command again.</p>
 <p>Here it can be helpful to imagine several working levels:</p>
 <p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/gitstations.jpg?raw=true" alt="stations"></p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-commit---bridge-between-staging-area-and-repository">git commit - Bridge between staging area and repository</h3>
 <p>Since we have stored the current version of our programme in the staging area, we should switch to storing the current
 version in our repository from our staging area. This can be done by using the following command in the terminal:</p>
@@ -273,7 +273,7 @@ Then the original commit gets a new commit ID. This way, you don&rsquo;t have to
 should only use this command locally on your computer.</p>
 <p>This becomes important when several people are working on a repository. Confusion can arise because not all people
 working on the repository have the same version on their computer.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-log---history-of-the-commits">git log - History of the commits</h3>
 <p>This command allows you to display the individual changes to your repository. An individual commit is clearly identified
 by its SHA I hash. These hashes are created on the basis of the corresponding commit so that no two commits can have the
@@ -342,7 +342,7 @@ d02ccb6 Add files via upload
 </code></pre><p>For more information on the parameters use:</p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-diff---show-differences">git diff - Show differences</h3>
 <p>This command is useful if you are working within your working directory, but you are not sure which changes have already
 been applied to your staging area. With the following command, you can see the relative changes between the working
@@ -390,7 +390,7 @@ to view changes to specific file formats or filenames. A proxy can be used for t
 <!-- raw HTML omitted -->
 <p>or</p>
 <!-- raw HTML omitted -->
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-reset---revert-changes">Git reset - revert changes</h3>
 <p>Here we can remove <strong>all</strong> changes from the <strong>staging-area</strong>.  The prerequisite for this command is that changes are
 stored in the staging area at all.For this we use the following command:</p>
@@ -420,7 +420,7 @@ working directory with the current repository (MASTER):</p>
 <!-- raw HTML omitted -->
 <p>But here too, make sure you know what data is in your working directory before you execute the command. This can lead
 to immense data loss.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-checkout---jump-to-a-commit">Git checkout - Jump to a commit</h3>
 <p>The <strong>git checkout</strong> command restores the state of a given commit. Then the current working directory is in the state
 it was in at the specified commit hash. You can view files, compile the project, run tests and even edit files without
@@ -437,7 +437,7 @@ from falling victim to garbage collection, we need to make sure that we are in a
 <p>Once you have finished working on a particular commit, you can jump back to the original version of your project with
 the following command:</p>
 <!-- raw HTML omitted -->
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-stash---cache-changes">Git stash - cache changes</h3>
 <p>In case you want to see the status of your project from a few weeks ago, but you still have changes in your current
 working directory and/or staging area, you can use the command to display the status from that point in time without
@@ -473,7 +473,7 @@ stash@{2}: WIP on master: 1cd6015 Change numbers
 <p>You also have the option of using the already introduced command <strong>git diff</strong> to compare the current stash with what is
 in your current working directory. With the stash command and the previously introduced commands, you have creative ways
 to jump between versions and changes without having to worry about losing recent changes.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-revert---undo-changes-other-way">Git revert - Undo changes (Other way)</h3>
 <p>Here I would like to introduce a command that also reverts changes, but in a slightly different way. Here, a new commit
 is created that reverts the corresponding changes. You have the option of changing a commit afterwards, as described
@@ -497,7 +497,7 @@ effect on commits that have already been published in a shared repository. Secon
 commits at any point in the history. git reset, on the other hand, only works retroactively from the current commit.</p>
 <p>The advantage of using revert is that a new commit is created to undo certain changes. This way, no commits are deleted
 from the commit history or orphaned. git revert is the safer option compared to git reset in terms of losing code.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-blame">Git blame</h3>
 <p>With this command you can display changes to a file. It shows line by line in which commit it was last changed.</p>
 <!-- raw HTML omitted -->
@@ -535,7 +535,7 @@ f759623a (G. Raymond  2021-07-13 16:25:23 +0200  16)
 that you write to the right person about it.</p>
 <p>For more detailed handling of the <strong>git blame</strong> command, use the following command in the terminal:</p>
 <!-- raw HTML omitted -->
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="gitignore-data">.gitignore-Data</h3>
 <p>With the so-called gitignore you can have files ignored. The file .gitignore contains a list of paths that are ignored
 by git. Here, changes to this data will have no effect on the commands <strong>git diff</strong>, <strong>git add</strong>, etc.</p>
@@ -699,21 +699,21 @@ cython_debug/
 </code></pre><p>This is an example from the repository directly from Github. There are some concrete examples for all common programming
 languages that can be used freely. For research or direct use, you can find the corresponding .gitignore files
 <a href="https://github.com/github/gitignore" title=".gitignore">gitignore</a>.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <hr>
 <h1 id="references">References</h1>
 <p>[1] <strong>Git</strong> - Chacon, S., Straub, B., et al. (2023). &ldquo;Git Documentation: A Comprehensive Guide for Version Control.&rdquo; Git Community. <a href="https://git-scm.com/doc">https://git-scm.com/doc</a></p>
 <p>[2] <strong>GitHub</strong> - GitHub, Inc. (2023). &ldquo;GitHub: A Platform for Version Control and Collaboration.&rdquo; GitHub.</p>
 <p>[3] <strong>gitignore</strong> - Repository on GitHub - GitHub, Inc. (2023). &ldquo;Collection of useful .gitignore templates.&rdquo; GitHub. <a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a></p>
 <p>[4] <strong>TikZ</strong> - Tantau, T. (2013). Graph Drawing in TikZ. In: Didimo, W., Patrignani, M. (eds) Graph Drawing. GD 2012. Lecture Notes in Computer Science, vol 7704. Springer, Berlin, Heidelberg. <a href="https://doi.org/10.1007/978-3-642-36763-2_46">https://doi.org/10.1007/978-3-642-36763-2_46</a></p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 <hr>
 <h1 id="license">License</h1>
 <p><strong>CC BY-NC-SA 4.0 Licence</strong></p>
 <p>With this licence, you may use, modify and share the work as long as you credit the original author. However, you may
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work,
 it must be shared under the same conditions.</p>
-<p><a href="#contents">Back to content</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8"></div>

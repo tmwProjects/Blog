@@ -2,69 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/Blog/tags/blog/</loc>
+    <loc>/tags/blog/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/hugo_hackside/</loc>
+    <loc>/posts/hugo_hackside/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/go-lang/</loc>
+    <loc>/tags/go-lang/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/hackside/</loc>
+    <loc>/tags/hackside/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/</loc>
+    <loc>/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/cli-tools/</loc>
+    <loc>/tags/cli-tools/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/mastodon/</loc>
+    <loc>/tags/mastodon/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/mastodon/</loc>
+    <loc>/posts/mastodon/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/microblogging/</loc>
+    <loc>/tags/microblogging/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/open-source/</loc>
+    <loc>/tags/open-source/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/data-cleaning/</loc>
+    <loc>/tags/data-cleaning/</loc>
     <lastmod>2023-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/data_cleaning/</loc>
+    <loc>/posts/data_cleaning/</loc>
     <lastmod>2023-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/geoscience/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2023-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/python/</loc>
-    <lastmod>2023-03-06T18:45:35+01:00</lastmod>
-  </url><url>
-    <loc>/Blog/posts/common-git-methods/</loc>
+    <loc>/posts/common-git-methods/</loc>
     <lastmod>2022-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/git/</loc>
+    <loc>/tags/git/</loc>
     <lastmod>2022-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2022-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/tags/version-control/</loc>
+    <loc>/tags/version-control/</loc>
     <lastmod>2022-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/categories/</loc>
+    <loc>/categories/</loc>
   </url>
 </urlset>
