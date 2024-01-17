@@ -321,7 +321,7 @@ a definition of appropriate data quality criteria in advance.</p>
 </span></span><span style="display:flex;"><span>msno<span style="color:#f92672">.</span>matrix(data)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/missingno.png?raw=true" alt="Heatmap"></p>
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/missingno.png?raw=true" alt="Heatmap"></p>
 <p>To get an overview of the completeness of the data, it can still be sorted by the zero values.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> missingno <span style="color:#66d9ef">as</span> msno
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
@@ -340,7 +340,7 @@ a definition of appropriate data quality criteria in advance.</p>
 </span></span><span style="display:flex;"><span>msno<span style="color:#f92672">.</span>matrix(data_sorted_rows)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/missingno_sorted.png?raw=true" alt="Sorted heatmap"></p>
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/missingno_sorted.png?raw=true" alt="Sorted heatmap"></p>
 <p><a href="#contents">Back to content</a></p>
 <hr>
 <h4 id="technique-2-percentage-list-of-missing-data">Technique 2: Percentage list of missing data</h4>
@@ -571,7 +571,7 @@ the advantage of boxplots is that you can quickly visually see if the values are
 </span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xticklabels([<span style="color:#e6db74">&#39;MnO&#39;</span>]) <span style="color:#75715e"># Here we set the label of the x-tick  </span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true" alt="Boxplot"></p>
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true" alt="Boxplot"></p>
 <p><a href="#contents">Back to content</a></p>
 <h5 id="histogram-of-observations">Histogram of observations</h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
@@ -588,7 +588,7 @@ the advantage of boxplots is that you can quickly visually see if the values are
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Histogram of </span><span style="color:#e6db74">{</span>column_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> column&#39;</span>)  
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;Hist_mno.png&#39;</span>)  
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/Hist_mno.png?raw=true" alt="Histogram"></p>
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/Hist_mno.png?raw=true" alt="Histogram"></p>
 <p><a href="#contents">Back to content</a></p>
 <h5 id="descriptive-statistics">Descriptive statistics</h5>
 <p>Then we can use the methods of descriptive statistics. Here it can be helpful to find out whether a characteristic and
@@ -1045,7 +1045,7 @@ the relationships between columns are as expected.</p>
 </span></span><span style="display:flex;"><span>  
 </span></span><span style="display:flex;"><span>profile <span style="color:#f92672">=</span> ProfileReport(data[columns_to_profile], title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dataset&#34;</span>)  
 </span></span><span style="display:flex;"><span>profile<span style="color:#f92672">.</span>to_file(<span style="color:#e6db74">&#34;dataset.html&#34;</span>)
-</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/report.png?raw=true" alt="Report"></p>
+</span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/report.png?raw=true" alt="Report"></p>
 <p><a href="#contents">Back to content</a></p>
 <hr>
 <h2 id="documentation">Documentation</h2>

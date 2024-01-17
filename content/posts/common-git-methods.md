@@ -1,6 +1,6 @@
 +++
 title = 'COMMON METHODS OF GIT'
-date = 2023-03-06T18:45:35+01:00
+date = 2022-03-06T18:45:35+01:00
 draft = true
 author = "tmwProjects"
 description = "Complimentary and distributed version control system that facilitates collaborative work on software projects, irrespective of the geographical location of the contributors."

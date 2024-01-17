@@ -37,6 +37,34 @@
       <description></description>
     </item>
     <item>
+      <title>CLI tools</title>
+      <link>/tags/cli-tools/</link>
+      <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
+      <guid>/tags/cli-tools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mastodon</title>
+      <link>/tags/mastodon/</link>
+      <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
+      <guid>/tags/mastodon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>microblogging</title>
+      <link>/tags/microblogging/</link>
+      <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
+      <guid>/tags/microblogging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>open source</title>
+      <link>/tags/open-source/</link>
+      <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
+      <guid>/tags/open-source/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Data cleaning</title>
       <link>/tags/data-cleaning/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
@@ -51,20 +79,6 @@
       <description></description>
     </item>
     <item>
-      <title>Git</title>
-      <link>/tags/git/</link>
-      <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>/tags/git/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Github</title>
-      <link>/tags/github/</link>
-      <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>/tags/github/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Python</title>
       <link>/tags/python/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
@@ -72,16 +86,23 @@
       <description></description>
     </item>
     <item>
-      <title>tag</title>
-      <link>/tags/tag/</link>
-      <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>/tags/tag/</guid>
+      <title>Git</title>
+      <link>/tags/git/</link>
+      <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
+      <guid>/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>/tags/github/</link>
+      <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
+      <guid>/tags/github/</guid>
       <description></description>
     </item>
     <item>
       <title>Version control</title>
       <link>/tags/version-control/</link>
-      <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
+      <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
       <guid>/tags/version-control/</guid>
       <description></description>
     </item>

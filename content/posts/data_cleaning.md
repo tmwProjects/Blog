@@ -220,7 +220,7 @@ msno.matrix(data)
 plt.show()
 ```
 
-![Heatmap](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/missingno.png?raw=true)
+![Heatmap](https://github.com/tmwProjects/Blog/blob/master/content/grafics/missingno.png?raw=true)
 
 To get an overview of the completeness of the data, it can still be sorted by the zero values.
 
@@ -244,7 +244,7 @@ msno.matrix(data_sorted_rows)
 plt.show()
 ```
 
-![Sorted heatmap](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/missingno_sorted.png?raw=true)
+![Sorted heatmap](https://github.com/tmwProjects/Blog/blob/master/content/grafics/missingno_sorted.png?raw=true)
 
 [Back to content](#contents)
 
@@ -573,7 +573,7 @@ ax.set_xticklabels(['MnO']) # Here we set the label of the x-tick
 plt.show()
 ```
 
-![Boxplot](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true)
+![Boxplot](https://github.com/tmwProjects/Blog/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true)
 
 [Back to content](#contents)
 
@@ -596,7 +596,7 @@ plt.savefig('Hist_mno.png')
 plt.show()
 ```
 
-![Histogram](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/Hist_mno.png?raw=true)
+![Histogram](https://github.com/tmwProjects/Blog/blob/master/content/grafics/Hist_mno.png?raw=true)
 
 [Back to content](#contents)
 
@@ -1191,7 +1191,7 @@ profile = ProfileReport(data[columns_to_profile], title="dataset")
 profile.to_file("dataset.html")
 ```
 
-![Report](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/report.png?raw=true)
+![Report](https://github.com/tmwProjects/Blog/blob/master/content/grafics/report.png?raw=true)
 
 [Back to content](#contents)
 

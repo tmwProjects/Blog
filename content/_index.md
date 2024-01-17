@@ -1,6 +1,5 @@
 +++
 title = 'HackSide $'
-date = 2023-12-09T18:45:35+01:00
 draft = true
 +++
 
@@ -21,7 +20,7 @@ my posts, I'd love your company.
 
 In the simplicity of this blog lies my way of understanding myself and my projects and learning a little more every day.
 
-![HackSide](https://github.com/tmwProjects/Blog/blob/master/content/grafics/HackSide_div.jpg?raw=true)
+***
 
 **HackSide** follows the principle that everyone is welcome, regardless of appearance, age, origin, species, gender, social 
 status, physical or mental abilities, or any other personal characteristics. We do not judge anyone based on these 
@@ -31,7 +30,7 @@ are welcome to contact us, although it may be difficult to find a common consens
 All posts are licensed under the **CC BY-NC-SA 4.0** and each is marked with a shield, as well as an 
 alternative catchy description at the end of each post what this license basically says.
 
-![HackSide](https://github.com/tmwProjects/Blog/blob/master/content/grafics/HackSide_div.jpg?raw=true)
+***
 
 If you value what I share here and want to support me, you have the opportunity to make a contribution,
 big or small. Sharing **HackSide**, making a donation, noticing and reporting errors/bugs/exploits, ideas for topics or

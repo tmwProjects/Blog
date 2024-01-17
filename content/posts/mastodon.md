@@ -1,11 +1,14 @@
 +++
 title = 'MASTODON AND ITS TOOLS'
-date = 2023-03-06T18:45:35+01:00
+date = 2023-11-12T18:45:35+01:00
 draft = true
 author = "tmwProjects"
 description = ""
 tags = [
-    "tag",
+    "Mastodon",
+    "open source",
+    "microblogging",
+    "CLI tools"
 ]
 +++
 
