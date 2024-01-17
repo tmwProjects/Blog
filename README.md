@@ -60,10 +60,10 @@ expand them.
 
 Thank you very much for your support!
 
-[![HackSide](https://img.shields.io/badge/Visit-HackSide_$-003366)](https://tmwprojects.github.io/HackSide/)
+[![HackSide](https://img.shields.io/badge/Visit-HackSide_$-003366)](https://tmwprojects.github.io/Blog/)
 
 ```
-[![HackSide](https://img.shields.io/badge/Visit-HackSide_$-003366)](https://tmwprojects.github.io/HackSide/)
+[![HackSide](https://img.shields.io/badge/Visit-HackSide_$-003366)](https://tmwprojects.github.io/Blog/)
 ```
 
 [![Donate on Liberapay](https://img.shields.io/badge/Donate-Liberapay-yellow)](https://liberapay.com/tmwProjects/donate)
