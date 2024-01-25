@@ -5,7 +5,7 @@
     <loc>/tags/blog/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/hugo_hackside/</loc>
+    <loc>/Blog/posts/hugo_hackside/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/go-lang/</loc>
@@ -20,7 +20,7 @@
     <loc>/tags/hugo/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>/Blog/posts/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
@@ -32,7 +32,7 @@
     <loc>/tags/mastodon/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/posts/mastodon/</loc>
+    <loc>/Blog/posts/mastodon/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
     <loc>/tags/microblogging/</loc>
@@ -44,7 +44,7 @@
     <loc>/tags/data-cleaning/</loc>
     <lastmod>2023-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/posts/data_cleaning/</loc>
+    <loc>/Blog/posts/data_cleaning/</loc>
     <lastmod>2023-03-06T18:45:35+01:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
@@ -56,10 +56,10 @@
     <loc>/tags/project-euler/</loc>
     <lastmod>2023-01-25T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/posts/project_euler/</loc>
+    <loc>/Blog/posts/project_euler/</loc>
     <lastmod>2023-01-25T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/posts/common-git-methods/</loc>
+    <loc>/Blog/posts/common-git-methods/</loc>
     <lastmod>2022-03-06T18:45:35+01:00</lastmod>
   </url><url>
     <loc>/tags/git/</loc>
