@@ -6,12 +6,12 @@
     <description>Recent content in mathmatics on HackSide $</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Mar 2023 18:45:35 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jan 2023 18:45:35 +0100</lastBuildDate>
     <atom:link href="/tags/mathmatics/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Project Euler</title>
+      <title>PROJECT EULER</title>
       <link>/posts/project_euler/</link>
-      <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
+      <pubDate>Wed, 25 Jan 2023 18:45:35 +0100</pubDate>
       <guid>/posts/project_euler/</guid>
       <description>Today I am happy to share a special treat with you: A Jupyter notebook full of solved tasks from Project Euler, programmed in Python. For those of you who don&amp;rsquo;t know Project Euler yet: It is a collection of challenging math/programming problems designed to develop logical thinking and programming skills. thinking and programming skills.&#xA;You can launch the notebook directly from Binder or download it from GitHub to explore it in your own environment.</description>
     </item>
