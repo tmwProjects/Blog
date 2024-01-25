@@ -30,7 +30,7 @@ Project Euler.
 
 ##### or scan the QR-Code to run my Notebook over Binder on your smartphone:
 
-![QR-Code Binder](https://github.com/tmwProjects/Blog/blob/master/content/grafics/project_euler.png?raw=true)
+![QR](https://github.com/tmwProjects/Blog/blob/master/content/grafics/project_euler.png?raw=true)
 
 ***
 
