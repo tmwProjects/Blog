@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on HackSide $</title>
-    <link>/Blog/posts/</link>
+    <link>/posts/</link>
     <description>Recent content in Posts on HackSide $</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,30 +10,37 @@
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CREATE AND DEPLOY HACKSIDE WITH HUGO</title>
-      <link>/Blog/posts/hugo_hackside/</link>
+      <link>/posts/hugo_hackside/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
       <guid>/posts/hugo_hackside/</guid>
       <description>I&amp;rsquo;m excited to share with you how I created HackSide with the help of Hugo. My adventure began on a rainy day when I decided to turn my ideas and technical skills into a unique digital project.&#xA;My journey was a fascinating mix of creativity and technical challenge. I came across Hugo and was immediately impressed by its simplicity and efficiency. It was like discovering a new tool that was tailored to my exact needs.</description>
     </item>
     <item>
       <title>MASTODON AND ITS TOOLS</title>
-      <link>/Blog/posts/mastodon/</link>
+      <link>/posts/mastodon/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
       <guid>/posts/mastodon/</guid>
       <description>Mastodon is a fascinating and growing platform in the world of social media that offers a fresh and user-friendly user-friendly alternative to the established networks. At its core, Mastodon is a decentralized, open source network that focuses on privacy and user control. It differs from traditional social social media through its unique structure and philosophy.&#xA;Contents What is Mastodon? Decentralized structure How does Mastodon work? What can you do with Mastodon?</description>
     </item>
     <item>
       <title>DATA CLEANING METHODS</title>
-      <link>/Blog/posts/data_cleaning/</link>
+      <link>/posts/data_cleaning/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>/Blog/posts/data_cleaning/</guid>
+      <guid>/posts/data_cleaning/</guid>
       <description>Data cleaning is a crucial process in many fields to ensure accurate and reliable analysis results. Python offers a powerful toolset for this purpose, providing scalability, automation, and adaptability. With libraries such as Pandas, NumPy, and Matplotlib, professionals across various disciplines can efficiently clean, organize, and analyze their data. To effectively use Python for data cleaning, it is essential to grasp basic programming concepts and become familiar with these relevant libraries, while adhering to best practices.</description>
     </item>
     <item>
+      <title>Project Euler</title>
+      <link>/posts/project_euler/</link>
+      <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
+      <guid>/posts/project_euler/</guid>
+      <description>Today I am happy to share a special treat with you: A Jupyter notebook full of solved tasks from Project Euler, programmed in Python. For those of you who don&amp;rsquo;t know Project Euler yet: It is a collection of challenging math/programming problems designed to develop logical thinking and programming skills. thinking and programming skills.&#xA;You can launch the notebook directly from Binder or download it from GitHub to explore it in your own environment.</description>
+    </item>
+    <item>
       <title>COMMON METHODS OF GIT</title>
-      <link>/Blog/posts/common-git-methods/</link>
+      <link>/posts/common-git-methods/</link>
       <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
-      <guid>/Blog/posts/common-git-methods/</guid>
+      <guid>/posts/common-git-methods/</guid>
       <description>What is Git and Github? Git, launched in 2005, is a complimentary, distributed version control system that facilitates collaborative work on software projects, irrespective of the geographical location of the contributors. It offers the ability for multiple developers to independently integrate their modifications to the project, log and trace these alterations, and, when necessary, access previous versions of the project. Being platform-independent, Git can be utilised across diverse computing environments.</description>
     </item>
   </channel>
