@@ -1,6 +1,6 @@
 +++
-title = 'Project Euler'
-date = 2023-03-06T18:45:35+01:00
+title = 'PROJECT EULER'
+date = 2024-01-25T18:45:35+01:00
 draft = true
 author = "tmwProjects"
 description = ""
