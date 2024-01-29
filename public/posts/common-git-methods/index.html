@@ -226,7 +226,7 @@ directly. First, however, an important note:</p>
 changes we have made would not be adopted by the version stored in the staging area. For this, we would have to execute
 the git add command again.</p>
 <p>Here it can be helpful to imagine several working levels:</p>
-<p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/gitstations.jpg?raw=true" alt="stations"></p>
+<p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/gitstations.jpg?raw=true" alt="stations"></p>
 <p><a href="#contents">**[Back to content]**</a></p>
 <h3 id="git-commit---bridge-between-staging-area-and-repository">git commit - Bridge between staging area and repository</h3>
 <p>Since we have stored the current version of our programme in the staging area, we should switch to storing the current
@@ -404,7 +404,7 @@ following command is responsible for this:</p>
 <p>Here, all changes in the workind directory remain, but all commits <strong>after</strong> the commit with the specified commit hash
 are deleted. This means that all changes that have already been committed to the repository with the corresponding
 commits are returned to the working directory after the above command.</p>
-<p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/gitreset.jpg?raw=true" alt="reset"></p>
+<p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/gitreset.jpg?raw=true" alt="reset"></p>
 <p>Another important parameter, but one that should be used with caution, is the <strong>&ndash;hard</strong> parameter. Here, all commits
 are also deleted after the corresponding commit hash. The difference to the previous command is that <strong>all</strong> changes
 are <strong>discarded</strong>. To do this, use the following command in the terminal:</p>
@@ -487,7 +487,7 @@ which is important for the integrity of your commit history and for reliable col
 <p>When the command is executed, a commit is created as described, which must also contain a corresponding commit message.
 In this particular case, this commit message is generated automatically. This makes sense in so far as it may not even
 be marked in the repository history that this is a revert.</p>
-<p><img src="https://github.com/tmwProjects/HackSide/blob/master/content/grafics/gitrevert.jpg?raw=true" alt="revert"></p>
+<p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/gitrevert.jpg?raw=true" alt="revert"></p>
 <p>You should use this undo command when you want to reverse a commit from your project history. This can be useful, for
 example, if it turns out that a bug was introduced into the project by a very specific commit. Instead of manually
 navigating to the code in question, fixing it and committing a new snapshot, you can use git revert to do the whole

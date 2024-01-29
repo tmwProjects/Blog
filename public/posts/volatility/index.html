@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Memory forensics with Volatility - HackSide $</title>
+
+    
+    
+    <meta name="description" content="In this post, we explore the world of memory forensics through the lens of the Volatility framework. We delve into the differences between Volatility2 and Volatility3, providing insights into their unique features and capabilities. Setting up Volatility on Linux systems is detailed, covering both versions. The article also touches on the process of memory dumping, highlighting common tools used in this practice. We dive into the analysis of memory images with an emphasis on MemLabs, and discuss additional plugins that extend Volatility&rsquo;s functionality." />
+    <meta name="author" content="tmwProjects" />
+    
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet">
+    <script src="https://unpkg.com/@master/style@1.5.0"></script>
+    <script src="https://unpkg.com/@master/styles@1.13.0"></script>
+    <script src="https://unpkg.com/master-styles-group"></script>
+    <script src="https://unpkg.com/themes.js"></script>
+    <script>window.themes = window.themes || new window.Themes()</script>
+
+    <style>
+        :root {
+            --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+    </style></head>
+<body class="bg:fade-84@dark font:fade-16@dark font:sans">
+    <nav class="w:full h:90 fixed bg:fade-84/.95@dark bg:white z:1000">
+    <div class="
+        h:full
+        w:full
+        max-w:1200
+        mx:auto
+        px:32
+        d:flex
+        align-items:center
+    ">
+        <div>
+            <a href="/Blog/" class="mr-3 font:extralight">
+              
+              HackSide $
+              
+            </a>
+        </div>
+
+        <div class="ml:auto">
+            
+            
+            
+        </div>
+    </div>
+</nav>
+<div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
+        <div class="max-w:700 w:full box:content-box">
+<article class="box:border-box pt:32">
+    <header class="mb:32">
+        <div class="font:40 font:extrabold">Memory forensics with Volatility</div>
+        <div class="mt:16 f:fade-60">
+            <time>Nov 12, 2023</time>
+            </div>
+    </header><div class="
+    _:where(a):hover{text-decoration-color:fade}
+    _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
+    _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
+    _:where(code){font:90%;_v:middle}
+    _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
+    _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
+    _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
+    _:where(h1){font:40;_font:extrabold}
+    _:where(h1,h2,h3)+:where(h1,h2,h3){mt:.5em}
+    _:where(h1,h2,h3,h4,h5,h6){mt:2em}
+    _:where(h2){mb:1em;_font:32}
+    _:where(h3){font:24}
+    _:where(h4){font:20}
+    _:where(h5){font:16}
+    _:where(h6){font:14}
+    _:where(li)::marker{font:fade-44;_font:fade-68@dark}
+    _:where(li){pl:.375em}
+    _:where(mark){text-decoration:1;underline;#fce016;_bg:transparent;_text-decoration-color:rgb(252;224;22/.5)@dark}
+    _:where(p,li){font:fade-76;_font:16;_line-height:1.65;_font:fade-34@dark}
+    _:where(p,pre,blockquote,figure,ul,ol,table){my:1.125em}
+    >:first-child{mt:0!}
+    _:where(pre){p:20;_r:8;_overflow:auto}
+    _:where(pre,code:not(.highlight_*)){bg:fade-2;_bg:fade-92!@dark}
+    _:where(strong,b,a,code:not(.highlight_*),mark,del){font:fade-92;_font:fade-12@dark}
+    _:where(table){width:full;_border-spacing:0}
+    _:where(td){v:baseline}
+    _:where(td,th):first-child{pl:0}
+    _:where(td,th):last-child{pr:0}
+    _:where(td,th){bb:1;solid;fade-92/.06;_p:6;_b:fade-4/.04@dark}
+    _:where(th){font:fade-78;_font:14;_text:left;_font:fade-12@dark}
+    _:where(th,p_code,li_code,a,mark){font:semibold;_font:medium@dark}
+    _:where(ul){list-style-type:disc}
+    _:where(ul,ol,blockquote){pl:1.5em}
+    _:where(video,img){max-width:full}
+    _:where(a,mark){text-underline-offset:3}
+    _:where(hr){h:2;_bg:fade-10;_bg:fade-70@dark;_my:3em}
+"><p>In this post, we explore the world of memory forensics through the lens of the Volatility framework. We delve into
+the differences between Volatility2 and Volatility3, providing insights into their unique features and capabilities.
+Setting up Volatility on Linux systems is detailed, covering both versions. The article also touches on the process of
+memory dumping, highlighting common tools used in this practice. We dive into the analysis of memory images with an emphasis
+on MemLabs, and discuss additional plugins that extend Volatility&rsquo;s functionality. Additionally, we cover the use of
+Volshell and the utility of Volatility3 as a library, offering a comprehensive guide for users in the field of digital forensics.</p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D" alt="License"></a></p>
+<hr>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#">What ist Volatility?</a></li>
+<li><a href="#">Differences between Volatility2 and Volatility3</a></li>
+<li><a href="#">Set up Volatility (Linux)</a>
+<ul>
+<li><a href="#">Volatility2</a></li>
+<li><a href="#">Volatility3</a></li>
+</ul>
+</li>
+<li><a href="#">Memory dumps</a>
+<ul>
+<li><a href="#">Process tools</a></li>
+<li><a href="#">Download samples</a></li>
+</ul>
+</li>
+<li><a href="#">Analysing memory image (MemLabs - Lab 1)</a></li>
+<li><a href="#">Additional plugins</a></li>
+<li><a href="#">Bottom line</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<hr>
+<h3 id="what-is-volatility">What is Volatility?</h3>
+<p>Volatility is an open-source memory forensics framework for incident response and malware analysis. It is used for the
+extraction of digital artifacts from volatile memory (RAM) samples. Volatility supports memory dumps from all major
+operating systems, including Windows, Linux, and MacOS. Known for its versatility, it allows investigators to analyze
+RAM images to uncover significant details about system state, processes, network connections, and more, which are crucial
+in digital investigations, especially in scenarios where malware attempts to hide its presence on disk storage.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h3 id="differences-between-volatility2-and-volatility3">Differences between Volatility2 and Volatility3</h3>
+<p>The comparison between Volatility 2 and Volatility 3 reveals some significant differences and improvements in the
+functionality and user-friendliness of these forensic tools.</p>
+<p><strong>Custom profiles and kernel support</strong>: A major issue with Volatility 2 was the need to create a custom profile for each custom kernel version.
+custom kernel version. This was not only time consuming, but also
+problematic if the target computer did not have the necessary packages to create these profiles. Volatility 3
+on the other hand, no longer uses fixed profiles and has an extensive library of symbol tables, which makes it
+automatically generate new symbol tables for most Windows memory images. This makes the
+identification of structures within an operating system.</p>
+<p><strong>Library and context</strong>: Volatility 3 was designed from the ground up as a library. Components are independent, and the context
+required for the operation of a particular plugin at a particular time is contained in a state derived from a context interface.
+object derived from a context interface.</p>
+<p><strong>Object model changes</strong>: The object model in Volatility 3 has also changed. Objects inherit directly from their
+Python counterparts, which means that an integer object is actually a Python integer. In contrast to this
+Volatility 2 constructed complex proxy objects that were not compatible in all situations.</p>
+<p><strong>Performance improvements</strong>: Volatility 3 offers significant speed improvements. While Volatility 2 allowed access to
+access to live memory images, Volatility 3 reads the data once when the object is created and keeps it static
+static, even if the underlying layer changes. This significantly increases efficiency.</p>
+<p><strong>Layers and layer dependencies</strong>: The address spaces in Volatility 2 are designed as translation layers in Volatility 3,
+which can have multiple &ldquo;dependencies&rdquo;. This enables the integration of functions such as swap space.</p>
+<p><strong>Automagic functions</strong>: Volatility 3 defines automagic processes more clearly and allows them to be activated or deactivated as required for each run.
+activate or deactivate for each run. This improves usability and efficiency.</p>
+<p><strong>Scanning and output rendering</strong>: Scanning remains very similar to Volatility 2, with the use of scanner objects.
+Output is via a TreeGrid object, which allows the library to be used independently of the interface.</p>
+<p><strong>Windows and Linux support</strong>: For Windows memory images, Volatility 3 provides automatic download of symbol tables, while
+symbol tables, while a specific symbol table is still required for Linux.</p>
+<p><strong>Plugins in Volatility 2 vs. Volatility 3</strong></p>
+<p><strong>Plugin development</strong></p>
+<ul>
+<li><strong>Volatility 2</strong>: The development of new plugins requires a deeper understanding of the internal architecture of Volatility 2. Plugins are often specific to certain operating system versions or configurations.</li>
+<li><strong>Volatility 3</strong>: Provides a more modern and flexible API for plugin development. It allows developers to implement more functionality with less code, simplifying development and maintenance.</li>
+</ul>
+<p><strong>Community contribution</strong></p>
+<ul>
+<li><strong>Volatility 2</strong>: Has an extensive collection of community-contributed plugins that cover a wide range of use cases.</li>
+<li><strong>Volatility 3</strong>: Is still relatively new and therefore has a smaller but growing collection of community-contributed plugins. The move from Volatility 2 to 3 also means that some popular plugins from Volatility 2 are not yet available or have been rewritten for Volatility 3.</li>
+</ul>
+<p><strong>Specific plugin features</strong></p>
+<ul>
+<li><strong>Volatility 2</strong>: Includes some specific plugins that are still missing in Volatility 3. This includes certain forensic analysis functions that may be important for specific investigations.</li>
+<li><strong>Volatility 3</strong>: Focuses on extending the plugin architecture to facilitate future development and customisation, which means that some specialised features of Volatility 2 are still under development or planned.</li>
+</ul>
+<p><strong>Plugin compatibility</strong></p>
+<ul>
+<li><strong>Volatility 2 and 3</strong>: Due to structural changes in Volatility 3, plugins from Volatility 2 are not directly compatible with Volatility 3. Developers will need to rewrite or adapt plugins for the new architecture.</li>
+</ul>
+<p><strong>Efficiency and speed of the plugins</strong></p>
+<ul>
+<li><strong>Volatility 3</strong>: Benefits from overall improvements in memory management and efficiency, which has a positive impact on plugin execution speed.</li>
+</ul>
+<p><strong>Scope and flexibility</strong></p>
+<ul>
+<li><strong>Volatility 3</strong>: Offers greater flexibility in terms of plugin scope and customisability through its new design. It enables more complex and versatile analysis options compared to Volatility 2.</li>
+</ul>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h3 id="set-up-volatility-linux">Set up Volatility (Linux)</h3>
+<h4 id="volatility2">Volatility2</h4>
+<p><strong>Standalone Image Usage</strong></p>
+<ul>
+<li>
+<p>Download the standalone executable from the <a href="https://www.volatilityfoundation.org/releases">Volatility releases page</a>.</p>
+</li>
+<li>
+<p>Unzip the folder.</p>
+</li>
+<li>
+<p>Rename the image for easier use to &ldquo;vol2&rdquo;</p>
+</li>
+<li>
+<p>Run the executable directly from the command line:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -h
+</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<p><strong>Installation</strong></p>
+<p><strong>Clone the Volatility repository</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>git clone https://github.com/volatilityfoundation/volatility.git
+</span></span></code></pre></div><p><strong>Navigate to the directory</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>cd volatility
+</span></span></code></pre></div><p><strong>Install dependencies</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>sudo apt-get install pcregrep libpcre++-dev python-dev -y
+</span></span></code></pre></div><p>Run <code>python3 setup.py install</code> to install.</p>
+<p>For more detailed instructions, please visit the <a href="https://github.com/volatilityfoundation/volatility/wiki/Installation">Volatility Installation Wiki</a>.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h4 id="volatility3">Volatility3</h4>
+<p>Navigate to the /opt directory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>cd /opt
+</span></span></code></pre></div><p>Clone Volatility 3 from GitHub:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>git clone https://github.com/volatilityfoundation/volatility3.git.
+</span></span></code></pre></div><p>Navigate to the cloned directory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>cd volatility3.
+</span></span></code></pre></div><p>Install minimal dependencies:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>pip3 install -r requirements-minimal.txt. 
+</span></span></code></pre></div><p>For full functionality, use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>pip3 install -r requirements.txt.
+</span></span></code></pre></div><p>Build and install (optional):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>python3 setup.py build
+</span></span><span style="display:flex;"><span>python3 setup.py install
+</span></span></code></pre></div><p>To check available options:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>python3 vol.py -h.
+</span></span></code></pre></div><p>Symbol tables are essential for memory analysis in Volatility3, and specific packs for different operating systems are
+available for download. After downloading, the symbol table zip files should be placed in the volatility3/symbols directory.
+Windows symbols not found in the pack will be downloaded and cached automatically, while Mac and Linux symbols need manual
+generation. The first use of new symbol files in Volatility will require cache updating, which might take some time but
+is a one-time process. Comprehensive symbol tables for Linux are hard to supply due to the variability in kernel compilation.
+For verification of the symbol packs, SHA256, SHA1, and MD5 hashes are provided.</p>
+<p>The Volatility 3 documentation on symbol tables explains their role in memory forensics and provides guidance on obtaining
+and utilizing them. It highlights the need for specific symbol tables for different operating systems and offers detailed
+steps for downloading these symbol packs. For situations where new symbol tables are required, especially for Linux,
+the documentation recommends using the tool <code>dwarf2json</code>. This tool aids in manually generating symbol tables, addressing
+the challenge of diverse Linux kernel versions. More information can be found on the Volatility 3 Documentation page.</p>
+<p>For more detailed instructions, refer to the <a href="https://github.com/volatilityfoundation/volatility3">Volatility 3 GitHub page</a>.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h3 id="memory-dump-process">Memory dump process</h3>
+<h4 id="process-tools">Process Tools</h4>
+<p>The process of memory dumps is an important technique in computer forensics and software debugging. Various tools offer
+specific functions and methods for creating and analysing memory dumps. Here is more detailed information on the tools
+mentioned:</p>
+<p><strong>LiME (Linux Memory Extractor)</strong>: LiME is a tool specifically for Linux systems that makes it possible to capture the contents of the RAM of a running Linux system. It is particularly valuable for forensic purposes as it extracts the memory contents in a way that enables forensic analyses.</p>
+<p><strong>memdump</strong>: This tool is a classic instrument for memory extraction. It is often used in computer forensics to extract the contents of working memory and make them available for further analyses.</p>
+<p><strong>pcileech</strong>: pcileech is a tool that focuses on direct memory access (DMA) attack software. It enables the capture of memory via PCIe DMA with specialised hardware such as FPGA and USB3380. It is available for both Windows and Linux and can handle different types of memory images, including Raw, Full Microsoft CrashDump and others.</p>
+<p><strong>Creating a complete memory image under Windows 10</strong>: Windows 10 offers built-in functions for creating memory images. These functions can be configured to automatically create memory images in the event of system crashes or other critical events, which is useful for error analysis and system diagnostics.</p>
+<p><strong>ProcDump</strong>: ProcDump, part of Microsoft&rsquo;s Sysinternals Suite, is an advanced command line utility for Windows. It enables the creation of memory dumps of processes based on various criteria such as CPU utilisation, memory usage or process end. ProcDump offers a variety of options to control the dump process, making it an important tool for developers and system administrators.</p>
+<p>These tools play an important role in various areas such as IT security, system administration and forensic investigations. Each tool offers specific functions and methods to create and analyse memory images, making them valuable resources in their respective application areas.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h4 id="download-samples">Download samples</h4>
+<p>MemLabs is an excellent resource for anyone interested in computer forensics and, in particular, analysing memory dumps.
+Designed as a training environment for Capture The Flag (CTF) challenges, MemLabs provides a collection of memory dumps
+specifically designed for education and training in digital forensics.</p>
+<p>Each lab in MemLabs presents unique challenges based on real-world scenarios. These labs are designed to be suitable for
+both beginners and advanced users by covering basic concepts as well as complex forensic techniques. Participants can
+improve their memory analysis skills by solving various tasks ranging from identifying malware to reconstructing user activity.</p>
+<p>In addition to MemLabs, the <a href="https://github.com/volatilityfoundation/volatility/wiki/Memory-Samples">Volatility Foundation</a> stands
+as another crucial resource for memory samples in digital forensics and malware analysis. Their repository offers a diverse
+collection of memory dumps, ideal for understanding the intricacies of Volatility, a leading memory analysis framework.
+These samples encompass a variety of scenarios, including malware infections and system anomalies, making them invaluable
+for practitioners in cybersecurity and forensic research.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h3 id="analysing-memory-image-memlabs">[Analysing memory image (MemLabs)</h3>
+<p>The command vol -f MemoryDump_Lab1.raw windows.info is used to extract basic information about the Windows system from
+the memory dump MemoryDump_Lab1.raw. This is a typical step in forensic analysis to get an overview of the analysed system.
+However, problems occur here because Volatility 3 cannot write necessary symbol files due to authorisation problems.
+These symbol files are essential for the analysis as they contain the necessary information about the structure of the
+operating system.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>vol -f MemoryDump_Lab1.raw windows.info     
+</span></span><span style="display:flex;"><span>                                                                               
+</span></span><span style="display:flex;"><span>Volatility <span style="color:#ae81ff">3</span> Framework 2.4.1
+</span></span><span style="display:flex;"><span>WARNING  volatility3.framework.symbols.windows.pdbutil: Cannot write necessary symbol file, please check permissions on /usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/symbols/windows/ntkrnlmp.pdb/3844DBB920174967BE7AA4A2C20430FA-2.json.xz
+</span></span><span style="display:flex;"><span>WARNING  volatility3.framework.symbols.windows.pdbutil: Cannot write necessary symbol file, please check permissions on /usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/framework/symbols/windows/ntkrnlmp.pdb/3844DBB920174967BE7AA4A2C20430FA-2.json.xz
+</span></span><span style="display:flex;"><span>WARNING  volatility3.framework.symbols.windows.pdbutil: Cannot write downloaded symbols, please add the appropriate symbols or add/modify a symbols directory that is writable
+</span></span><span style="display:flex;"><span>Progress:  100.00               PDB scanning finished                        
+</span></span><span style="display:flex;"><span>Unsatisfied requirement plugins.Info.kernel.symbol_table_name: 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A symbol table requirement was not fulfilled.  Please verify that:
+</span></span><span style="display:flex;"><span>        The associated translation layer requirement was fulfilled
+</span></span><span style="display:flex;"><span>        You have the correct symbol file <span style="color:#66d9ef">for</span> the requirement
+</span></span><span style="display:flex;"><span>        The symbol file is under the correct directory or zip file
+</span></span><span style="display:flex;"><span>        The symbol file is named appropriately or contains the correct banner
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Unable to validate the plugin requirements: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;plugins.Info.kernel.symbol_table_name&#39;</span><span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>The command vol -v -f MemoryDump_Lab1.raw windows.info repeats the first step, but with verbose mode (-v) activated to
+obtain more detailed information about the process. This step serves to better understand the cause of the problems.
+Despite the verbose mode, the problem with the symbol files remains.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>vol -v -f MemoryDump_Lab1.raw windows.info
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility <span style="color:#ae81ff">3</span> Framework 2.4.1
+</span></span><span style="display:flex;"><span>INFO     volatility3.cli: Volatility plugins path: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;/usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/plugins&#39;</span>, <span style="color:#e6db74">&#39;/usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/framework/plugins&#39;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>INFO     volatility3.cli: Volatility symbols path: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;/usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/symbols&#39;</span>, <span style="color:#e6db74">&#39;/usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/framework/symbols&#39;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Detected a windows category plugin
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Running automagic: ConstructionMagic
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Running automagic: SymbolCacheMagic
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Running automagic: LayerStacker
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Running automagic: WinSwapLayers
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Running automagic: KernelPDBScanner
+</span></span><span style="display:flex;"><span>WARNING  volatility3.framework.symbols.windows.pdbutil: Cannot write necessary symbol file, please check permissions on /usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/symbols/windows/ntkrnlmp.pdb/3844DBB920174967BE7AA4A2C20430FA-2.json.xz
+</span></span><span style="display:flex;"><span>WARNING  volatility3.framework.symbols.windows.pdbutil: Cannot write necessary symbol file, please check permissions on /usr/local/lib/python3.11/dist-packages/volatility3-2.4.1-py3.11.egg/volatility3/framework/symbols/windows/ntkrnlmp.pdb/3844DBB920174967BE7AA4A2C20430FA-2.json.xz
+</span></span><span style="display:flex;"><span>WARNING  volatility3.framework.symbols.windows.pdbutil: Cannot write downloaded symbols, please add the appropriate symbols or add/modify a symbols directory that is writable
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.symbols.windows.pdbutil: The symbols can be downloaded later using pdbconv.py -p ntkrnlmp.pdb -g 3844DBB920174967BE7AA4A2C20430FA2
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Running automagic: SymbolFinder    
+</span></span><span style="display:flex;"><span>INFO     volatility3.framework.automagic: Running automagic: KernelModule
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Unsatisfied requirement plugins.Info.kernel.symbol_table_name: 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A symbol table requirement was not fulfilled.  Please verify that:
+</span></span><span style="display:flex;"><span>        The associated translation layer requirement was fulfilled
+</span></span><span style="display:flex;"><span>        You have the correct symbol file <span style="color:#66d9ef">for</span> the requirement
+</span></span><span style="display:flex;"><span>        The symbol file is under the correct directory or zip file
+</span></span><span style="display:flex;"><span>        The symbol file is named appropriately or contains the correct banner
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Unable to validate the plugin requirements: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;plugins.Info.kernel.symbol_table_name&#39;</span><span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>The problems with the symbol files are solved by running the following command. This command uses Volatility&rsquo;s pdbconv.py
+script to generate the required symbol file (ntkrnlmp.pdb) based on the GUID (3844DBB920174967BE7AA4A2C20430FA2).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>sudo python3 /opt/volatility3/volatility3/framework/symbols/windows/pdbconv.py -p ntkrnlmp.pdb -g 3844DBB920174967BE7AA4A2C20430FA2
+</span></span></code></pre></div><p>After the correct symbol files have been generated and the authorisation issues have been resolved, the command
+&lsquo;vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.info&rsquo; is successfully executed.
+This command specifies the path to the correct symbol files and enables Volatility 3 to successfully analyse the memory
+dump and provide detailed information about the Windows system.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.info
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility <span style="color:#ae81ff">3</span> Framework 2.4.1
+</span></span><span style="display:flex;"><span>Progress:  100.00               PDB scanning finished                        
+</span></span><span style="display:flex;"><span>Variable        Value
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Kernel Base     0xf8000261f000
+</span></span><span style="display:flex;"><span>DTB     0x187000
+</span></span><span style="display:flex;"><span>Symbols file:///opt/volatility3/volatility3/framework/symbols/windows/3844DBB920174967BE7AA4A2C20430FA-2.json.xz
+</span></span><span style="display:flex;"><span>Is64Bit True
+</span></span><span style="display:flex;"><span>IsPAE   False
+</span></span><span style="display:flex;"><span>layer_name      <span style="color:#ae81ff">0</span> WindowsIntel32e
+</span></span><span style="display:flex;"><span>memory_layer    <span style="color:#ae81ff">1</span> FileLayer
+</span></span><span style="display:flex;"><span>KdDebuggerDataBlock     0xf800028100a0
+</span></span><span style="display:flex;"><span>NTBuildLab      7601.17514.amd64fre.win7sp1_rtm.
+</span></span><span style="display:flex;"><span>CSDVersion      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>KdVersionBlock  0xf80002810068
+</span></span><span style="display:flex;"><span>Major/Minor     15.7601
+</span></span><span style="display:flex;"><span>MachineType     <span style="color:#ae81ff">34404</span>
+</span></span><span style="display:flex;"><span>KeNumberProcessors      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>SystemTime      2019-12-11 14:38:00
+</span></span><span style="display:flex;"><span>NtSystemRoot    C:<span style="color:#ae81ff">\W</span>indows
+</span></span><span style="display:flex;"><span>NtProductType   NtProductWinNt
+</span></span><span style="display:flex;"><span>NtMajorVersion  <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>NtMinorVersion  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>PE MajorOperatingSystemVersion  <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>PE MinorOperatingSystemVersion  <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>PE Machine      <span style="color:#ae81ff">34404</span>
+</span></span><span style="display:flex;"><span>PE TimeDateStamp        Sat Nov <span style="color:#ae81ff">20</span> 09:30:02 <span style="color:#ae81ff">2010</span>
+</span></span></code></pre></div><p>We could have gone into every single process, but for the purposes of this article we will only focus on three processes
+that are necessary for the CTF game. Analysing the memory dump with the aforementioned command in Volatility reveals that
+&ldquo;cmd&rdquo;, &ldquo;mspaint&rdquo; and &ldquo;WinRAR&rdquo; were active processes at the time of the memory dump. The presence of &ldquo;cmd&rdquo; indicates the
+use of the command line, possibly for system administration or specific tasks. &ldquo;mspaint&rdquo; as an active process indicates
+image editing or graphical activities, while &ldquo;WinRAR&rdquo; indicates use for file compression or archiving.</p>
+<pre tabindex="0"><code>vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.pslist
+
+Volatility 3 Framework 2.4.1
+Progress:  100.00               PDB scanning finished                        
+PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       Wow64   CreateTime      ExitTime        File output
+
+4       0       System  0xfa8000ca0040  80      570     N/A     False   2019-12-11 13:41:25.000000      N/A     Disabled
+248     4       smss.exe        0xfa800148f040  3       37      N/A     False   2019-12-11 13:41:25.000000      N/A     Disabled
+320     312     csrss.exe       0xfa800154f740  9       457     0       False   2019-12-11 13:41:32.000000      N/A     Disabled
+368     360     csrss.exe       0xfa8000ca81e0  7       199     1       False   2019-12-11 13:41:33.000000      N/A     Disabled
+376     248     psxss.exe       0xfa8001c45060  18      786     0       False   2019-12-11 13:41:33.000000      N/A     Disabled
+416     360     winlogon.exe    0xfa8001c5f060  4       118     1       False   2019-12-11 13:41:34.000000      N/A     Disabled
+424     312     wininit.exe     0xfa8001c5f630  3       75      0       False   2019-12-11 13:41:34.000000      N/A     Disabled
+484     424     services.exe    0xfa8001c98530  13      219     0       False   2019-12-11 13:41:35.000000      N/A     Disabled
+492     424     lsass.exe       0xfa8001ca0580  9       764     0       False   2019-12-11 13:41:35.000000      N/A     Disabled
+500     424     lsm.exe 0xfa8001ca4b30  11      185     0       False   2019-12-11 13:41:35.000000      N/A     Disabled
+588     484     svchost.exe     0xfa8001cf4b30  11      358     0       False   2019-12-11 13:41:39.000000      N/A     Disabled
+652     484     VBoxService.ex  0xfa8001d327c0  13      137     0       False   2019-12-11 13:41:40.000000      N/A     Disabled
+720     484     svchost.exe     0xfa8001d49b30  8       279     0       False   2019-12-11 13:41:41.000000      N/A     Disabled
+816     484     svchost.exe     0xfa8001d8c420  23      569     0       False   2019-12-11 13:41:42.000000      N/A     Disabled
+852     484     svchost.exe     0xfa8001da5b30  28      542     0       False   2019-12-11 13:41:43.000000      N/A     Disabled
+876     484     svchost.exe     0xfa8001da96c0  32      941     0       False   2019-12-11 13:41:43.000000      N/A     Disabled
+472     484     svchost.exe     0xfa8001e1bb30  19      476     0       False   2019-12-11 13:41:47.000000      N/A     Disabled
+1044    484     svchost.exe     0xfa8001e50b30  14      366     0       False   2019-12-11 13:41:48.000000      N/A     Disabled
+1208    484     spoolsv.exe     0xfa8001eba230  13      282     0       False   2019-12-11 13:41:51.000000      N/A     Disabled
+1248    484     svchost.exe     0xfa8001eda060  19      313     0       False   2019-12-11 13:41:52.000000      N/A     Disabled
+1372    484     svchost.exe     0xfa8001f58890  22      295     0       False   2019-12-11 13:41:54.000000      N/A     Disabled
+1416    484     TCPSVCS.EXE     0xfa8001f91b30  4       97      0       False   2019-12-11 13:41:55.000000      N/A     Disabled
+1508    484     sppsvc.exe      0xfa8000d3c400  4       141     0       False   2019-12-11 14:16:06.000000      N/A     Disabled
+948     484     svchost.exe     0xfa8001c38580  13      322     0       False   2019-12-11 14:16:07.000000      N/A     Disabled
+1856    484     wmpnetwk.exe    0xfa8002170630  16      451     0       False   2019-12-11 14:16:08.000000      N/A     Disabled
+480     484     SearchIndexer.  0xfa8001d376f0  14      701     0       False   2019-12-11 14:16:09.000000      N/A     Disabled
+296     484     taskhost.exe    0xfa8001eb47f0  8       151     1       False   2019-12-11 14:32:24.000000      N/A     Disabled
+1988    852     dwm.exe 0xfa8001dfa910  5       72      1       False   2019-12-11 14:32:25.000000      N/A     Disabled
+604     2016    explorer.exe    0xfa8002046960  33      927     1       False   2019-12-11 14:32:25.000000      N/A     Disabled
+1844    604     VBoxTray.exe    0xfa80021c75d0  11      140     1       False   2019-12-11 14:32:35.000000      N/A     Disabled
+2064    816     audiodg.exe     0xfa80021da060  6       131     0       False   2019-12-11 14:32:37.000000      N/A     Disabled
+2368    484     svchost.exe     0xfa80022199e0  9       365     0       False   2019-12-11 14:32:51.000000      N/A     Disabled
+1984    604     cmd.exe 0xfa8002222780  1       21      1       False   2019-12-11 14:34:54.000000      N/A     Disabled
+2692    368     conhost.exe     0xfa8002227140  2       50      1       False   2019-12-11 14:34:54.000000      N/A     Disabled
+2424    604     mspaint.exe     0xfa80022bab30  6       128     1       False   2019-12-11 14:35:14.000000      N/A     Disabled
+2660    484     svchost.exe     0xfa8000eac770  6       100     0       False   2019-12-11 14:35:14.000000      N/A     Disabled
+2760    2680    csrss.exe       0xfa8001e68060  7       172     2       False   2019-12-11 14:37:05.000000      N/A     Disabled
+2808    2680    winlogon.exe    0xfa8000ecbb30  4       119     2       False   2019-12-11 14:37:05.000000      N/A     Disabled
+2908    484     taskhost.exe    0xfa8000f3aab0  9       158     2       False   2019-12-11 14:37:13.000000      N/A     Disabled
+3004    852     dwm.exe 0xfa8000f4db30  5       72      2       False   2019-12-11 14:37:14.000000      N/A     Disabled
+2504    3000    explorer.exe    0xfa8000f4c670  34      825     2       False   2019-12-11 14:37:14.000000      N/A     Disabled
+2304    2504    VBoxTray.exe    0xfa8000f9a4e0  14      144     2       False   2019-12-11 14:37:14.000000      N/A     Disabled
+2524    480     SearchProtocol  0xfa8000fff630  7       226     2       False   2019-12-11 14:37:21.000000      N/A     Disabled
+1720    480     SearchFilterHo  0xfa8000ecea60  5       90      0       False   2019-12-11 14:37:21.000000      N/A     Disabled
+1512    2504    WinRAR.exe      0xfa8001010b30  6       207     2       False   2019-12-11 14:37:23.000000      N/A     Disabled
+2868    480     SearchProtocol  0xfa8001020b30  8       279     0       False   2019-12-11 14:37:23.000000      N/A     Disabled
+796     604     DumpIt.exe      0xfa8001048060  2       45      1       True    2019-12-11 14:37:54.000000      N/A     Disabled
+2260    368     conhost.exe     0xfa800104a780  2       50      1       False   2019-12-11 14:37:54.000000      N/A     Disabled
+</code></pre><p>After identifying the active processes in the memory image, the next step is to analyse the command line parameters of
+these processes. This provides a deeper insight into the exact actions or commands that were executed in the command line.
+Such an analysis can be informative in order to understand the specific activities within the &ldquo;cmd&rdquo; process. It also
+provides information about any parameters or file paths used in &ldquo;mspaint&rdquo; or &ldquo;WinRAR&rdquo;. These additional details are
+particularly valuable for forensic analyses as they help to paint a more accurate picture of user interactions and system
+usage at the time of the memory dump.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.cmdline        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility <span style="color:#ae81ff">3</span> Framework 2.4.1
+</span></span><span style="display:flex;"><span>Progress:  100.00               PDB scanning finished                        
+</span></span><span style="display:flex;"><span>PID     Process Args
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>       System  Required memory at 0x20 is not valid <span style="color:#f92672">(</span>process exited?<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">248</span>     smss.exe        <span style="color:#ae81ff">\S</span>ystemRoot<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\s</span>mss.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">320</span>     csrss.exe       %SystemRoot%<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>srss.exe ObjectDirectory<span style="color:#f92672">=</span><span style="color:#ae81ff">\W</span>indows SharedSection<span style="color:#f92672">=</span>1024,20480,768 Windows<span style="color:#f92672">=</span>On SubSystemType<span style="color:#f92672">=</span>Windows ServerDll<span style="color:#f92672">=</span>basesrv,1 ServerDll<span style="color:#f92672">=</span>winsrv:UserServerDllInitialization,3 ServerDll<span style="color:#f92672">=</span>winsrv:ConServerDllInitialization,2 ServerDll<span style="color:#f92672">=</span>sxssrv,4 ProfileControl<span style="color:#f92672">=</span>Off MaxRequestThreads<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">368</span>     csrss.exe       %SystemRoot%<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>srss.exe ObjectDirectory<span style="color:#f92672">=</span><span style="color:#ae81ff">\W</span>indows SharedSection<span style="color:#f92672">=</span>1024,20480,768 Windows<span style="color:#f92672">=</span>On SubSystemType<span style="color:#f92672">=</span>Windows ServerDll<span style="color:#f92672">=</span>basesrv,1 ServerDll<span style="color:#f92672">=</span>winsrv:UserServerDllInitialization,3 ServerDll<span style="color:#f92672">=</span>winsrv:ConServerDllInitialization,2 ServerDll<span style="color:#f92672">=</span>sxssrv,4 ProfileControl<span style="color:#f92672">=</span>Off MaxRequestThreads<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">376</span>     psxss.exe       %SystemRoot%<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\p</span>sxss.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">416</span>     winlogon.exe    winlogon.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">424</span>     wininit.exe     wininit.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">484</span>     services.exe    C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>ervices.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">492</span>     lsass.exe       C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\l</span>sass.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">500</span>     lsm.exe C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\l</span>sm.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">588</span>     svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k DcomLaunch
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">652</span>     VBoxService.ex  C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\V</span>BoxService.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">720</span>     svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k RPCSS
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">816</span>     svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k LocalServiceNetworkRestricted
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">852</span>     svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k LocalSystemNetworkRestricted
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">876</span>     svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k netsvcs
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">472</span>     svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k LocalService
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1044</span>    svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k NetworkService
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1208</span>    spoolsv.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\s</span>poolsv.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1248</span>    svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k LocalServiceNoNetwork
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1372</span>    svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k LocalServiceAndNoImpersonation
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1416</span>    TCPSVCS.EXE     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\t</span>cpsvcs.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1508</span>    sppsvc.exe      C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>ppsvc.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">948</span>     svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k secsvcs
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1856</span>    wmpnetwk.exe    <span style="color:#e6db74">&#34;C:\Program Files\Windows Media Player\wmpnetwk.exe&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">480</span>     SearchIndexer.  C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\S</span>earchIndexer.exe /Embedding
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">296</span>     taskhost.exe    <span style="color:#e6db74">&#34;taskhost.exe&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1988</span>    dwm.exe <span style="color:#e6db74">&#34;C:\Windows\system32\Dwm.exe&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">604</span>     explorer.exe    C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\E</span>xplorer.EXE
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1844</span>    VBoxTray.exe    <span style="color:#e6db74">&#34;C:\Windows\System32\VBoxTray.exe&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2064</span>    audiodg.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\A</span>UDIODG.EXE 0x20c
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2368</span>    svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\S</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k LocalServicePeerNet
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1984</span>    cmd.exe <span style="color:#e6db74">&#34;C:\Windows\system32\cmd.exe&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2692</span>    conhost.exe     <span style="color:#ae81ff">\?</span>?<span style="color:#ae81ff">\C</span>:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>onhost.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2424</span>    mspaint.exe     <span style="color:#e6db74">&#34;C:\Windows\system32\mspaint.exe&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2660</span>    svchost.exe     C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\s</span>vchost.exe -k imgsvc
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2760</span>    csrss.exe       %SystemRoot%<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>srss.exe ObjectDirectory<span style="color:#f92672">=</span><span style="color:#ae81ff">\W</span>indows SharedSection<span style="color:#f92672">=</span>1024,20480,768 Windows<span style="color:#f92672">=</span>On SubSystemType<span style="color:#f92672">=</span>Windows ServerDll<span style="color:#f92672">=</span>basesrv,1 ServerDll<span style="color:#f92672">=</span>winsrv:UserServerDllInitialization,3 ServerDll<span style="color:#f92672">=</span>winsrv:ConServerDllInitialization,2 ServerDll<span style="color:#f92672">=</span>sxssrv,4 ProfileControl<span style="color:#f92672">=</span>Off MaxRequestThreads<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2808</span>    winlogon.exe    winlogon.exe
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2908</span>    taskhost.exe    <span style="color:#e6db74">&#34;taskhost.exe&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3004</span>    dwm.exe <span style="color:#e6db74">&#34;C:\Windows\system32\Dwm.exe&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2504</span>    explorer.exe    C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\E</span>xplorer.EXE
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2304</span>    VBoxTray.exe    <span style="color:#e6db74">&#34;C:\Windows\System32\VBoxTray.exe&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2524</span>    SearchProtocol  <span style="color:#e6db74">&#34;C:\Windows\system32\SearchProtocolHost.exe&#34;</span> Global<span style="color:#ae81ff">\U</span>sGthrFltPipeMssGthrPipe_S-1-5-21-3073570648-3149397540-2269648332-10032_ Global<span style="color:#ae81ff">\U</span>sGthrCtrlFltPipeMssGthrPipe_S-1-5-21-3073570648-3149397540-2269648332-10032 <span style="color:#ae81ff">1</span> -2147483646 <span style="color:#e6db74">&#34;Software\Microsoft\Windows Search&#34;</span> <span style="color:#e6db74">&#34;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)&#34;</span> <span style="color:#e6db74">&#34;C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc&#34;</span> <span style="color:#e6db74">&#34;DownLevelDaemon&#34;</span>  <span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1720</span>    SearchFilterHo  <span style="color:#e6db74">&#34;C:\Windows\system32\SearchFilterHost.exe&#34;</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">508</span> <span style="color:#ae81ff">512</span> <span style="color:#ae81ff">520</span> <span style="color:#ae81ff">65536</span> <span style="color:#ae81ff">516</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1512</span>    WinRAR.exe      <span style="color:#e6db74">&#34;C:\Program Files\WinRAR\WinRAR.exe&#34;</span> <span style="color:#e6db74">&#34;C:\Users\Alissa Simpson\Documents\Important.rar&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2868</span>    SearchProtocol  <span style="color:#e6db74">&#34;C:\Windows\system32\SearchProtocolHost.exe&#34;</span> Global<span style="color:#ae81ff">\U</span>sGthrFltPipeMssGthrPipe3_ Global<span style="color:#ae81ff">\U</span>sGthrCtrlFltPipeMssGthrPipe3 <span style="color:#ae81ff">1</span> -2147483646 <span style="color:#e6db74">&#34;Software\Microsoft\Windows Search&#34;</span> <span style="color:#e6db74">&#34;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)&#34;</span> <span style="color:#e6db74">&#34;C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc&#34;</span> <span style="color:#e6db74">&#34;DownLevelDaemon&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">796</span>     DumpIt.exe      <span style="color:#e6db74">&#34;C:\Users\SmartNet\Downloads\DumpIt\DumpIt.exe&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2260</span>    conhost.exe     <span style="color:#ae81ff">\?</span>?<span style="color:#ae81ff">\C</span>:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>onhost.exe
+</span></span></code></pre></div><p>After running the cmdline plugin, we can see that WinRAR.exe gives us a hint. An important archive has probably been created:</p>
+<pre tabindex="0"><code>1512    WinRAR.exe      &#34;C:\Program Files\WinRAR\WinRAR.exe&#34; &#34;C:\Users\Alissa Simpson\Documents\Important.rar&#34;
+</code></pre><blockquote>
+<p><strong>HINT:</strong> To obtain a functional command prompt analysis, Volatility2 was employed due to the absence of this feature in the current
+version, Volatility3. This limitation in Volatility3 was addressed in an issue opened in 2022. For practical application,
+the standalone version of Volatility2, specifically designed for Linux, was utilized and renamed to <strong>vol2</strong> for convenience.
+Further details about this specific issue in Volatility3 can be found at <a href="https://github.com/volatilityfoundation/volatility3/issues/816">Volatility3 Issue #816</a>.</p>
+</blockquote>
+<p>To get possible hints about what happened in the command line, we can use the consoles-plugin:</p>
+<p>In the given output we see an analysis of the console activity on a Windows system. Of particular interest is the section
+relating to the process conhost.exe with process ID 2692, which is attached to cmd.exe (PID 1984). In this console session,
+the command St4G3$1 was executed, which could indicate a specific user interaction or script. The title of the console
+shows &ldquo;C:\Windows\system32\cmd.exe - St4G3$1&rdquo;, which indicates that the command &ldquo;St4G3$1&rdquo; was executed directly in the
+command line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile<span style="color:#f92672">=</span>Win7SP1x64 consoles
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
+</span></span><span style="display:flex;"><span>**************************************************
+</span></span><span style="display:flex;"><span>ConsoleProcess: conhost.exe Pid: <span style="color:#ae81ff">2692</span>
+</span></span><span style="display:flex;"><span>Console: 0xff756200 CommandHistorySize: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>HistoryBufferCount: <span style="color:#ae81ff">1</span> HistoryBufferMax: <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>OriginalTitle: %SystemRoot%<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>md.exe
+</span></span><span style="display:flex;"><span>Title: C:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>md.exe - St4G3$1
+</span></span><span style="display:flex;"><span>AttachedProcess: cmd.exe Pid: <span style="color:#ae81ff">1984</span> Handle: 0x60
+</span></span><span style="display:flex;"><span>----
+</span></span><span style="display:flex;"><span>CommandHistory: 0x1fe9c0 Application: cmd.exe Flags: Allocated, Reset
+</span></span><span style="display:flex;"><span>CommandCount: <span style="color:#ae81ff">1</span> LastAdded: <span style="color:#ae81ff">0</span> LastDisplayed: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>FirstCommand: <span style="color:#ae81ff">0</span> CommandCountMax: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>ProcessHandle: 0x60
+</span></span><span style="display:flex;"><span>Cmd <span style="color:#75715e">#0 at 0x1de3c0: St4G3$1</span>
+</span></span><span style="display:flex;"><span>----
+</span></span><span style="display:flex;"><span>Screen 0x1e0f70 X:80 Y:300
+</span></span><span style="display:flex;"><span>Dump:
+</span></span><span style="display:flex;"><span>Microsoft Windows <span style="color:#f92672">[</span>Version 6.1.7601<span style="color:#f92672">]</span>                                            
+</span></span><span style="display:flex;"><span>Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> <span style="color:#ae81ff">2009</span> Microsoft Corporation.  All rights reserved.                 
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\S</span>martNet&gt;St4G3$1                                                       
+</span></span><span style="display:flex;"><span>ZmxhZ3t0aDFzXzFzX3RoM18xc3Rfc3Q0ZzMhIX0<span style="color:#f92672">=</span>                                        
+</span></span><span style="display:flex;"><span>Press any key to <span style="color:#66d9ef">continue</span> . . .                                                 
+</span></span><span style="display:flex;"><span>**************************************************
+</span></span><span style="display:flex;"><span>ConsoleProcess: conhost.exe Pid: <span style="color:#ae81ff">2260</span>
+</span></span><span style="display:flex;"><span>Console: 0xff756200 CommandHistorySize: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>HistoryBufferCount: <span style="color:#ae81ff">1</span> HistoryBufferMax: <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>OriginalTitle: C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\S</span>martNet<span style="color:#ae81ff">\D</span>ownloads<span style="color:#ae81ff">\D</span>umpIt<span style="color:#ae81ff">\D</span>umpIt.exe
+</span></span><span style="display:flex;"><span>Title: C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\S</span>martNet<span style="color:#ae81ff">\D</span>ownloads<span style="color:#ae81ff">\D</span>umpIt<span style="color:#ae81ff">\D</span>umpIt.exe
+</span></span><span style="display:flex;"><span>AttachedProcess: DumpIt.exe Pid: <span style="color:#ae81ff">796</span> Handle: 0x60
+</span></span><span style="display:flex;"><span>----
+</span></span><span style="display:flex;"><span>CommandHistory: 0x38ea90 Application: DumpIt.exe Flags: Allocated
+</span></span><span style="display:flex;"><span>CommandCount: <span style="color:#ae81ff">0</span> LastAdded: -1 LastDisplayed: -1
+</span></span><span style="display:flex;"><span>FirstCommand: <span style="color:#ae81ff">0</span> CommandCountMax: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>ProcessHandle: 0x60
+</span></span><span style="display:flex;"><span>----
+</span></span><span style="display:flex;"><span>Screen 0x371050 X:80 Y:300
+</span></span><span style="display:flex;"><span>Dump:
+</span></span><span style="display:flex;"><span>  DumpIt - v1.3.2.20110401 - One click memory memory dumper                     
+</span></span><span style="display:flex;"><span>  Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> <span style="color:#ae81ff">2007</span> - 2011, Matthieu Suiche &lt;http://www.msuiche.net&gt;           
+</span></span><span style="display:flex;"><span>  Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> <span style="color:#ae81ff">2010</span> - 2011, MoonSols &lt;http://www.moonsols.com&gt;                 
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>    Address space size:        <span style="color:#ae81ff">1073676288</span> bytes <span style="color:#f92672">(</span>   <span style="color:#ae81ff">1023</span> Mb<span style="color:#f92672">)</span>                    
+</span></span><span style="display:flex;"><span>    Free space size:          <span style="color:#ae81ff">24185389056</span> bytes <span style="color:#f92672">(</span>  <span style="color:#ae81ff">23064</span> Mb<span style="color:#f92672">)</span>                    
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>    * Destination <span style="color:#f92672">=</span> <span style="color:#ae81ff">\?</span>?<span style="color:#ae81ff">\C</span>:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\S</span>martNet<span style="color:#ae81ff">\D</span>ownloads<span style="color:#ae81ff">\D</span>umpIt<span style="color:#ae81ff">\S</span>MARTNET-PC-20191211-143755.raw                                                                      
+</span></span><span style="display:flex;"><span>                                                                                
+</span></span><span style="display:flex;"><span>    --&gt; Are you sure you want to <span style="color:#66d9ef">continue</span>? <span style="color:#f92672">[</span>y/n<span style="color:#f92672">]</span> y                              
+</span></span><span style="display:flex;"><span>    + Processing...                                 
+</span></span></code></pre></div><p>In the given output we see an analysis of the console activity on a Windows system. Of particular interest is the
+section relating to the process conhost.exe with process ID 2692, which is attached to cmd.exe (PID 1984). In this
+console session, the command St4G3$1 was executed, which could indicate a specific user interaction or script. The title
+of the console shows &ldquo;C:\Windows\system32\cmd.exe - St4G3$1&rdquo;, which indicates that the command &ldquo;St4G3$1&rdquo; was executed
+directly in the command line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\S</span>martNet&gt;St4G3$1                                                       
+</span></span><span style="display:flex;"><span>ZmxhZ3t0aDFzXzFzX3RoM18xc3Rfc3Q0ZzMhIX0<span style="color:#f92672">=</span>  
+</span></span></code></pre></div><p>If you come across a string that consists of a mixture of upper and lower case letters and numbers, this could be an
+indication of base64 encoding. An additional feature is often the presence of one or two &lsquo;=&rsquo; characters at the end,
+which act as padding to bring the length to a multiple of 4. This combination of characters and the characteristic
+length are strong indicators of a base64 encoding, especially if it appears in a context where data transfers or the
+storage of binary data as text are common.</p>
+<p>Therefore, let&rsquo;s try to decode the string with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>$ echo ZmxhZ3t0aDFzXzFzX3RoM18xc3Rfc3Q0ZzMhIX0<span style="color:#f92672">=</span> | base64 -d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>flag<span style="color:#f92672">{</span>th1s_1s_th3_1st_st4g3!!<span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The string was successfully decoded with the command &ldquo;base64 -d&rdquo;, and the result is: &ldquo;flag{th1s_1s_th3_1st_st4g3!!!}&rdquo;.
+This confirms that it was indeed a base64-encoded message and the decoding resulted in the plain text
+&ldquo;flag{th1s_1s_th3_1st_st4g3!!!}&rdquo;.</p>
+<p>Let&rsquo;s move on to the <strong>mspaint.exe</strong> process. Since this process shows that MS Paint was used, we may be able to
+extract data that could provide a clue:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile<span style="color:#f92672">=</span>Win7SP1x64 memdump -p <span style="color:#ae81ff">2424</span> -D . 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
+</span></span><span style="display:flex;"><span>************************************************************************
+</span></span><span style="display:flex;"><span>Writing mspaint.exe <span style="color:#f92672">[</span>  2424<span style="color:#f92672">]</span> to 2424.dmp
+</span></span></code></pre></div><p>After a memory image has been created for the process with the PID 2424, we rename the file &ldquo;2424.dmp&rdquo;
+to &ldquo;2424.data&rdquo; and try to open it in GIMP. We succeed in obtaining a distorted graphic that is displayed with RGB-Alpha,
+height, width and offset. This can be seen in the following screenshot:</p>
+<p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/volatility_gimp_lab1.png?raw=true" alt="dump.data"></p>
+<p>If the graphic is rotated and inverted, the following message can be recognised:</p>
+<pre tabindex="0"><code class="language-Bach" data-lang="Bach">flag{G00d_Boy_good_girL}
+</code></pre><p>Now the last process we want to look at is &ldquo;WinRAR.exe&rdquo;. We had previously determined that there was an &ldquo;Important&rdquo;
+archive that was created, where we want to find out what is contained in this archive:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile Win7SP1x64 cmdline | grep WinRAR
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
+</span></span><span style="display:flex;"><span>WinRAR.exe pid:   <span style="color:#ae81ff">1512</span>
+</span></span><span style="display:flex;"><span>Command line : <span style="color:#e6db74">&#34;C:\Program Files\WinRAR\WinRAR.exe&#34;</span> <span style="color:#e6db74">&#34;C:\Users\Alissa Simpson\Documents\Important.rar&#34;</span>
+</span></span></code></pre></div><p>We see the same archive &ldquo;Important.rar&rdquo; with three different memory addresses in the filescan plugin. Choosing the last
+storage address makes sense, as it usually represents the latest, unchanged version and enables efficient analysis.
+However, this decision depends on the analysis requirements.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile Win7SP1x64 filescan | grep Important.rar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
+</span></span><span style="display:flex;"><span>0x000000003fa3ebc0      <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">0</span> R--r-- <span style="color:#ae81ff">\D</span>evice<span style="color:#ae81ff">\H</span>arddiskVolume2<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\A</span>lissa Simpson<span style="color:#ae81ff">\D</span>ocuments<span style="color:#ae81ff">\I</span>mportant.rar
+</span></span><span style="display:flex;"><span>0x000000003fac3bc0      <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">0</span> R--r-- <span style="color:#ae81ff">\D</span>evice<span style="color:#ae81ff">\H</span>arddiskVolume2<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\A</span>lissa Simpson<span style="color:#ae81ff">\D</span>ocuments<span style="color:#ae81ff">\I</span>mportant.rar
+</span></span><span style="display:flex;"><span>0x000000003fb48bc0      <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">0</span> R--r-- <span style="color:#ae81ff">\D</span>evice<span style="color:#ae81ff">\H</span>arddiskVolume2<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\A</span>lissa Simpson<span style="color:#ae81ff">\D</span>ocuments<span style="color:#ae81ff">\I</span>mportant.rar
+</span></span></code></pre></div><p>We therefore want to isolate the last one and create a dump:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile Win7SP1x64 dumpfiles -Q 0x000000003fa3ebc0 -D .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
+</span></span><span style="display:flex;"><span>DataSectionObject 0x3fa3ebc0   None   <span style="color:#ae81ff">\D</span>evice<span style="color:#ae81ff">\H</span>arddiskVolume2<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\A</span>lissa Simpson<span style="color:#ae81ff">\D</span>ocuments<span style="color:#ae81ff">\I</span>mportant.rar
+</span></span></code></pre></div><p>Now we rename the dump that was created to &ldquo;Important.rar&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>mv file.None.0xfffffa8001034450.dat Important.rar
+</span></span></code></pre></div><p>Then we want to unpack the isolated archive to find out what is contained and how we can see it, the archive is password
+protected and has a comment. The password is expected as an NTLM hash (in capital letters) of the password  for Alissa&rsquo;s
+user account.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>unrar e Important.rar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>UNRAR 7.00 beta <span style="color:#ae81ff">3</span> freeware      Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> 1993-2023 Alexander Roshal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Archive comment:
+</span></span><span style="display:flex;"><span>Password is NTLM hash<span style="color:#f92672">(</span>in uppercase<span style="color:#f92672">)</span> of Alissa<span style="color:#960050;background-color:#1e0010">&#39;</span>s account passwd.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Extracting from Important.rar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Enter password <span style="color:#f92672">(</span>will not be echoed<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> flag3.png: 
+</span></span></code></pre></div><p>Mit dem hashdump-plugin versuchen wir, Passwort-Hashes aus dem Memory dump zu erhalten.
+Wir haben vorab gesehen, dass ein NTLM hash gesucht wird, die zu einem bestimmten Benutzerkonto gehört.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile Win7SP1x64 hashdump        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
+</span></span><span style="display:flex;"><span>Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+</span></span><span style="display:flex;"><span>Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+</span></span><span style="display:flex;"><span>SmartNet:1001:aad3b435b51404eeaad3b435b51404ee:4943abb39473a6f32c11301f4987e7e0:::
+</span></span><span style="display:flex;"><span>HomeGroupUser$:1002:aad3b435b51404eeaad3b435b51404ee:f0fc3d257814e08fea06e63c5762ebd5:::
+</span></span><span style="display:flex;"><span>Alissa Simpson:1003:aad3b435b51404eeaad3b435b51404ee:f4ff64c8baac57d22f22edc681055ba6:::
+</span></span></code></pre></div><p>The line &ldquo;Alissa Simpson:1003:aad3b435b51404eeaad3b435b51404ee:f4ff64c8baac57d22f22edc681055ba6:::&rdquo; contains information about the user account
+about the user account &ldquo;Alissa Simpson&rdquo; on the system. The &ldquo;1003&rdquo; is the user ID that uniquely identifies the account.
+The section &ldquo;aad3b435b51404eeaad3b435b51404ee&rdquo; represents the NTLMv2 hash, which is the encrypted password of the user.
+user&rsquo;s encrypted password. It is worth noting that the LM hash (LAN Manager hash) is not used, as indicated by the empty
+field &ldquo;:::&rdquo;. The LM hash is an outdated and less secure form of password representation, while the
+NTLMv2 hash is favoured in modern Windows systems to increase security.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>Alissa Simpson:1003:aad3b435b51404eeaad3b435b51404ee:f4ff64c8baac57d22f22edc681055ba6:::
+</span></span></code></pre></div><p>As the password is expected to be an NTLM hash in capital letters, we still need to modify the hash:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>F4FF64C8BAAC57D22F22EDC681055BA6
+</span></span></code></pre></div><p>We can now use this hash as the password for the extraction:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>unrar e Important.rar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>UNRAR 7.00 beta <span style="color:#ae81ff">3</span> freeware      Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> 1993-2023 Alexander Roshal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Archive comment:
+</span></span><span style="display:flex;"><span>Password is NTLM hash<span style="color:#f92672">(</span>in uppercase<span style="color:#f92672">)</span> of Alissa<span style="color:#960050;background-color:#1e0010">&#39;</span>s account passwd.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Extracting from Important.rar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Enter password <span style="color:#f92672">(</span>will not be echoed<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> flag3.png: 
+</span></span></code></pre></div><p>After decompressing the file, we get an image with the flag.</p>
+<p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/flag3.png?raw=true" alt="Third_flag"></p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h3 id="additional-plugins">Additional plugins</h3>
+<p>For extended analysis options in the area of memory forensics, the Volatility Framework offers a series of
+plugins. The <a href="https://github.com/volatilityfoundation/community3">Community3 page of the Volatility Foundation</a> and the <a href="https://github.com/volatilityfoundation/community">Community page for Volatility 2</a> provide a variety of plugins developed by the user community.
+of plugins that have been developed by the user community. The <a href="https://github.com/criminalip/Criminalip-Volatility3-Plugins">Criminalip-Volatility3-Plugins</a> are a special addition that
+special addition that combines Volatility 3 with the Criminal IP CTI search engine to analyse suspicious IPs and domains in memory dumps.
+IPs and domains in memory dumps. These plugins open up new dimensions of forensic analysis.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h3 id="bottom-line">Bottom line</h3>
+<p>Mastering volatility as a programme is just the beginning. The art of analysing memory for forensic investigations lies
+in the interpretation of the extracted data. It requires a deep understanding of operating system internals, knowledge
+of malware behaviours and anomaly detection skills. Experts must not only collect data, but also make connections between
+them to identify potential threats, evidence of unauthorised activity or malware artefacts. The ability to draw the right
+conclusions from the data obtained is critical.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h2 id="references">References</h2>
+<p>[1] <strong>Volatility2</strong>: The Volatility Foundation - A comprehensive open-source framework for memory forensics, specializing in the analysis of Windows, Linux, and MacOS memory images. It offers a wide range of features for detailed examination of memory images. <a href="https://github.com/volatilityfoundation/volatility">https://github.com/volatilityfoundation/volatility</a></p>
+<p>[2] <strong>Volatility3</strong>: The Volatility Foundation - The newer version of the Volatility framework, featuring improved architecture and performance. Specifically designed for more efficient analysis of memory images. <a href="https://github.com/volatilityfoundation/volatility3">https://github.com/volatilityfoundation/volatility3</a></p>
+<p>[3] <strong>awesome-memory-forensics</strong>: Digitalisx - A curated list of excellent resources for Memory Forensics, ideal for DFIR (Digital Forensics and Incident Response). <a href="https://github.com/Digitalisx/awesome-memory-forensics">https://github.com/Digitalisx/awesome-memory-forensics</a></p>
+<p>[4] <strong>MemLabs</strong>: P. Abhiram Kumar, Ritam Dey - Educational labs styled like Capture The Flag challenges for individuals interested in Memory Forensics. <a href="https://github.com/stuxnet999/MemLabs">https://github.com/stuxnet999/MemLabs</a></p>
+<p>[5] <strong>Volatility2 Framework Wiki</strong>: The Volatility Foundation - A Wiki page for the Volatility memory forensics framework, offering guides, plugin information, and case studies. <a href="https://github.com/volatilityfoundation/volatility/wiki">https://github.com/volatilityfoundation/volatility/wiki</a></p>
+<p>[6] <strong>Volatility 3 Documentation</strong>: The Volatility Foundation - Official documentation for Volatility 3, covering installation, user instructions, and plugin details. <a href="https://volatility3.readthedocs.io/en/stable/index.html">https://volatility3.readthedocs.io/en/stable/index.html</a></p>
+<p>[7] <strong>Volatility Foundation Community3</strong>: A collection of additional plugins for Volatility 3, developed by the community to enhance memory forensics. Available at: <a href="https://github.com/volatilityfoundation/community3">https://github.com/volatilityfoundation/community3</a></p>
+<p>[8] <strong>Volatility Foundation Community</strong>: Offers community-contributed plugins for Volatility 2, expanding its forensic analysis capabilities. Available at: <a href="https://github.com/volatilityfoundation/community">https://github.com/volatilityfoundation/community</a></p>
+<p>[9] <strong>Criminalip Volatility3 Plugins</strong>: Integrates Volatility 3 with the Criminal IP CTI search engine for analyzing potential malicious IPs and domains in memory dumps. Available at: <a href="https://github.com/criminalip/Criminalip-Volatility3-Plugins">https://github.com/criminalip/Criminalip-Volatility3-Plugins</a></p>
+<p>[10] <strong>The Art of Memory Forensics</strong>:  M. Hale Ligh, A. Case, J. Levy, A. Walters - Detecting Malware and Threats in Windows, Linux, and Mac Memory. (2014) <a href="https://www.wiley.com/en-us/exportProduct/pdf/9781118824993?__cf_chl_tk=EtztUDDo7H5k1hZd4RPB0yQNK9CjPDeJ7hbOOzpUG7E-1703948296-0-gaNycGzNDHs">Download book</a></p>
+<p>[11] <strong>LiME - Linux Memory Extractor</strong>: A tool for memory dump extraction in Linux environments. Available on GitHub. <a href="https://github.com/504ensicsLabs/LiME">Access Source</a></p>
+<p>[12] <strong>memdump</strong>: A tool for memory dump extraction, included in Kali Linux. <a href="https://www.kali.org/tools/memdump/">Access Source</a></p>
+<p>[13] <strong>pcileech - Direct Memory Access (DMA) Attack Software</strong>: A tool for DMA attacks and memory extraction, developed by Ulf Frisk. Available on GitHub. <a href="https://github.com/ufrisk/pcileech">Access Source</a></p>
+<p>[14] <strong>Generating a Complete Memory Dump in Windows 10</strong>: A guide by Bitdefender on how to create a full memory dump on a Windows 10 system. <a href="https://www.bitdefender.com/business/support/en/77209-90385-generate-a-complete-memory-dump-on-windows-10.html">Access Source</a></p>
+<p>[15] <strong>ProcDump - Creating Dump Files in Windows 10</strong>: A guide by Windows Central on using the ProcDump tool to create memory dumps in Windows 10. <a href="https://www.windowscentral.com/how-use-procdump-create-dump-files-windows-10">Access Source</a></p>
+<p><a href="#contents">**[Back to content]**</a></p>
+<hr>
+<h3 id="license">License</h3>
+<p><strong>CC BY-NC-SA 4.0 Licence</strong></p>
+<p>With this licence, you may use, modify and share the work as long as you credit the original author. However, you may
+not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work,
+it must be shared under the same conditions.</p>
+<p><a href="#contents">**[Back to content]**</a></p>
+</div></article>
+<footer class="py:24">
+    <div class="f:fade-30 f:14 mb:8"></div>
+    <div class="f:fade-60 f:12">Theme <a class="f:bold" href="https://github.com/serkodev/holy" _target="_blank">Holy</a></div>
+</footer></div>
+    </div>
+</body>
+
+</html>

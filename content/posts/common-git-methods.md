@@ -181,7 +181,7 @@ the git add command again.
 
 Here it can be helpful to imagine several working levels:
 
-![stations](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/gitstations.jpg?raw=true)
+![stations](https://github.com/tmwProjects/Blog/blob/master/content/grafics/gitstations.jpg?raw=true)
 
 [**[Back to content]**](#contents)
 
@@ -441,7 +441,7 @@ Here, all changes in the workind directory remain, but all commits **after** the
 are deleted. This means that all changes that have already been committed to the repository with the corresponding 
 commits are returned to the working directory after the above command.
 
-![reset](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/gitreset.jpg?raw=true)
+![reset](https://github.com/tmwProjects/Blog/blob/master/content/grafics/gitreset.jpg?raw=true)
 
 Another important parameter, but one that should be used with caution, is the **--hard** parameter. Here, all commits 
 are also deleted after the corresponding commit hash. The difference to the previous command is that **all** changes 
@@ -566,7 +566,7 @@ When the command is executed, a commit is created as described, which must also 
 In this particular case, this commit message is generated automatically. This makes sense in so far as it may not even 
 be marked in the repository history that this is a revert.
 
-![revert](https://github.com/tmwProjects/HackSide/blob/master/content/grafics/gitrevert.jpg?raw=true)
+![revert](https://github.com/tmwProjects/Blog/blob/master/content/grafics/gitrevert.jpg?raw=true)
 
 You should use this undo command when you want to reverse a commit from your project history. This can be useful, for 
 example, if it turns out that a bug was introduced into the project by a very specific commit. Instead of manually 

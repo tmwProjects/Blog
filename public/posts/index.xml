@@ -23,6 +23,13 @@
       <description>Mastodon is a fascinating and growing platform in the world of social media that offers a fresh and user-friendly user-friendly alternative to the established networks. At its core, Mastodon is a decentralized, open source network that focuses on privacy and user control. It differs from traditional social social media through its unique structure and philosophy.&#xA;Contents What is Mastodon? Decentralized structure How does Mastodon work? What can you do with Mastodon?</description>
     </item>
     <item>
+      <title>Memory forensics with Volatility</title>
+      <link>/posts/volatility/</link>
+      <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
+      <guid>/posts/volatility/</guid>
+      <description>In this post, we explore the world of memory forensics through the lens of the Volatility framework. We delve into the differences between Volatility2 and Volatility3, providing insights into their unique features and capabilities. Setting up Volatility on Linux systems is detailed, covering both versions. The article also touches on the process of memory dumping, highlighting common tools used in this practice. We dive into the analysis of memory images with an emphasis on MemLabs, and discuss additional plugins that extend Volatility&amp;rsquo;s functionality.</description>
+    </item>
+    <item>
       <title>DATA CLEANING METHODS</title>
       <link>/posts/data_cleaning/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>

@@ -5,7 +5,7 @@
     <loc>/tags/blog/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/hugo_hackside/</loc>
+    <loc>/posts/hugo_hackside/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/go-lang/</loc>
@@ -20,7 +20,7 @@
     <loc>/tags/hugo/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2023-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
@@ -29,10 +29,25 @@
     <loc>/tags/cli-tools/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
+    <loc>/tags/dump/</loc>
+    <lastmod>2023-11-12T18:45:35+01:00</lastmod>
+  </url><url>
+    <loc>/tags/forensics/</loc>
+    <lastmod>2023-11-12T18:45:35+01:00</lastmod>
+  </url><url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2023-11-12T18:45:35+01:00</lastmod>
+  </url><url>
     <loc>/tags/mastodon/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/mastodon/</loc>
+    <loc>/posts/mastodon/</loc>
+    <lastmod>2023-11-12T18:45:35+01:00</lastmod>
+  </url><url>
+    <loc>/tags/memory-forensics/</loc>
+    <lastmod>2023-11-12T18:45:35+01:00</lastmod>
+  </url><url>
+    <loc>/posts/volatility/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
     <loc>/tags/microblogging/</loc>
@@ -41,10 +56,13 @@
     <loc>/tags/open-source/</loc>
     <lastmod>2023-11-12T18:45:35+01:00</lastmod>
   </url><url>
+    <loc>/tags/volatility/</loc>
+    <lastmod>2023-11-12T18:45:35+01:00</lastmod>
+  </url><url>
     <loc>/tags/data-cleaning/</loc>
     <lastmod>2023-03-06T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/data_cleaning/</loc>
+    <loc>/posts/data_cleaning/</loc>
     <lastmod>2023-03-06T18:45:35+01:00</lastmod>
   </url><url>
     <loc>/tags/python/</loc>
@@ -56,10 +74,10 @@
     <loc>/tags/project-euler/</loc>
     <lastmod>2023-01-25T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/project_euler/</loc>
+    <loc>/posts/project_euler/</loc>
     <lastmod>2023-01-25T18:45:35+01:00</lastmod>
   </url><url>
-    <loc>/Blog/posts/common-git-methods/</loc>
+    <loc>/posts/common-git-methods/</loc>
     <lastmod>2022-03-06T18:45:35+01:00</lastmod>
   </url><url>
     <loc>/tags/git/</loc>
