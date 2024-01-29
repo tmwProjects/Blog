@@ -1,5 +1,5 @@
 +++
-title = 'Memory forensics with Volatility'
+title = 'MEMORY FORENSICS WITH VOLATILITY'
 date = 2023-11-12T18:45:35+01:00
 draft = true
 author = "tmwProjects"
