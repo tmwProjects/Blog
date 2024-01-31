@@ -36,7 +36,7 @@ helpful, allowing the work processes to be understood concretely. are understood
 
 <br>
 
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ***
 
@@ -100,7 +100,7 @@ git config --global user.mail "Mailadress"</code></pre>
 
 Furthermore, extremely complex configurations are possible.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -138,7 +138,7 @@ hooks  info  objects  refs
 The folder /.git contains various subfolders, which we won't be doing much with at the moment, as Git automatically 
 manages all versions. 
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -153,7 +153,7 @@ In the following, we will first introduce version management with Git. It should
 locally. This means that all changes and subsequent work will be done exclusively on our own computer and nothing will 
 be put online.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### git add - Bridge between working directory and staging area
 
@@ -183,7 +183,7 @@ Here it can be helpful to imagine several working levels:
 
 ![stations](https://github.com/tmwProjects/Blog/blob/master/content/grafics/gitstations.jpg?raw=true)
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### git commit - Bridge between staging area and repository
 
@@ -243,7 +243,7 @@ should only use this command locally on your computer.
 This becomes important when several people are working on a repository. Confusion can arise because not all people 
 working on the repository have the same version on their computer.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### git log - History of the commits
 
@@ -340,7 +340,7 @@ For more information on the parameters use:
 <pre><code>git log -h
 git log --help</code></pre>
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### git diff - Show differences
 
@@ -418,7 +418,7 @@ or
 
 <pre><code>git log -- program.*</code></pre>
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Git reset - revert changes
 
@@ -464,7 +464,7 @@ working directory with the current repository (MASTER):
 But here too, make sure you know what data is in your working directory before you execute the command. This can lead 
 to immense data loss.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Git checkout - Jump to a commit
 
@@ -490,7 +490,7 @@ the following command:
 
 <pre><code>git checkout master</code></pre>
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Git stash - cache changes
 
@@ -546,7 +546,7 @@ You also have the option of using the already introduced command **git diff** to
 in your current working directory. With the stash command and the previously introduced commands, you have creative ways 
 to jump between versions and changes without having to worry about losing recent changes. 
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Git revert - Undo changes (Other way)
 
@@ -580,7 +580,7 @@ commits at any point in the history. git reset, on the other hand, only works re
 The advantage of using revert is that a new commit is created to undo certain changes. This way, no commits are deleted 
 from the commit history or orphaned. git revert is the safer option compared to git reset in terms of losing code. 
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 
 ### Git blame
@@ -633,7 +633,7 @@ For more detailed handling of the **git blame** command, use the following comma
 
 <pre><code>git blame --help</code></pre>
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### .gitignore-Data
 
@@ -808,7 +808,7 @@ This is an example from the repository directly from Github. There are some conc
 languages that can be used freely. For research or direct use, you can find the corresponding .gitignore files 
 [gitignore](https://github.com/github/gitignore ".gitignore").
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -822,7 +822,7 @@ languages that can be used freely. For research or direct use, you can find the 
 
 [4] **TikZ** - Tantau, T. (2013). Graph Drawing in TikZ. In: Didimo, W., Patrignani, M. (eds) Graph Drawing. GD 2012. Lecture Notes in Computer Science, vol 7704. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-36763-2_46
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -834,4 +834,4 @@ With this licence, you may use, modify and share the work as long as you credit 
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work, 
 it must be shared under the same conditions.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)

@@ -17,7 +17,7 @@ user-friendly alternative to the established networks. At its core, Mastodon is 
 open source network that focuses on privacy and user control. It differs from traditional social 
 social media through its unique structure and philosophy.
 
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## Contents
 
@@ -51,7 +51,7 @@ servers known as "instances". Each instance is operated independently and has it
 community norms. This structure allows users to choose a community that suits their interests and values. 
 interests and values.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 # How does Mastodon work?
 
@@ -61,7 +61,7 @@ interests and values.
 >
 >**Content control**: Users have extensive control over what they see and share, including advanced privacy settings and content alerts.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 # What can you do with Mastodon?
 
@@ -73,7 +73,7 @@ interests and values.
 >
 >**Privacy and security**: Benefit from a platform that takes privacy seriously and gives users more control over their data.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 # Why choose Mastodon?
 
@@ -87,7 +87,7 @@ Mastodon is more than just an alternative to traditional social media; it's a co
 openness and diversity. Whether you're a longtime social media user or just looking for a fresh, 
 ethical approach, Mastodon offers an exciting platform to express yourself and connect with others.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 # Mastodon in the browser
 
@@ -96,7 +96,7 @@ web link. There is no special software that we need to install. We simply open o
 enter the URL and we're ready to go. This is ideal for us if we want to access 
 Mastodon quickly and without much effort.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 # Mastodon on the smartphone
 
@@ -110,7 +110,7 @@ Another option is "Fedilab", which offers a variety of features for advanced use
 These apps allow us to conveniently use Mastodon on the go. We can write posts, reply, scroll through 
 scroll through our feed and interact with the community, all directly from our smartphone.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 # Tools and programming
 
@@ -126,7 +126,7 @@ individual way.
 These terminal tools are ideal for us if we have a deeper technical understanding or just want a different way of interacting with Mastodon. 
 way of interacting with Mastodon.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 # Toot-Client
 
@@ -209,7 +209,7 @@ To post, reply or perform other actions, follow the instructions on the screen.
 >
 >**Community**: Use the Mastodon community for tips and support if you encounter challenges.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -229,7 +229,7 @@ To post, reply or perform other actions, follow the instructions on the screen.
 
 [7] **Mastodon.py** - Mastodon.py Project. (2023). "Mastodon.py: Python wrapper for the Mastodon API." GitHub. https://github.com/halcy/Mastodon.py
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -241,4 +241,4 @@ With this licence, you may use, modify and share the work as long as you credit 
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work, 
 it must be shared under the same conditions.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)

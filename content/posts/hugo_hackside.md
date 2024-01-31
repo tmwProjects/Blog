@@ -8,7 +8,8 @@ tags = [
     "Hugo",
     "Blog",
     "HackSide",
-    "Go-Lang"
+    "Go-Lang",
+    "Bash"
 ]
 +++
 
@@ -24,7 +25,7 @@ In this post, I'll take you on a little journey through the steps I took to crea
 of Hugo to the initialization of the HackSide project to the final configuration. You'll see how I used commands in Bash, 
 how I managed my repository on GitHub and how I finally brought my content to life with Hugo.
 
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ***
 
@@ -87,7 +88,7 @@ appearance of our website.
 echo "theme = 'github.com/serkodev/holy'" >> hugo.toml
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Configuration
 
@@ -187,7 +188,7 @@ echo '.hugo_build.lock' >> .gitignore
 
 This is where we create our first post for our website, which marks the beginning of our content production.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Create posts and build site
 
@@ -214,7 +215,7 @@ This command gives us detailed information about the build process of our websit
 hugo -v --debug -D
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Deployment
 
@@ -232,7 +233,7 @@ Finally, the source had to be set to "GitHub Actions" for "Building and Deployme
 "Deploy Hugo site to Pages" had to be started for actions in the repository. Within a few seconds, the process was 
 complete and the raw version of HackSide was online. The specific documentation can be found [here](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -250,7 +251,7 @@ complete and the raw version of HackSide was online. The specific documentation 
 
 [6] **Risotto** - A minimalist, responsive theme inspired by terminal ricing aesthetics. https://themes.gohugo.io/themes/risotto/
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -262,4 +263,4 @@ With this licence, you may use, modify and share the work as long as you credit 
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work, 
 it must be shared under the same conditions.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)

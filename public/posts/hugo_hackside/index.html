@@ -52,7 +52,7 @@ My journey was a fascinating mix of creativity and technical challenge. I came a
     </div>
 </nav>
 <div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
-        <div class="max-w:700 w:full box:content-box">
+        <div class="max-w:900 w:full box:content-box">
 <article class="box:border-box pt:32">
     <header class="mb:32">
         <div class="font:40 font:extrabold">CREATE AND DEPLOY HACKSIDE WITH HUGO</div>
@@ -63,7 +63,7 @@ My journey was a fascinating mix of creativity and technical challenge. I came a
     _:where(a):hover{text-decoration-color:fade}
     _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
     _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
-    _:where(code){font:90%;_v:middle}
+    _:where(code){font:120%;_v:middle}
     _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
     _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
     _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
@@ -105,7 +105,7 @@ but also more enjoyable.</p>
 <p>In this post, I&rsquo;ll take you on a little journey through the steps I took to create HackSide. From the first installation
 of Hugo to the initialization of the HackSide project to the final configuration. You&rsquo;ll see how I used commands in Bash,
 how I managed my repository on GitHub and how I finally brought my content to life with Hugo.</p>
-<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366" alt="License"></a></p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D" alt="License"></a></p>
 <hr>
 <h2 id="contents">Contents</h2>
 <ul>
@@ -136,7 +136,7 @@ project structure.</p>
 </span></span></code></pre></div><p>With this command, we enter the configuration for our selected theme in the Hugo configuration file to determine the
 appearance of our website.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;theme = &#39;github.com/serkodev/holy&#39;&#34;</span> &gt;&gt; hugo.toml
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="configuration">Configuration</h3>
 <p>Now we create and edit the configuration files for our GitHub workflows to ensure seamless integration and automation.
 There is a direct configuration in the Hugo documentation, which only needs to be copied into the file.</p>
@@ -225,7 +225,7 @@ There is a direct configuration in the Hugo documentation, which only needs to b
 </span></span></code></pre></div><p>This command adds the .hugo_build.lock file to our .gitignore so that it is not included in our repository.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;.hugo_build.lock&#39;</span> &gt;&gt; .gitignore
 </span></span></code></pre></div><p>This is where we create our first post for our website, which marks the beginning of our content production.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="create-posts-and-build-site">Create posts and build site</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo new content posts/my-first-post.md
 </span></span></code></pre></div><p>We start our local Hugo server to preview our website and check changes in real time.</p>
@@ -235,7 +235,7 @@ There is a direct configuration in the Hugo documentation, which only needs to b
 </span></span><span style="display:flex;"><span>hugo server -D
 </span></span></code></pre></div><p>This command gives us detailed information about the build process of our website and helps us identify any issues.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>hugo -v --debug -D
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="deployment">Deployment</h3>
 <p>This command sequence is essential for our work with Git. We check the status, add changes, save them with a commit and upload everything to GitHub.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>git status
@@ -246,7 +246,7 @@ There is a direct configuration in the Hugo documentation, which only needs to b
 </span></span></code></pre></div><p>Finally, the source had to be set to &ldquo;GitHub Actions&rdquo; for &ldquo;Building and Deployment&rdquo; on Github and only the workflow
 &ldquo;Deploy Hugo site to Pages&rdquo; had to be started for actions in the repository. Within a few seconds, the process was
 complete and the raw version of HackSide was online. The specific documentation can be found <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">here</a>.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h2 id="references">References</h2>
 <p>[1] <strong>Git</strong> - Chacon, S., Straub, B., et al. (2023). &ldquo;Git Documentation: A Comprehensive Guide for Version Control.&rdquo; Git Community. <a href="https://git-scm.com/doc">https://git-scm.com/doc</a></p>
@@ -255,14 +255,14 @@ complete and the raw version of HackSide was online. The specific documentation 
 <p>[4] <strong>Hugo</strong> - Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again. (2023) <a href="https://gohugo.io/">https://gohugo.io/</a></p>
 <p>[5] <strong>Hugo Documentation</strong> - <a href="https://gohugo.io/documentation/">https://gohugo.io/documentation/</a></p>
 <p>[6] <strong>Risotto</strong> - A minimalist, responsive theme inspired by terminal ricing aesthetics. <a href="https://themes.gohugo.io/themes/risotto/">https://themes.gohugo.io/themes/risotto/</a></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="license">License</h3>
 <p><strong>CC BY-NC-SA 4.0 Licence</strong></p>
 <p>With this licence, you may use, modify and share the work as long as you credit the original author. However, you may
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work,
 it must be shared under the same conditions.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8"></div>

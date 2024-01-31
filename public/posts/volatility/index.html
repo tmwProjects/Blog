@@ -51,7 +51,7 @@
     </div>
 </nav>
 <div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
-        <div class="max-w:700 w:full box:content-box">
+        <div class="max-w:900 w:full box:content-box">
 <article class="box:border-box pt:32">
     <header class="mb:32">
         <div class="font:40 font:extrabold">MEMORY FORENSICS WITH VOLATILITY</div>
@@ -62,7 +62,7 @@
     _:where(a):hover{text-decoration-color:fade}
     _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
     _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
-    _:where(code){font:90%;_v:middle}
+    _:where(code){font:120%;_v:middle}
     _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
     _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
     _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
@@ -99,8 +99,7 @@
 the differences between Volatility2 and Volatility3, providing insights into their unique features and capabilities.
 Setting up Volatility on Linux systems is detailed, covering both versions. The article also touches on the process of
 memory dumping, highlighting common tools used in this practice. We dive into the analysis of memory images with an emphasis
-on MemLabs, and discuss additional plugins that extend Volatility&rsquo;s functionality. Additionally, we cover the use of
-Volshell and the utility of Volatility3 as a library, offering a comprehensive guide for users in the field of digital forensics.</p>
+on MemLabs, and discuss additional plugins that extend Volatility&rsquo;s functionality.</p>
 <p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D" alt="License"></a></p>
 <hr>
 <h2 id="contents">Contents</h2>
@@ -132,13 +131,13 @@ extraction of digital artifacts from volatile memory (RAM) samples. Volatility s
 operating systems, including Windows, Linux, and MacOS. Known for its versatility, it allows investigators to analyze
 RAM images to uncover significant details about system state, processes, network connections, and more, which are crucial
 in digital investigations, especially in scenarios where malware attempts to hide its presence on disk storage.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="differences-between-volatility2-and-volatility3">Differences between Volatility2 and Volatility3</h3>
 <p>The comparison between Volatility 2 and Volatility 3 reveals some significant differences and improvements in the
 functionality and user-friendliness of these forensic tools.</p>
 <p><strong>Custom profiles and kernel support</strong>: A major issue with Volatility 2 was the need to create a custom profile for each custom kernel version.
-custom kernel version. This was not only time consuming, but also
+custom kernel version. This was not only time-consuming, but also
 problematic if the target computer did not have the necessary packages to create these profiles. Volatility 3
 on the other hand, no longer uses fixed profiles and has an extensive library of symbol tables, which makes it
 automatically generate new symbol tables for most Windows memory images. This makes the
@@ -160,7 +159,8 @@ activate or deactivate for each run. This improves usability and efficiency.</p>
 Output is via a TreeGrid object, which allows the library to be used independently of the interface.</p>
 <p><strong>Windows and Linux support</strong>: For Windows memory images, Volatility 3 provides automatic download of symbol tables, while
 symbol tables, while a specific symbol table is still required for Linux.</p>
-<p><strong>Plugins in Volatility 2 vs. Volatility 3</strong></p>
+<hr>
+<h3 id="plugins-in-volatility-2-vs-volatility-3">Plugins in Volatility 2 vs. Volatility 3</h3>
 <p><strong>Plugin development</strong></p>
 <ul>
 <li><strong>Volatility 2</strong>: The development of new plugins requires a deeper understanding of the internal architecture of Volatility 2. Plugins are often specific to certain operating system versions or configurations.</li>
@@ -188,7 +188,7 @@ symbol tables, while a specific symbol table is still required for Linux.</p>
 <ul>
 <li><strong>Volatility 3</strong>: Offers greater flexibility in terms of plugin scope and customisability through its new design. It enables more complex and versatile analysis options compared to Volatility 2.</li>
 </ul>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="set-up-volatility-linux">Set up Volatility (Linux)</h3>
 <h4 id="volatility2">Volatility2</h4>
@@ -201,24 +201,25 @@ symbol tables, while a specific symbol table is still required for Linux.</p>
 <p>Unzip the folder.</p>
 </li>
 <li>
-<p>Rename the image for easier use to &ldquo;vol2&rdquo;</p>
+<p>Rename the image for easier use to <strong>vol2</strong>.</p>
 </li>
 <li>
 <p>Run the executable directly from the command line:</p>
 </li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -h
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
-<p><strong>Installation</strong></p>
+<h3 id="installation">Installation</h3>
 <p><strong>Clone the Volatility repository</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>git clone https://github.com/volatilityfoundation/volatility.git
 </span></span></code></pre></div><p><strong>Navigate to the directory</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>cd volatility
 </span></span></code></pre></div><p><strong>Install dependencies</strong>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>sudo apt-get install pcregrep libpcre++-dev python-dev -y
-</span></span></code></pre></div><p>Run <code>python3 setup.py install</code> to install.</p>
-<p>For more detailed instructions, please visit the <a href="https://github.com/volatilityfoundation/volatility/wiki/Installation">Volatility Installation Wiki</a>.</p>
+</span></span></code></pre></div><p>Run the following command to install:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>python3 setup.py install
+</span></span></code></pre></div><p>For more detailed instructions, please visit the <a href="https://github.com/volatilityfoundation/volatility/wiki/Installation">Volatility Installation Wiki</a>.</p>
 <p><a href="#contents">**[Back to content]**</a></p>
 <hr>
 <h4 id="volatility3">Volatility3</h4>
@@ -238,18 +239,18 @@ symbol tables, while a specific symbol table is still required for Linux.</p>
 </span></span></code></pre></div><p>To check available options:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>python3 vol.py -h.
 </span></span></code></pre></div><p>Symbol tables are essential for memory analysis in Volatility3, and specific packs for different operating systems are
-available for download. After downloading, the symbol table zip files should be placed in the volatility3/symbols directory.
+available for download. After downloading, the symbol table zip files should be placed in the <strong>volatility3/symbols</strong> directory.
 Windows symbols not found in the pack will be downloaded and cached automatically, while Mac and Linux symbols need manual
 generation. The first use of new symbol files in Volatility will require cache updating, which might take some time but
 is a one-time process. Comprehensive symbol tables for Linux are hard to supply due to the variability in kernel compilation.
 For verification of the symbol packs, SHA256, SHA1, and MD5 hashes are provided.</p>
-<p>The Volatility 3 documentation on symbol tables explains their role in memory forensics and provides guidance on obtaining
+<p><strong>The Volatility 3</strong> documentation on symbol tables explains their role in memory forensics and provides guidance on obtaining
 and utilizing them. It highlights the need for specific symbol tables for different operating systems and offers detailed
 steps for downloading these symbol packs. For situations where new symbol tables are required, especially for Linux,
-the documentation recommends using the tool <code>dwarf2json</code>. This tool aids in manually generating symbol tables, addressing
+the documentation recommends using the tool <strong>dwarf2json</strong>. This tool aids in manually generating symbol tables, addressing
 the challenge of diverse Linux kernel versions. More information can be found on the Volatility 3 Documentation page.</p>
 <p>For more detailed instructions, refer to the <a href="https://github.com/volatilityfoundation/volatility3">Volatility 3 GitHub page</a>.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="memory-dump-process">Memory dump process</h3>
 <h4 id="process-tools">Process Tools</h4>
@@ -262,10 +263,10 @@ mentioned:</p>
 <p><strong>Creating a complete memory image under Windows 10</strong>: Windows 10 offers built-in functions for creating memory images. These functions can be configured to automatically create memory images in the event of system crashes or other critical events, which is useful for error analysis and system diagnostics.</p>
 <p><strong>ProcDump</strong>: ProcDump, part of Microsoft&rsquo;s Sysinternals Suite, is an advanced command line utility for Windows. It enables the creation of memory dumps of processes based on various criteria such as CPU utilisation, memory usage or process end. ProcDump offers a variety of options to control the dump process, making it an important tool for developers and system administrators.</p>
 <p>These tools play an important role in various areas such as IT security, system administration and forensic investigations. Each tool offers specific functions and methods to create and analyse memory images, making them valuable resources in their respective application areas.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h4 id="download-samples">Download samples</h4>
-<p>MemLabs is an excellent resource for anyone interested in computer forensics and, in particular, analysing memory dumps.
+<p><strong>MemLabs</strong> is an excellent resource for anyone interested in computer forensics and, in particular, analysing memory dumps.
 Designed as a training environment for Capture The Flag (CTF) challenges, MemLabs provides a collection of memory dumps
 specifically designed for education and training in digital forensics.</p>
 <p>Each lab in MemLabs presents unique challenges based on real-world scenarios. These labs are designed to be suitable for
@@ -276,10 +277,10 @@ as another crucial resource for memory samples in digital forensics and malware 
 collection of memory dumps, ideal for understanding the intricacies of Volatility, a leading memory analysis framework.
 These samples encompass a variety of scenarios, including malware infections and system anomalies, making them invaluable
 for practitioners in cybersecurity and forensic research.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="analysing-memory-image-memlabs">[Analysing memory image (MemLabs)</h3>
-<p>The command vol -f MemoryDump_Lab1.raw windows.info is used to extract basic information about the Windows system from
+<p>The command <strong>vol -f MemoryDump_Lab1.raw windows.info</strong> is used to extract basic information about the Windows system from
 the memory dump MemoryDump_Lab1.raw. This is a typical step in forensic analysis to get an overview of the analysed system.
 However, problems occur here because Volatility 3 cannot write necessary symbol files due to authorisation problems.
 These symbol files are essential for the analysis as they contain the necessary information about the structure of the
@@ -331,10 +332,10 @@ Despite the verbose mode, the problem with the symbol files remains.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Unable to validate the plugin requirements: <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;plugins.Info.kernel.symbol_table_name&#39;</span><span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>The problems with the symbol files are solved by running the following command. This command uses Volatility&rsquo;s pdbconv.py
-script to generate the required symbol file (ntkrnlmp.pdb) based on the GUID (3844DBB920174967BE7AA4A2C20430FA2).</p>
+script to generate the required symbol file <strong>ntkrnlmp.pdb</strong> based on the GUID <strong>3844DBB920174967BE7AA4A2C20430FA2</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>sudo python3 /opt/volatility3/volatility3/framework/symbols/windows/pdbconv.py -p ntkrnlmp.pdb -g 3844DBB920174967BE7AA4A2C20430FA2
 </span></span></code></pre></div><p>After the correct symbol files have been generated and the authorisation issues have been resolved, the command
-&lsquo;vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.info&rsquo; is successfully executed.
+<strong>vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.info</strong> is successfully executed.
 This command specifies the path to the correct symbol files and enables Volatility 3 to successfully analyse the memory
 dump and provide detailed information about the Windows system.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.info
@@ -366,11 +367,13 @@ dump and provide detailed information about the Windows system.</p>
 </span></span><span style="display:flex;"><span>PE MinorOperatingSystemVersion  <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>PE Machine      <span style="color:#ae81ff">34404</span>
 </span></span><span style="display:flex;"><span>PE TimeDateStamp        Sat Nov <span style="color:#ae81ff">20</span> 09:30:02 <span style="color:#ae81ff">2010</span>
-</span></span></code></pre></div><p>We could have gone into every single process, but for the purposes of this article we will only focus on three processes
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
+<hr>
+<p>We could have gone into every single process, but for the purposes of this article we will only focus on three processes
 that are necessary for the CTF game. Analysing the memory dump with the aforementioned command in Volatility reveals that
-&ldquo;cmd&rdquo;, &ldquo;mspaint&rdquo; and &ldquo;WinRAR&rdquo; were active processes at the time of the memory dump. The presence of &ldquo;cmd&rdquo; indicates the
-use of the command line, possibly for system administration or specific tasks. &ldquo;mspaint&rdquo; as an active process indicates
-image editing or graphical activities, while &ldquo;WinRAR&rdquo; indicates use for file compression or archiving.</p>
+<strong>cmd</strong>, <strong>mspaint</strong> and <strong>WinRAR</strong> were active processes at the time of the memory dump. The presence of <strong>cmd</strong> indicates the
+use of the command line, possibly for system administration or specific tasks. <strong>mspaint</strong> as an active process indicates
+image editing or graphical activities, while <strong>WinRAR</strong> indicates use for file compression or archiving.</p>
 <pre tabindex="0"><code>vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.pslist
 
 Volatility 3 Framework 2.4.1
@@ -427,8 +430,8 @@ PID     PPID    ImageFileName   Offset(V)       Threads Handles SessionId       
 2260    368     conhost.exe     0xfa800104a780  2       50      1       False   2019-12-11 14:37:54.000000      N/A     Disabled
 </code></pre><p>After identifying the active processes in the memory image, the next step is to analyse the command line parameters of
 these processes. This provides a deeper insight into the exact actions or commands that were executed in the command line.
-Such an analysis can be informative in order to understand the specific activities within the &ldquo;cmd&rdquo; process. It also
-provides information about any parameters or file paths used in &ldquo;mspaint&rdquo; or &ldquo;WinRAR&rdquo;. These additional details are
+Such an analysis can be informative in order to understand the specific activities within the <strong>cmd</strong> process. It also
+provides information about any parameters or file paths used in <strong>mspaint</strong> or <strong>WinRAR</strong>. These additional details are
 particularly valuable for forensic analyses as they help to paint a more accurate picture of user interactions and system
 usage at the time of the memory dump.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>vol -f MemoryDump_Lab1.raw -s /opt/volatility3/volatility3/framework/symbols/windows/ windows.cmdline        
@@ -485,9 +488,10 @@ usage at the time of the memory dump.</p>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">2868</span>    SearchProtocol  <span style="color:#e6db74">&#34;C:\Windows\system32\SearchProtocolHost.exe&#34;</span> Global<span style="color:#ae81ff">\U</span>sGthrFltPipeMssGthrPipe3_ Global<span style="color:#ae81ff">\U</span>sGthrCtrlFltPipeMssGthrPipe3 <span style="color:#ae81ff">1</span> -2147483646 <span style="color:#e6db74">&#34;Software\Microsoft\Windows Search&#34;</span> <span style="color:#e6db74">&#34;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT; MS Search 4.0 Robot)&#34;</span> <span style="color:#e6db74">&#34;C:\ProgramData\Microsoft\Search\Data\Temp\usgthrsvc&#34;</span> <span style="color:#e6db74">&#34;DownLevelDaemon&#34;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">796</span>     DumpIt.exe      <span style="color:#e6db74">&#34;C:\Users\SmartNet\Downloads\DumpIt\DumpIt.exe&#34;</span> 
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">2260</span>    conhost.exe     <span style="color:#ae81ff">\?</span>?<span style="color:#ae81ff">\C</span>:<span style="color:#ae81ff">\W</span>indows<span style="color:#ae81ff">\s</span>ystem32<span style="color:#ae81ff">\c</span>onhost.exe
-</span></span></code></pre></div><p>After running the cmdline plugin, we can see that WinRAR.exe gives us a hint. An important archive has probably been created:</p>
+</span></span></code></pre></div><p>After running the cmdline plugin, we can see that <strong>WinRAR.exe</strong> gives us a hint. An important archive has probably been created:</p>
 <pre tabindex="0"><code>1512    WinRAR.exe      &#34;C:\Program Files\WinRAR\WinRAR.exe&#34; &#34;C:\Users\Alissa Simpson\Documents\Important.rar&#34;
-</code></pre><blockquote>
+</code></pre><p><a href="#contents"><strong>Back to content</strong></a></p>
+<blockquote>
 <p><strong>HINT:</strong> To obtain a functional command prompt analysis, Volatility2 was employed due to the absence of this feature in the current
 version, Volatility3. This limitation in Volatility3 was addressed in an issue opened in 2022. For practical application,
 the standalone version of Volatility2, specifically designed for Linux, was utilized and renamed to <strong>vol2</strong> for convenience.
@@ -495,9 +499,9 @@ Further details about this specific issue in Volatility3 can be found at <a href
 </blockquote>
 <p>To get possible hints about what happened in the command line, we can use the consoles-plugin:</p>
 <p>In the given output we see an analysis of the console activity on a Windows system. Of particular interest is the section
-relating to the process conhost.exe with process ID 2692, which is attached to cmd.exe (PID 1984). In this console session,
-the command St4G3$1 was executed, which could indicate a specific user interaction or script. The title of the console
-shows &ldquo;C:\Windows\system32\cmd.exe - St4G3$1&rdquo;, which indicates that the command &ldquo;St4G3$1&rdquo; was executed directly in the
+relating to the process <strong>conhost.exe</strong> with process <strong>ID 2692</strong>, which is attached to cmd.exe (PID 1984). In this console session,
+the command <strong>St4G3$1</strong> was executed, which could indicate a specific user interaction or script. The title of the console
+shows &ldquo;C:\Windows\system32\cmd.exe - St4G3$1&rdquo;, which indicates that the command <strong>St4G3$1</strong> was executed directly in the
 command line.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile<span style="color:#f92672">=</span>Win7SP1x64 consoles
 </span></span><span style="display:flex;"><span>
@@ -551,12 +555,7 @@ command line.</p>
 </span></span><span style="display:flex;"><span>                                                                                
 </span></span><span style="display:flex;"><span>    --&gt; Are you sure you want to <span style="color:#66d9ef">continue</span>? <span style="color:#f92672">[</span>y/n<span style="color:#f92672">]</span> y                              
 </span></span><span style="display:flex;"><span>    + Processing...                                 
-</span></span></code></pre></div><p>In the given output we see an analysis of the console activity on a Windows system. Of particular interest is the
-section relating to the process conhost.exe with process ID 2692, which is attached to cmd.exe (PID 1984). In this
-console session, the command St4G3$1 was executed, which could indicate a specific user interaction or script. The title
-of the console shows &ldquo;C:\Windows\system32\cmd.exe - St4G3$1&rdquo;, which indicates that the command &ldquo;St4G3$1&rdquo; was executed
-directly in the command line.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\S</span>martNet&gt;St4G3$1                                                       
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>C:<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\S</span>martNet&gt;St4G3$1                                                       
 </span></span><span style="display:flex;"><span>ZmxhZ3t0aDFzXzFzX3RoM18xc3Rfc3Q0ZzMhIX0<span style="color:#f92672">=</span>  
 </span></span></code></pre></div><p>If you come across a string that consists of a mixture of upper and lower case letters and numbers, this could be an
 indication of base64 encoding. An additional feature is often the presence of one or two &lsquo;=&rsquo; characters at the end,
@@ -567,30 +566,32 @@ storage of binary data as text are common.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>$ echo ZmxhZ3t0aDFzXzFzX3RoM18xc3Rfc3Q0ZzMhIX0<span style="color:#f92672">=</span> | base64 -d
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>flag<span style="color:#f92672">{</span>th1s_1s_th3_1st_st4g3!!<span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>The string was successfully decoded with the command &ldquo;base64 -d&rdquo;, and the result is: &ldquo;flag{th1s_1s_th3_1st_st4g3!!!}&rdquo;.
+</span></span></code></pre></div><p>The string was successfully decoded with the command <strong>base64 -d</strong>, and the result is: <strong>flag{th1s_1s_th3_1st_st4g3!!!}</strong>.
 This confirms that it was indeed a base64-encoded message and the decoding resulted in the plain text
-&ldquo;flag{th1s_1s_th3_1st_st4g3!!!}&rdquo;.</p>
-<p>Let&rsquo;s move on to the <strong>mspaint.exe</strong> process. Since this process shows that MS Paint was used, we may be able to
+<strong>flag{th1s_1s_th3_1st_st4g3!!!}</strong>.</p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
+<hr>
+<p>Let&rsquo;s move on to the <strong>mspaint.exe</strong> process. Since this process shows that <strong>MS Paint</strong> was used, we may be able to
 extract data that could provide a clue:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile<span style="color:#f92672">=</span>Win7SP1x64 memdump -p <span style="color:#ae81ff">2424</span> -D . 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
 </span></span><span style="display:flex;"><span>************************************************************************
 </span></span><span style="display:flex;"><span>Writing mspaint.exe <span style="color:#f92672">[</span>  2424<span style="color:#f92672">]</span> to 2424.dmp
-</span></span></code></pre></div><p>After a memory image has been created for the process with the PID 2424, we rename the file &ldquo;2424.dmp&rdquo;
-to &ldquo;2424.data&rdquo; and try to open it in GIMP. We succeed in obtaining a distorted graphic that is displayed with RGB-Alpha,
+</span></span></code></pre></div><p>After a memory image has been created for the process with the <strong>PID 2424</strong>, we rename the file <strong>2424.dmp</strong>
+to <strong>2424.data</strong> and try to open it in <strong>GIMP</strong>. We succeed in obtaining a distorted graphic that is displayed with RGB-Alpha,
 height, width and offset. This can be seen in the following screenshot:</p>
 <p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/volatility_gimp_lab1.png?raw=true" alt="dump.data"></p>
 <p>If the graphic is rotated and inverted, the following message can be recognised:</p>
 <pre tabindex="0"><code class="language-Bach" data-lang="Bach">flag{G00d_Boy_good_girL}
-</code></pre><p>Now the last process we want to look at is &ldquo;WinRAR.exe&rdquo;. We had previously determined that there was an &ldquo;Important&rdquo;
+</code></pre><p>Now the last process we want to look at is <strong>WinRAR.exe</strong>. We had previously determined that there was an <strong>Important</strong>
 archive that was created, where we want to find out what is contained in this archive:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile Win7SP1x64 cmdline | grep WinRAR
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
 </span></span><span style="display:flex;"><span>WinRAR.exe pid:   <span style="color:#ae81ff">1512</span>
 </span></span><span style="display:flex;"><span>Command line : <span style="color:#e6db74">&#34;C:\Program Files\WinRAR\WinRAR.exe&#34;</span> <span style="color:#e6db74">&#34;C:\Users\Alissa Simpson\Documents\Important.rar&#34;</span>
-</span></span></code></pre></div><p>We see the same archive &ldquo;Important.rar&rdquo; with three different memory addresses in the filescan plugin. Choosing the last
+</span></span></code></pre></div><p>We see the same archive <strong>Important.rar</strong> with three different memory addresses in the <strong>filescan plugin</strong>. Choosing the last
 storage address makes sense, as it usually represents the latest, unchanged version and enables efficient analysis.
 However, this decision depends on the analysis requirements.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile Win7SP1x64 filescan | grep Important.rar
@@ -604,11 +605,11 @@ However, this decision depends on the analysis requirements.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
 </span></span><span style="display:flex;"><span>DataSectionObject 0x3fa3ebc0   None   <span style="color:#ae81ff">\D</span>evice<span style="color:#ae81ff">\H</span>arddiskVolume2<span style="color:#ae81ff">\U</span>sers<span style="color:#ae81ff">\A</span>lissa Simpson<span style="color:#ae81ff">\D</span>ocuments<span style="color:#ae81ff">\I</span>mportant.rar
-</span></span></code></pre></div><p>Now we rename the dump that was created to &ldquo;Important.rar&rdquo;:</p>
+</span></span></code></pre></div><p>Now we rename the dump that was created to <strong>Important.rar</strong>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>mv file.None.0xfffffa8001034450.dat Important.rar
 </span></span></code></pre></div><p>Then we want to unpack the isolated archive to find out what is contained and how we can see it, the archive is password
-protected and has a comment. The password is expected as an NTLM hash (in capital letters) of the password  for Alissa&rsquo;s
-user account.</p>
+protected and has a comment. The password is expected as an <strong>NTLM hash</strong> (in capital letters) of the password for <strong>Alissa&rsquo;s
+user account</strong>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>unrar e Important.rar
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>UNRAR 7.00 beta <span style="color:#ae81ff">3</span> freeware      Copyright <span style="color:#f92672">(</span>c<span style="color:#f92672">)</span> 1993-2023 Alexander Roshal
@@ -620,8 +621,8 @@ user account.</p>
 </span></span><span style="display:flex;"><span>Extracting from Important.rar
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Enter password <span style="color:#f92672">(</span>will not be echoed<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> flag3.png: 
-</span></span></code></pre></div><p>Mit dem hashdump-plugin versuchen wir, Passwort-Hashes aus dem Memory dump zu erhalten.
-Wir haben vorab gesehen, dass ein NTLM hash gesucht wird, die zu einem bestimmten Benutzerkonto gehört.</p>
+</span></span></code></pre></div><p>With the <strong>hashdump-plugin</strong> we try to get password hashes from the memory dump.
+We have seen in advance that an <strong>NTLM hash</strong> is searched for that belongs to a specific user account.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Bash" data-lang="Bash"><span style="display:flex;"><span>./vol2 -f MemoryDump_Lab1.raw --profile Win7SP1x64 hashdump        
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Volatility Foundation Volatility Framework 2.6
@@ -630,9 +631,9 @@ Wir haben vorab gesehen, dass ein NTLM hash gesucht wird, die zu einem bestimmte
 </span></span><span style="display:flex;"><span>SmartNet:1001:aad3b435b51404eeaad3b435b51404ee:4943abb39473a6f32c11301f4987e7e0:::
 </span></span><span style="display:flex;"><span>HomeGroupUser$:1002:aad3b435b51404eeaad3b435b51404ee:f0fc3d257814e08fea06e63c5762ebd5:::
 </span></span><span style="display:flex;"><span>Alissa Simpson:1003:aad3b435b51404eeaad3b435b51404ee:f4ff64c8baac57d22f22edc681055ba6:::
-</span></span></code></pre></div><p>The line &ldquo;Alissa Simpson:1003:aad3b435b51404eeaad3b435b51404ee:f4ff64c8baac57d22f22edc681055ba6:::&rdquo; contains information about the user account
-about the user account &ldquo;Alissa Simpson&rdquo; on the system. The &ldquo;1003&rdquo; is the user ID that uniquely identifies the account.
-The section &ldquo;aad3b435b51404eeaad3b435b51404ee&rdquo; represents the NTLMv2 hash, which is the encrypted password of the user.
+</span></span></code></pre></div><p>The line following line contains information about the user account
+about the user account <strong>Alissa Simpson</strong> on the system. The <strong>1003</strong> is the <strong>user ID</strong> that uniquely identifies the account.
+The section <strong>aad3b435b51404eeaad3b435b51404ee</strong> represents the NTLMv2 hash, which is the encrypted password of the user.
 user&rsquo;s encrypted password. It is worth noting that the LM hash (LAN Manager hash) is not used, as indicated by the empty
 field &ldquo;:::&rdquo;. The LM hash is an outdated and less secure form of password representation, while the
 NTLMv2 hash is favoured in modern Windows systems to increase security.</p>
@@ -653,7 +654,7 @@ NTLMv2 hash is favoured in modern Windows systems to increase security.</p>
 </span></span><span style="display:flex;"><span>Enter password <span style="color:#f92672">(</span>will not be echoed<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> flag3.png: 
 </span></span></code></pre></div><p>After decompressing the file, we get an image with the flag.</p>
 <p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/flag3.png?raw=true" alt="Third_flag"></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="additional-plugins">Additional plugins</h3>
 <p>For extended analysis options in the area of memory forensics, the Volatility Framework offers a series of
@@ -661,7 +662,7 @@ plugins. The <a href="https://github.com/volatilityfoundation/community3">Commun
 of plugins that have been developed by the user community. The <a href="https://github.com/criminalip/Criminalip-Volatility3-Plugins">Criminalip-Volatility3-Plugins</a> are a special addition that
 special addition that combines Volatility 3 with the Criminal IP CTI search engine to analyse suspicious IPs and domains in memory dumps.
 IPs and domains in memory dumps. These plugins open up new dimensions of forensic analysis.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="bottom-line">Bottom line</h3>
 <p>Mastering volatility as a programme is just the beginning. The art of analysing memory for forensic investigations lies
@@ -669,7 +670,7 @@ in the interpretation of the extracted data. It requires a deep understanding of
 of malware behaviours and anomaly detection skills. Experts must not only collect data, but also make connections between
 them to identify potential threats, evidence of unauthorised activity or malware artefacts. The ability to draw the right
 conclusions from the data obtained is critical.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h2 id="references">References</h2>
 <p>[1] <strong>Volatility2</strong>: The Volatility Foundation - A comprehensive open-source framework for memory forensics, specializing in the analysis of Windows, Linux, and MacOS memory images. It offers a wide range of features for detailed examination of memory images. <a href="https://github.com/volatilityfoundation/volatility">https://github.com/volatilityfoundation/volatility</a></p>
@@ -687,14 +688,14 @@ conclusions from the data obtained is critical.</p>
 <p>[13] <strong>pcileech - Direct Memory Access (DMA) Attack Software</strong>: A tool for DMA attacks and memory extraction, developed by Ulf Frisk. Available on GitHub. <a href="https://github.com/ufrisk/pcileech">Access Source</a></p>
 <p>[14] <strong>Generating a Complete Memory Dump in Windows 10</strong>: A guide by Bitdefender on how to create a full memory dump on a Windows 10 system. <a href="https://www.bitdefender.com/business/support/en/77209-90385-generate-a-complete-memory-dump-on-windows-10.html">Access Source</a></p>
 <p>[15] <strong>ProcDump - Creating Dump Files in Windows 10</strong>: A guide by Windows Central on using the ProcDump tool to create memory dumps in Windows 10. <a href="https://www.windowscentral.com/how-use-procdump-create-dump-files-windows-10">Access Source</a></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="license">License</h3>
 <p><strong>CC BY-NC-SA 4.0 Licence</strong></p>
 <p>With this licence, you may use, modify and share the work as long as you credit the original author. However, you may
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work,
 it must be shared under the same conditions.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8"></div>

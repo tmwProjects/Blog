@@ -6,8 +6,43 @@
     <description>Recent content in Tags on HackSide $</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jan 2024 18:45:35 +0100</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iris dataset</title>
+      <link>/tags/iris-dataset/</link>
+      <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
+      <guid>/tags/iris-dataset/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PCA</title>
+      <link>/tags/pca/</link>
+      <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
+      <guid>/tags/pca/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>statistics</title>
+      <link>/tags/statistics/</link>
+      <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
+      <guid>/tags/statistics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>visualisation</title>
+      <link>/tags/visualisation/</link>
+      <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
+      <guid>/tags/visualisation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bash</title>
+      <link>/tags/bash/</link>
+      <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>/tags/bash/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Blog</title>
       <link>/tags/blog/</link>

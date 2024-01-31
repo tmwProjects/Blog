@@ -51,7 +51,7 @@
     </div>
 </nav>
 <div class="d:flex flex:column@<=sm pt:90 px:24 jc:center gap:44 word-break:break-word">
-        <div class="max-w:700 w:full box:content-box">
+        <div class="max-w:900 w:full box:content-box">
 <article class="box:border-box pt:32">
     <header class="mb:32">
         <div class="font:40 font:extrabold">DATA CLEANING METHODS</div>
@@ -62,7 +62,7 @@
     _:where(a):hover{text-decoration-color:fade}
     _:where(a){text-decoration:2;underline;fade-10;_text-decoration-color:fade-70@dark}
     _:where(blockquote){bl:5;solid;fade-76/.1;_bl:5;solid;fade-34/.1@dark}
-    _:where(code){font:90%;_v:middle}
+    _:where(code){font:120%;_v:middle}
     _:where(code:not(.highlight_*,pre_*)){p:2;6;_r:4}
     _:where(del){text-decoration:1;line-through;fade-68;_text-decoration-color:red-64@dark}
     _:where(figcaption){text:14;_p:10;20;0;_width:fit;_mx:auto;_font:fade-56;_font:fade-57@dark}
@@ -105,7 +105,7 @@ effectiveness and efficiency of their work, leading to meaningful and insightful
 important to note that each data set is a new challenge and one should not be tempted to run a quickly assembled script
 over a data set. Especially in a scientific context, a lot of analysis and planning is required. Writing code, running it,
 and possibly having a matching dataset is only a small part.</p>
-<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366" alt="License"></a></p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D" alt="License"></a></p>
 <hr>
 <h2 id="contents">Contents</h2>
 <ul>
@@ -172,7 +172,7 @@ lack of visual tools, lack of immediate feedback, more complicated installation 
 for small or simple data sets. These drawbacks stem mainly from the programming expertise required and the additional
 effort required for scripting and execution. However, Python remains a powerful and flexible option for data cleaning
 for larger, more complex data sets and advanced requirements.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="workflow">Workflow</h3>
 <ol>
@@ -219,7 +219,7 @@ for larger, more complex data sets and advanced requirements.</p>
 ↓</li>
 <li>Documentation</li>
 </ol>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="data-quality---defining-requirements-for-data">Data Quality - Defining Requirements for Data</h3>
 <p>When analyzing data, five data quality criteria can be applied to quantify the data&rsquo;s quality. These criteria include
@@ -245,7 +245,7 @@ data quality criteria in advance.</p>
 <p><strong>Freedom from Redundancy</strong>: This step also addresses redundancy by removing duplicate or redundant data.</p>
 </li>
 </ol>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h2 id="analysis-of-the-data">Analysis of the data</h2>
 <p>Review of the raw data - checklist</p>
@@ -272,7 +272,7 @@ data quality criteria in advance.</p>
 <p><strong>Readiness for Statistical Analyses</strong>: Confirm that the data are sufficient and appropriate for the intended statistical analyses, and outline necessary steps for data preparation.</p>
 </li>
 </ol>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="loading-the-data-set">Loading the data set</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
@@ -286,7 +286,7 @@ data quality criteria in advance.</p>
 </span></span></code></pre></div><p>If the dataset is not displayed correctly due to incorrect column names, the skiprows parameter should be used:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;path/to/Data.csv&#39;</span>, skiprows<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)  
 </span></span></code></pre></div><p>If necessary, the usecols parameter can be used to remove additional columns.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="missing-data">Missing data</h3>
 <h4 id="technique-1-missing-data-heatmap">Technique 1: Missing data heatmap</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> missingno <span style="color:#66d9ef">as</span> msno
@@ -318,7 +318,7 @@ data quality criteria in advance.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
 </span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/missingno_sorted.png?raw=true" alt="Sorted heatmap"></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h4 id="technique-2-percentage-list-of-missing-data">Technique 2: Percentage list of missing data</h4>
 <p>Create a list with the percentages of missing values.</p>
@@ -343,7 +343,7 @@ data quality criteria in advance.</p>
 </span></span><span style="display:flex;"><span>Column: Latitude, Missing Values: 0%
 </span></span><span style="display:flex;"><span>Column: Units, Missing Values: 26%
 </span></span><span style="display:flex;"><span>Column: Item_Group, Missing Values: 0%
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="create-a-backup-copy-of-the-filetable">Create a backup copy of the file/table</h3>
 <p>Before performing data cleansing, it is advisable to create a copy of the original and erroneous data to ensure the
 traceability of the cleansing and to guarantee an audit-proof procedure. Simply deleting the original data after the
@@ -351,7 +351,7 @@ cleanup is not recommended, as this would make it impossible to verify possible 
 especially in the case of multiple cleanup runs, is to store the corrected value in an additional column or row.
 If there are a large number of columns and rows to be corrected, it may also make sense to create a separate table.
 The decision which method to choose depends on various factors, including the available storage space.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="data-standardization">Data standardization</h3>
 <h4 id="some-examples">Some examples</h4>
 <p><strong>Uniform Units of Measurement</strong>:</p>
@@ -440,7 +440,7 @@ This includes reviewing sampling, analytical procedures, and data entry.</p>
 </span></span><span style="display:flex;"><span>duplicate_sample_ids <span style="color:#f92672">=</span> data[data<span style="color:#f92672">.</span>duplicated(subset<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SampleID&#39;</span>, keep<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)]
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> duplicate_sample_ids<span style="color:#f92672">.</span>empty:
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;Duplicate in SampleID: </span><span style="color:#e6db74">{</span>duplicate_sample_ids[<span style="color:#e6db74">&#34;SampleID&#34;</span>]<span style="color:#f92672">.</span>tolist()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>)
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="data-types---technical-level">Data Types - Technical level</h3>
 <h4 id="data-type-1-inconsistent-data">Data type 1: Inconsistent data</h4>
@@ -509,7 +509,7 @@ These should be removed:</p>
 </span></span></code></pre></div><p>In the context of the Tidy Data structure it becomes indispensable to pay attention to these hurdles.</p>
 <p>Before you want to set out to remove missing values or possibly even use complex methods to fill them in, take a closer
 look at the data set. You may be able to extract missing values based on valid information from the dataset.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h4 id="data-type-2-irregular-data-outliers">Data type 2: Irregular data (outliers)</h4>
 <p>If the values are numeric, we can use a histogram and boxplot to detect outliers. The disadvantage of boxplots can be
 that numerical outliers can be very pronounced and that this is not correctly represented in the boxplot. However,
@@ -549,7 +549,7 @@ the advantage of boxplots is that you can quickly visually see if the values are
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
 </span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true" alt="Boxplot"></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h5 id="histogram-of-observations">Histogram of observations</h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt  
@@ -566,7 +566,7 @@ the advantage of boxplots is that you can quickly visually see if the values are
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(<span style="color:#e6db74">&#39;Hist_mno.png&#39;</span>)  
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
 </span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/Hist_mno.png?raw=true" alt="Histogram"></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h5 id="descriptive-statistics">Descriptive statistics</h5>
 <p>Then we can use the methods of descriptive statistics. Here it can be helpful to find out whether a characteristic and
 its values are normally distributed or not. For example, the Shapiro-Wilk test can be used for this purpose.</p>
@@ -621,7 +621,7 @@ project.Outliers are innocent until proven guilty. Other than that, they should 
 valid reason to do so.</p>
 <p>Suitable methods are still to use to detect anomalies/outliers algorithms. Two are presented here that are
 included in <strong>sklearn</strong> by default:</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="lof---local-outlier-factors">LOF - Local Outlier Factors</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.neighbors <span style="color:#f92672">import</span> LocalOutlierFactor  
@@ -672,7 +672,7 @@ included in <strong>sklearn</strong> by default:</p>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>    4.28   0.09  0.03  0.950  102.0  ...  82.0  17.100  1.960  13.00        <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>   3.42   0.83  3.24  0.261  103.0  ...  74.0   3.270  0.390   2.70        <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>   3.13   7.00  0.00  0.750    0.0  ...  68.0   0.000  0.330   2.65        <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="isolation-forest">Isolation Forest</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd  
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.ensemble <span style="color:#f92672">import</span> IsolationForest  
@@ -725,7 +725,7 @@ included in <strong>sklearn</strong> by default:</p>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>   3.13   7.00  0.00  0.750    0.0  ...  68.0   0.000  0.330   2.65        <span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>Depending on the specific goals of a study and the available data, these and other algorithms and methods can help
 extract the information and insights needed to answer your scientific questions.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h2 id="data-types---meaning-level">Data Types - Meaning level</h2>
 <h3 id="type-1-non-informativerepetitive">Type 1: Non-informative/repetitive</h3>
@@ -784,7 +784,7 @@ example would be to show us columns where over 95% of the rows have the same val
 </span></span></code></pre></div><p>In such cases the individual columns/values must be examined individually whether they are informative or not. It is
 important to find out the decisive reason why the values are repeated. If the values are not informative, they can
 be removed.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="type-2-irrelevant-data-type">Type 2: Irrelevant data type</h3>
 <p>The quality of the data collected plays an essential role in providing meaningful information for the successful
 implementation of a project. Characteristics that are not related to the project&rsquo;s problem are irrelevant to the analysis.</p>
@@ -814,7 +814,7 @@ of data in one column, which we have to handle separately. In this case we can u
 </span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>head()
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>drop(<span style="color:#e6db74">&#39;author, column&#39;</span>, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)  
 </span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">15</span>)
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h4 id="duplicate-type-1">Duplicate Type 1</h4>
 <p>In geochemistry, datasets may contain duplicates where all variable values within an observation are the same.
 Identifying and removing such duplicates is an important step in data preparation to ensure the integrity and validity
@@ -829,7 +829,7 @@ of statistical analyses.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Original DataFrame shape: <span style="color:#f92672">(</span>12, 49<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>Deduplicated DataFrame shape: <span style="color:#f92672">(</span>12, 48<span style="color:#f92672">)</span>
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h4 id="duplicate-type-2">Duplicate Type 2</h4>
 <p>In some cases, it is appropriate to weed out redundant records based on a set of specific, unique identifiers.</p>
 <p>For example, in a geochemical context, it is extremely unlikely that two samples will be collected at exactly the same
@@ -869,7 +869,7 @@ These characteristics can be used to identify and remove possible duplicates.</p
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>12, 49<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>12, 49<span style="color:#f92672">)</span>
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="scaling-transformation-and-normalization">Scaling, transformation and normalization</h3>
 <p>Scaling and transformation refer to the fitting of data to a specific scale, such as in the range of 0-100 or 0-1.
 This can facilitate the presentation and interpretation of data, especially in reducing skewness and handling outliers.
@@ -943,7 +943,7 @@ visualization and improve comparability of data points within a dataset.</p>
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">0</span> 0.000007 0.373134 0.119048 ...   0.25641 WT% mj
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> 0.000007 0.452489 0.025063 ...   0.25641 WT% mj
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> 0.000007 0.980392 0.032895 ...   0.25641 PPM ree
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h2 id="cleaning-the-data">Cleaning the data</h2>
 <h3 id="missing-values">Missing values</h3>
@@ -992,7 +992,7 @@ visualization and improve comparability of data points within a dataset.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># replace missing categorical values in &#39;Units&#39; column with &#39;Missing</span>
 </span></span><span style="display:flex;"><span>data_category_flagged <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>fillna({<span style="color:#e6db74">&#39;Units&#39;</span>: <span style="color:#e6db74">&#39;Missing&#39;</span>})
-</span></span></code></pre></div><p><a href="#contents">**[Back to content]**</a></p>
+</span></span></code></pre></div><p><a href="#contents"><strong>Back to content</strong></a></p>
 <h2 id="verification">Verification</h2>
 <p>Verification should be performed both <strong>before</strong> and <strong>after</strong> scaling, transformation, and normalization. Performing
 verification before scaling ensures that the changes made in the data cleaning process are correct and will not have
@@ -1023,7 +1023,7 @@ the relationships between columns are as expected.</p>
 </span></span><span style="display:flex;"><span>profile <span style="color:#f92672">=</span> ProfileReport(data[columns_to_profile], title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dataset&#34;</span>)  
 </span></span><span style="display:flex;"><span>profile<span style="color:#f92672">.</span>to_file(<span style="color:#e6db74">&#34;dataset.html&#34;</span>)
 </span></span></code></pre></div><p><img src="https://github.com/tmwProjects/Blog/blob/master/content/grafics/report.png?raw=true" alt="Report"></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h2 id="documentation">Documentation</h2>
 <p>Documentation of the data cleaning process is an essential part of processing geochemical data sets. Careful
@@ -1053,7 +1053,7 @@ related to geochemical datasets, there are several aspects to consider:</p>
 <p><strong>Versioning and Change History</strong>: Maintain a change history of the various versions of your Data Cleaning scripts and documentation to facilitate collaboration and tracking of changes over time.</p>
 </li>
 </ol>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="references">References</h3>
 <p><strong>Walker, M. (2020)</strong>
@@ -1077,14 +1077,14 @@ Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O.,
 Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., &hellip; &amp; SciPy 1.0 Contributors. (2020). &ldquo;Array programming with NumPy.&rdquo; Nature, 585(7825), pp. 357-362.</p>
 <p><strong>ydata_profiling.ProfileReport</strong>
 As of my knowledge cutoff in September 2021, there was no specific scientific literature available for the ydata_profiling library. It&rsquo;s recommended to cite the library&rsquo;s GitHub repository: <a href="https://github.com/ydataai/ydata-quality">https://github.com/ydataai/ydata-quality</a></p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h3 id="license">License</h3>
 <p><strong>CC BY-NC-SA 4.0 Licence</strong></p>
 <p>With this licence, you may use, modify and share the work as long as you credit the original author. However, you may
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work,
 it must be shared under the same conditions.</p>
-<p><a href="#contents">**[Back to content]**</a></p>
+<p><a href="#contents"><strong>Back to content</strong></a></p>
 </div></article>
 <footer class="py:24">
     <div class="f:fade-30 f:14 mb:8"></div>

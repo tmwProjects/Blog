@@ -22,7 +22,7 @@ important to note that each data set is a new challenge and one should not be te
 over a data set. Especially in a scientific context, a lot of analysis and planning is required. Writing code, running it, 
 and possibly having a matching dataset is only a small part.
 
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-003366)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ***
 
@@ -73,7 +73,7 @@ for small or simple data sets. These drawbacks stem mainly from the programming 
 effort required for scripting and execution. However, Python remains a powerful and flexible option for data cleaning 
 for larger, more complex data sets and advanced requirements.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -110,7 +110,7 @@ for larger, more complex data sets and advanced requirements.
    ↓
 8) Documentation
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -133,7 +133,7 @@ data quality criteria in advance.
 
 5. **Freedom from Redundancy**: This step also addresses redundancy by removing duplicate or redundant data.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -155,7 +155,7 @@ Review of the raw data - checklist
 
 7. **Readiness for Statistical Analyses**: Confirm that the data are sufficient and appropriate for the intended statistical analyses, and outline necessary steps for data preparation.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -180,7 +180,7 @@ df = pd.read_csv('path/to/Data.csv', skiprows=2)
 
 If necessary, the usecols parameter can be used to remove additional columns.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Missing data
 
@@ -225,7 +225,7 @@ plt.show()
 
 ![Sorted heatmap](https://github.com/tmwProjects/Blog/blob/master/content/grafics/missingno_sorted.png?raw=true)
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -260,7 +260,7 @@ Column: Units, Missing Values: 26%
 Column: Item_Group, Missing Values: 0%
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Create a backup copy of the file/table
 
@@ -271,7 +271,7 @@ especially in the case of multiple cleanup runs, is to store the corrected value
 If there are a large number of columns and rows to be corrected, it may also make sense to create a separate table. 
 The decision which method to choose depends on various factors, including the available storage space.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Data standardization
 
@@ -399,7 +399,7 @@ if not duplicate_sample_ids.empty:
     print(f'Duplicate in SampleID: {duplicate_sample_ids["SampleID"].tolist()}')
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -505,7 +505,7 @@ In the context of the Tidy Data structure it becomes indispensable to pay attent
 Before you want to set out to remove missing values or possibly even use complex methods to fill them in, take a closer 
 look at the data set. You may be able to extract missing values based on valid information from the dataset. 
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 #### Data type 2: Irregular data (outliers)
 
@@ -554,7 +554,7 @@ plt.show()
 
 ![Boxplot](https://github.com/tmwProjects/Blog/blob/master/content/grafics/boxplot_with_sample_ids.png?raw=true)
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ##### Histogram of observations
 
@@ -577,7 +577,7 @@ plt.show()
 
 ![Histogram](https://github.com/tmwProjects/Blog/blob/master/content/grafics/Hist_mno.png?raw=true)
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ##### Descriptive statistics
 
@@ -644,7 +644,7 @@ valid reason to do so.
 Suitable methods are still to use to detect anomalies/outliers algorithms. Two are presented here that are 
 included in **sklearn** by default:
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### LOF - Local Outlier Factors
 
@@ -703,7 +703,7 @@ Inliers:
 11   3.13   7.00  0.00  0.750    0.0  ...  68.0   0.000  0.330   2.65        1
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Isolation Forest
 
@@ -765,7 +765,7 @@ Inliers:
 Depending on the specific goals of a study and the available data, these and other algorithms and methods can help 
 extract the information and insights needed to answer your scientific questions.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -836,7 +836,7 @@ In such cases the individual columns/values must be examined individually whethe
 important to find out the decisive reason why the values are repeated. If the values are not informative, they can 
 be removed.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Type 2: Irrelevant data type
 
@@ -888,7 +888,7 @@ df.drop('author, column', axis=1, inplace=True)
 df.head(15)
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 #### Duplicate Type 1
 
@@ -913,7 +913,7 @@ Original DataFrame shape: (12, 49)
 Deduplicated DataFrame shape: (12, 48)
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 #### Duplicate Type 2
 
@@ -965,7 +965,7 @@ print(df_dedupped2.shape)
 (12, 49)
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ### Scaling, transformation and normalization
 
@@ -1049,7 +1049,7 @@ Inverse-transformed data:
 2 0.000007 0.980392 0.032895 ...   0.25641 PPM ree
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -1115,7 +1115,7 @@ data_zero_filled = data.fillna(0)
 data_category_flagged = data.fillna({'Units': 'Missing'})
 ```
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ## Verification
 
@@ -1172,7 +1172,7 @@ profile.to_file("dataset.html")
 
 ![Report](https://github.com/tmwProjects/Blog/blob/master/content/grafics/report.png?raw=true)
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -1197,7 +1197,7 @@ related to geochemical datasets, there are several aspects to consider:
     
 7. **Versioning and Change History**: Maintain a change history of the various versions of your Data Cleaning scripts and documentation to facilitate collaboration and tracking of changes over time.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -1234,7 +1234,7 @@ Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., C
 **ydata_profiling.ProfileReport**
 As of my knowledge cutoff in September 2021, there was no specific scientific literature available for the ydata_profiling library. It's recommended to cite the library's GitHub repository: https://github.com/ydataai/ydata-quality
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)
 
 ***
 
@@ -1246,4 +1246,4 @@ With this licence, you may use, modify and share the work as long as you credit 
 not use it for commercial purposes, i.e. you may not make money from it. And if you make changes and share the new work, 
 it must be shared under the same conditions.
 
-[**[Back to content]**](#contents)
+[**Back to content**](#contents)

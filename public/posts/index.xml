@@ -6,8 +6,15 @@
     <description>Recent content in Posts on HackSide $</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jan 2024 18:45:35 +0100</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IRIS DATASET</title>
+      <link>/posts/iris_dataset/</link>
+      <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
+      <guid>/posts/iris_dataset/</guid>
+      <description>In this post, we explore the Iris dataset, a well-known dataset containing information about three Iris species. We start by importing necessary Python modules for data analysis. The dataset includes four numeric attributes for each species: sepal length, sepal width, petal length, and petal width. It contains 150 samples in total and is commonly used for classification tasks.&#xA;We check for missing values in the dataset and find that it&amp;rsquo;s clean, with no null entries.</description>
+    </item>
     <item>
       <title>CREATE AND DEPLOY HACKSIDE WITH HUGO</title>
       <link>/posts/hugo_hackside/</link>
