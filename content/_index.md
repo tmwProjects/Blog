@@ -45,9 +45,14 @@ Thank you very much for your support!
 [![HackSide](https://img.shields.io/badge/Visit-HackSide_$-003366)](https://tmwprojects.github.io/Blog/)
 ```
 
-[![Donate on Liberapay](https://img.shields.io/badge/Donate-Liberapay-yellow)](https://liberapay.com/tmwProjects/donate) [![Donate on BuyMeACoffee](https://img.shields.io/badge/Donate-BuyMeACoffee-orange)](https://www.buymeacoffee.com/tmwcontactQ) [![Visit my site](https://img.shields.io/badge/Visit%20my%20site-Online-important)](https://tmwprojects.github.io/) [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftmwprojects.github.io%2FBlog%2F&count_bg=%23003366&title_bg=%23555555&icon=&icon_color=%23003366&title=Visits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Donate on Liberapay](https://img.shields.io/badge/Donate-Liberapay-yellow)](https://liberapay.com/tmwProjects/donate) 
+[![Donate on BuyMeACoffee](https://img.shields.io/badge/Donate-BuyMeACoffee-orange)](https://www.buymeacoffee.com/tmwcontactQ) 
+[![Visit my site](https://img.shields.io/badge/Visit%20my%20site-Online-important)](https://tmwprojects.github.io/) 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftmwprojects.github.io%2FBlog%2F&count_bg=%23003366&title_bg=%23555555&icon=&icon_color=%23003366&title=Visits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 <a href='http://www.catb.org/hacker-emblem/'>
-<img src='http://www.catb.org/hacker-emblem/glider.png' alt='hacker emblem' style="float:right"/></a>
+<img src='http://www.catb.org/hacker-emblem/glider.png' alt='hacker emblem' style="float:left"/></a>
+
+
 
 ***
