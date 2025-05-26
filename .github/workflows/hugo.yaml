@@ -52,13 +52,13 @@ jobs:
 
       - name: Build with Hugo
         env:
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
+            HUGO_ENVIRONMENT: production
+            HUGO_ENV: production
         run: |
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "https://tmwprojects.github.io/Blog/"
 
       # ✅ Fix für fehlende upload-artifact@v3 (lädt v4 vor)
       - name: Workaround: Upload dummy artifact
