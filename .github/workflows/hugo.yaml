@@ -64,6 +64,12 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./public
+      - name:
+          Workaround: Upload dummy artifact (avoids v3 error)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dummy
+          path: ./public/index.html
 
   deploy:
     needs: build
