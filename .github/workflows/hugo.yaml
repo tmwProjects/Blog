@@ -1,81 +1,87 @@
-# Sample workflow for building and deploying a Hugo site to GitHub Pages
+# Workflow zum Bauen und Deployen einer Hugo-Website auf GitHub Pages
 name: Deploy Hugo site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Bei Pushes auf den main-Branch ausführen
   push:
     branches:
       - main
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Manuelles Ausführen über die GitHub Actions-Oberfläche erlauben
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Berechtigungen für den GITHUB_TOKEN
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Nur eine Deployment-Instanz gleichzeitig zulassen
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# Default to bash
+# Standard-Shell
 defaults:
   run:
     shell: bash
 
 jobs:
-  # Build job
+  # Build-Job
   build:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.121.0
+
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb          
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
-      - name: Cleanup old caches
-        run: sudo rm -rf /opt/hostedtoolcache
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
-      - name: Setup Pages
+
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
+
+      - name: Setup GitHub Pages
         id: pages
         uses: actions/configure-pages@v4
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
+      - name: Install Node.js dependencies (optional)
+        run: |
+          if [[ -f package-lock.json || -f npm-shrinkwrap.json ]]; then
+            npm ci
+          fi
+
       - name: Build with Hugo
         env:
-          # For maximum backward compatibility with Hugo modules
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
 
-
-  # Deployment job
+  # Deploy-Job
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
