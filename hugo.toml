@@ -1,5 +1,5 @@
 baseURL = "https://tmwprojects.github.io/Blog/"
-relativeURLs = true
+relativeURLs = false
 canonifyURLs = true
 languageCode = 'en-us'
 title = 'HackSide $'
