@@ -1,4 +1,4 @@
-baseURL = "https://tmwprojects.github.io/Blog/"
+baseURL = "https://tmwprojects.github.io/Blog/public/"
 relativeURLs = false
 canonifyURLs = true
 languageCode = 'en-us'
