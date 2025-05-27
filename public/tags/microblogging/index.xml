@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microblogging on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/tags/microblogging/</link>
+    <link>https://tmwprojects.github.io/Blog/tags/microblogging/</link>
     <description>Recent content in Microblogging on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Nov 2023 18:45:35 +0100</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/microblogging/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/tags/microblogging/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MASTODON AND ITS TOOLS</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/mastodon/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/mastodon/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/mastodon/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/mastodon/</guid>
       <description>&lt;p&gt;Mastodon is a fascinating and growing platform in the world of social media that offers a fresh and user-friendly&#xA;user-friendly alternative to the established networks. At its core, Mastodon is a decentralized,&#xA;open source network that focuses on privacy and user control. It differs from traditional social&#xA;social media through its unique structure and philosophy.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D&#34; alt=&#34;License&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#what-is-mastodon&#34;&gt;What is Mastodon?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#decentralized-structure&#34;&gt;Decentralized structure&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#how-does-mastodon-work&#34;&gt;How does Mastodon work?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#what-can-you-do-with-mastodon&#34;&gt;What can you do with Mastodon?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#why-choose-mastodon&#34;&gt;Why choose Mastodon?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mastodon-in-the-browser&#34;&gt;Mastodon in the browser&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mastodon-on-the-smartphone&#34;&gt;Mastodon on the smartphone&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tools-and-programming&#34;&gt;Tools and programming&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#toot-client&#34;&gt;Toot-Client&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#installation-of-toot&#34;&gt;Installation of Toot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#login-to-mastodon&#34;&gt;Login to Mastodon&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#basic-commands&#34;&gt;Basic commands&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#advanced-functions&#34;&gt;Advanced functions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#use-of-toot-tui&#34;&gt;Use of Toot TUI&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tips-for-use&#34;&gt;Tips for use&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#license&#34;&gt;License&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;what-is-mastodon&#34;&gt;What is Mastodon?&lt;/h1&gt;&#xA;&lt;p&gt;Mastodon is a microblogging service, similar to Twitter (X), but with some key differences that make it special.&#xA;make it special. It was launched in 2016 and has had a steadily growing user base ever since.&lt;/p&gt;</description>
     </item>
   </channel>

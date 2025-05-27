@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/tags/hugo/</link>
+    <link>https://tmwprojects.github.io/Blog/tags/hugo/</link>
     <description>Recent content in Hugo on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 11 Dec 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CREATE AND DEPLOY HACKSIDE WITH HUGO</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/hugo_hackside/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/hugo_hackside/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/hugo_hackside/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/hugo_hackside/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m excited to share with you how I created HackSide with the help of Hugo. My adventure began on a rainy day when I&#xA;decided to turn my ideas and technical skills into a unique digital project.&lt;/p&gt;&#xA;&lt;p&gt;My journey was a fascinating mix of creativity and technical challenge. I came across Hugo and was immediately impressed&#xA;by its simplicity and efficiency. It was like discovering a new tool that was tailored to my exact needs. The beauty of&#xA;Hugo is that it is written in Go, a language known for its speed and power. This made the whole process not only faster,&#xA;but also more enjoyable.&lt;/p&gt;</description>
     </item>
   </channel>

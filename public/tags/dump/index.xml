@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dump on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/tags/dump/</link>
+    <link>https://tmwprojects.github.io/Blog/tags/dump/</link>
     <description>Recent content in Dump on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Nov 2023 18:45:35 +0100</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/dump/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/tags/dump/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MEMORY FORENSICS WITH VOLATILITY</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/volatility/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/volatility/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/volatility/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/volatility/</guid>
       <description>&lt;p&gt;In this post, we explore the world of memory forensics through the lens of the Volatility framework. We delve into&#xA;the differences between Volatility2 and Volatility3, providing insights into their unique features and capabilities.&#xA;Setting up Volatility on Linux systems is detailed, covering both versions. The article also touches on the process of&#xA;memory dumping, highlighting common tools used in this practice. We dive into the analysis of memory images with an emphasis&#xA;on MemLabs, and discuss additional plugins that extend Volatility&amp;rsquo;s functionality.&lt;/p&gt;</description>
     </item>
   </channel>

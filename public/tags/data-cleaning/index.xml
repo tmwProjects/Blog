@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data Cleaning on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/tags/data-cleaning/</link>
+    <link>https://tmwprojects.github.io/Blog/tags/data-cleaning/</link>
     <description>Recent content in Data Cleaning on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Mar 2023 18:45:35 +0100</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DATA CLEANING METHODS</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/data_cleaning/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/data_cleaning/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/data_cleaning/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/data_cleaning/</guid>
       <description>&lt;p&gt;Data cleaning is a crucial process in many fields to ensure accurate and reliable analysis results. Python offers a&#xA;powerful toolset for this purpose, providing scalability, automation, and adaptability. With libraries such as Pandas,&#xA;NumPy, and Matplotlib, professionals across various disciplines can efficiently clean, organize, and analyze their data.&#xA;To effectively use Python for data cleaning, it is essential to grasp basic programming concepts and become familiar with&#xA;these relevant libraries, while adhering to best practices. By utilizing Python, researchers and analysts can enhance the&#xA;effectiveness and efficiency of their work, leading to meaningful and insightful outcomes.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,220 +2,220 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/tags/</link>
+    <link>https://tmwprojects.github.io/Blog/tags/</link>
     <description>Recent content in Tags on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Apr 2025 12:00:00 +0200</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apache Spark</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/apache-spark/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/apache-spark/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/apache-spark/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/apache-spark/</guid>
       <description></description>
     </item>
     <item>
       <title>Big Data</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/big-data/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/big-data/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/big-data/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/big-data/</guid>
       <description></description>
     </item>
     <item>
       <title>Datenverarbeitung</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/datenverarbeitung/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/datenverarbeitung/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/datenverarbeitung/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/datenverarbeitung/</guid>
       <description></description>
     </item>
     <item>
       <title>Markmap</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/markmap/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/markmap/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/markmap/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/markmap/</guid>
       <description></description>
     </item>
     <item>
       <title>Mindmap</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/mindmap/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/mindmap/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/mindmap/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/mindmap/</guid>
       <description></description>
     </item>
     <item>
       <title>Iris Dataset</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/iris-dataset/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/iris-dataset/</link>
       <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/iris-dataset/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/iris-dataset/</guid>
       <description></description>
     </item>
     <item>
       <title>PCA</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/pca/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/pca/</link>
       <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/pca/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/pca/</guid>
       <description></description>
     </item>
     <item>
       <title>Statistics</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/statistics/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/statistics/</link>
       <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/statistics/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/statistics/</guid>
       <description></description>
     </item>
     <item>
       <title>Visualisation</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/visualisation/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/visualisation/</link>
       <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/visualisation/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/visualisation/</guid>
       <description></description>
     </item>
     <item>
       <title>Bash</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/bash/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/bash/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/bash/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/bash/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/blog/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/blog/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/blog/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Go-Lang</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/go-lang/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/go-lang/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/go-lang/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/go-lang/</guid>
       <description></description>
     </item>
     <item>
       <title>HackSide</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/hackside/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/hackside/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/hackside/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/hackside/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/hugo/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/hugo/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/hugo/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>CLI Tools</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/cli-tools/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/cli-tools/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/cli-tools/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/cli-tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Dump</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/dump/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/dump/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/dump/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/dump/</guid>
       <description></description>
     </item>
     <item>
       <title>Forensics</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/forensics/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/forensics/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/forensics/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/forensics/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/linux/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/linux/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/linux/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/linux/</guid>
       <description></description>
     </item>
     <item>
       <title>Mastodon</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/mastodon/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/mastodon/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/mastodon/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/mastodon/</guid>
       <description></description>
     </item>
     <item>
       <title>Memory Forensics</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/memory-forensics/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/memory-forensics/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/memory-forensics/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/memory-forensics/</guid>
       <description></description>
     </item>
     <item>
       <title>Microblogging</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/microblogging/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/microblogging/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/microblogging/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/microblogging/</guid>
       <description></description>
     </item>
     <item>
       <title>Open Source</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/open-source/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/open-source/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/open-source/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/open-source/</guid>
       <description></description>
     </item>
     <item>
       <title>Volatility</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/volatility/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/volatility/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/volatility/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/volatility/</guid>
       <description></description>
     </item>
     <item>
       <title>Data Cleaning</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/data-cleaning/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/data-cleaning/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/data-cleaning/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/data-cleaning/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/python/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/python/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/python/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Mathmatics</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/mathmatics/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/mathmatics/</link>
       <pubDate>Wed, 25 Jan 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/mathmatics/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/mathmatics/</guid>
       <description></description>
     </item>
     <item>
       <title>Project Euler</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/project-euler/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/project-euler/</link>
       <pubDate>Wed, 25 Jan 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/project-euler/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/project-euler/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/git/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/git/</link>
       <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/git/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Github</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/github/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/github/</link>
       <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/github/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/github/</guid>
       <description></description>
     </item>
     <item>
       <title>Version Control</title>
-      <link>https://tmwprojects.github.io/Blog/public/tags/version-control/</link>
+      <link>https://tmwprojects.github.io/Blog/tags/version-control/</link>
       <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/tags/version-control/</guid>
+      <guid>https://tmwprojects.github.io/Blog/tags/version-control/</guid>
       <description></description>
     </item>
   </channel>

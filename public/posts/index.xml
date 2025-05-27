@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/posts/</link>
+    <link>https://tmwprojects.github.io/Blog/posts/</link>
     <description>Recent content in Posts on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Apr 2025 12:00:00 +0200</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Apache Spark Overview</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/spark_mindmap/</link>
+      <title>APACHE SPARK OVERVIEW</title>
+      <link>https://tmwprojects.github.io/Blog/posts/spark_mindmap/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/spark_mindmap/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;</description>
+      <guid>https://tmwprojects.github.io/Blog/posts/spark_mindmap/</guid>
+      <description>&lt;iframe src=&#34;https://tmwprojects.github.io/Blog/Blog/spark_mindmap.html&#34; width=&#34;100%&#34; height=&#34;600&#34; style=&#34;border: none;&#34;&gt;&lt;/iframe&gt;</description>
     </item>
     <item>
       <title>IRIS DATASET</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/iris_dataset/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/iris_dataset/</link>
       <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/iris_dataset/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/iris_dataset/</guid>
       <description>&lt;p&gt;In this post, we explore the Iris dataset, a well-known dataset containing information about three Iris species. We&#xA;start by importing necessary Python modules for data analysis. The dataset includes four numeric attributes for each&#xA;species: sepal length, sepal width, petal length, and petal width. It contains 150 samples in total and is commonly&#xA;used for classification tasks.&lt;/p&gt;&#xA;&lt;p&gt;We check for missing values in the dataset and find that it&amp;rsquo;s clean, with no null entries. We then calculate summary&#xA;statistics for the attributes, providing insights into their distribution.&lt;/p&gt;</description>
     </item>
     <item>
       <title>CREATE AND DEPLOY HACKSIDE WITH HUGO</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/hugo_hackside/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/hugo_hackside/</link>
       <pubDate>Mon, 11 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/hugo_hackside/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/hugo_hackside/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m excited to share with you how I created HackSide with the help of Hugo. My adventure began on a rainy day when I&#xA;decided to turn my ideas and technical skills into a unique digital project.&lt;/p&gt;&#xA;&lt;p&gt;My journey was a fascinating mix of creativity and technical challenge. I came across Hugo and was immediately impressed&#xA;by its simplicity and efficiency. It was like discovering a new tool that was tailored to my exact needs. The beauty of&#xA;Hugo is that it is written in Go, a language known for its speed and power. This made the whole process not only faster,&#xA;but also more enjoyable.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MASTODON AND ITS TOOLS</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/mastodon/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/mastodon/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/mastodon/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/mastodon/</guid>
       <description>&lt;p&gt;Mastodon is a fascinating and growing platform in the world of social media that offers a fresh and user-friendly&#xA;user-friendly alternative to the established networks. At its core, Mastodon is a decentralized,&#xA;open source network that focuses on privacy and user control. It differs from traditional social&#xA;social media through its unique structure and philosophy.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;&lt;img src=&#34;https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D&#34; alt=&#34;License&#34;&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#what-is-mastodon&#34;&gt;What is Mastodon?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#decentralized-structure&#34;&gt;Decentralized structure&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#how-does-mastodon-work&#34;&gt;How does Mastodon work?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#what-can-you-do-with-mastodon&#34;&gt;What can you do with Mastodon?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#why-choose-mastodon&#34;&gt;Why choose Mastodon?&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mastodon-in-the-browser&#34;&gt;Mastodon in the browser&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mastodon-on-the-smartphone&#34;&gt;Mastodon on the smartphone&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tools-and-programming&#34;&gt;Tools and programming&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#toot-client&#34;&gt;Toot-Client&lt;/a&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#installation-of-toot&#34;&gt;Installation of Toot&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#login-to-mastodon&#34;&gt;Login to Mastodon&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#basic-commands&#34;&gt;Basic commands&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#advanced-functions&#34;&gt;Advanced functions&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#use-of-toot-tui&#34;&gt;Use of Toot TUI&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#tips-for-use&#34;&gt;Tips for use&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#license&#34;&gt;License&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;what-is-mastodon&#34;&gt;What is Mastodon?&lt;/h1&gt;&#xA;&lt;p&gt;Mastodon is a microblogging service, similar to Twitter (X), but with some key differences that make it special.&#xA;make it special. It was launched in 2016 and has had a steadily growing user base ever since.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MEMORY FORENSICS WITH VOLATILITY</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/volatility/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/volatility/</link>
       <pubDate>Sun, 12 Nov 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/volatility/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/volatility/</guid>
       <description>&lt;p&gt;In this post, we explore the world of memory forensics through the lens of the Volatility framework. We delve into&#xA;the differences between Volatility2 and Volatility3, providing insights into their unique features and capabilities.&#xA;Setting up Volatility on Linux systems is detailed, covering both versions. The article also touches on the process of&#xA;memory dumping, highlighting common tools used in this practice. We dive into the analysis of memory images with an emphasis&#xA;on MemLabs, and discuss additional plugins that extend Volatility&amp;rsquo;s functionality.&lt;/p&gt;</description>
     </item>
     <item>
       <title>DATA CLEANING METHODS</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/data_cleaning/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/data_cleaning/</link>
       <pubDate>Mon, 06 Mar 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/data_cleaning/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/data_cleaning/</guid>
       <description>&lt;p&gt;Data cleaning is a crucial process in many fields to ensure accurate and reliable analysis results. Python offers a&#xA;powerful toolset for this purpose, providing scalability, automation, and adaptability. With libraries such as Pandas,&#xA;NumPy, and Matplotlib, professionals across various disciplines can efficiently clean, organize, and analyze their data.&#xA;To effectively use Python for data cleaning, it is essential to grasp basic programming concepts and become familiar with&#xA;these relevant libraries, while adhering to best practices. By utilizing Python, researchers and analysts can enhance the&#xA;effectiveness and efficiency of their work, leading to meaningful and insightful outcomes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PROJECT EULER</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/project_euler/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/project_euler/</link>
       <pubDate>Wed, 25 Jan 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/project_euler/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/project_euler/</guid>
       <description>&lt;p&gt;Today I am happy to share a special treat with you: A Jupyter notebook full of solved tasks from&#xA;Project Euler, programmed in Python. For those of you who don&amp;rsquo;t know Project Euler yet: It is&#xA;a collection of challenging math/programming problems designed to develop logical thinking and programming skills.&#xA;thinking and programming skills.&lt;/p&gt;&#xA;&lt;p&gt;You can launch the notebook directly from Binder or download it from GitHub to explore it in your own environment.&#xA;explore it in your own environment. You can find both links below. I look forward to your feedback and your solutions to the tasks of&#xA;Project Euler.&lt;/p&gt;</description>
     </item>
     <item>
       <title>COMMON METHODS OF GIT</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/common-git-methods/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/common-git-methods/</link>
       <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/common-git-methods/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/common-git-methods/</guid>
       <description>&lt;h2 id=&#34;what-is-git-and-github&#34;&gt;What is Git and Github?&lt;/h2&gt;&#xA;&lt;p&gt;Git, launched in 2005, is a complimentary, distributed version control system that facilitates collaborative work on&#xA;software projects, irrespective of the geographical location of the contributors. It offers the ability for multiple&#xA;developers to independently integrate their modifications to the project, log and trace these alterations, and, when&#xA;necessary, access previous versions of the project. Being platform-independent, Git can be utilised across diverse&#xA;computing environments.&lt;/p&gt;</description>
     </item>
   </channel>

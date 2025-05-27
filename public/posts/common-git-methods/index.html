@@ -41,7 +41,7 @@ computing environments." />
         align-items:center
     ">
         <div>
-            <a href="/Blog/" class="mr-3 font:extralight">
+            <a href="/" class="mr-3 font:extralight">
               
               HackSide $
               
@@ -118,7 +118,7 @@ as developers worldwide can contribute to each other&rsquo;s work with modificat
 <a href="https://git-scm.com/doc" title="Git Docs">Docs</a> of Git can be used. For the workflow, an initial exposure to Git is extremely
 helpful, allowing the work processes to be understood concretely. are understood.</p>
 <h6 id="hint-currently-this-repository-refers-to-working-with-git-on-a-local-level-only-more-and-working-with-remote-repositories-will-follow">Hint: Currently, this repository refers to working with Git on a local level only. More and working with remote repositories will follow.</h6>
-<!-- raw HTML omitted -->
+<br>
 <p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-6B783D" alt="License"></a></p>
 <hr>
 <h2 id="contents">Contents</h2>
@@ -157,7 +157,7 @@ helpful, allowing the work processes to be understood concretely. are understood
 <h2 id="install-git">Install Git</h2>
 <h3 id="git-for-linux">Git for Linux</h3>
 <p>Execute the following command in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>sudo apt-get install git</code></pre>
 <h3 id="git-for-windows">Git for Windows</h3>
 <ol>
 <li>
@@ -181,27 +181,29 @@ helpful, allowing the work processes to be understood concretely. are understood
 <p>Installation instructions for the respective operating system can be readily obtained from Google. One of the first
 steps in using Git in conjunction with Gibhub is to configure Git on your own computer.</p>
 <p>Inside the terminal:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre><code>git config --global user.name "Pseudonym/Name"
+git config --global user.mail "Mailadress"</code></pre>
 <p>Furthermore, extremely complex configurations are possible.</p>
 <p><a href="#contents"><strong>Back to content</strong></a></p>
 <hr>
 <h2 id="create-a-new-repository">Create a new repository</h2>
 <p>The initialisation command of Git is necessary for this:</p>
-<!-- raw HTML omitted -->
+<pre><code>git init</code></pre>
 <p>Git then creates a new repository directory in the current directory. All files required by Git are stored in the
 subfolder /.git. In UNIX systems, the dot in front of the folder name indicates that this directory is hidden.</p>
 <p>Git stores the corresponding versions of the programme we are working on in .git so that we can subsequently track how
 we have changed our programme.</p>
 <p>Example: I want to create a repository called <strong>program</strong>.</p>
 <p>I create a directory called <strong>program</strong>.</p>
-<!-- raw HTML omitted -->
+<pre><code>mkdir /home/user/program</code></pre>
 <p>I then change to the appropriate directory and create the appropriate repository using Git&rsquo;s initialisation command:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre><code>cd /home/user/program</code></pre>
+<pre><code>git init</code></pre>
 <p>If you change to the appropriate /.git directory and run the ls command, you will get the following output:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre><code>branches  config  description  HEAD  
+
+hooks  info  objects  refs
+</code></pre>
 <p>The folder /.git contains various subfolders, which we won&rsquo;t be doing much with at the moment, as Git automatically
 manages all versions.</p>
 <p><a href="#contents"><strong>Back to content</strong></a></p>
@@ -222,9 +224,9 @@ commit corresponds to a version of the project, so to speak.</p>
 is transferred from the project to the so-called <strong>staging area</strong>. A commit is first prepared in the staging area with
 the following command:</p>
 <p>For single file:</p>
-<!-- raw HTML omitted -->
+<pre><code>git add [FILE]</code></pre>
 <p>For entire folders:</p>
-<!-- raw HTML omitted -->
+<pre><code>git add [FOLDER]</code></pre>
 <p>After we have marked the corresponding files/folders with the command in the staging area, we could execute a commit
 directly. First, however, an important note:</p>
 <p>Assuming we would continue to write our programme in our working directory after committing to the staging area, the
@@ -236,7 +238,7 @@ the git add command again.</p>
 <h3 id="git-commit---bridge-between-staging-area-and-repository">git commit - Bridge between staging area and repository</h3>
 <p>Since we have stored the current version of our programme in the staging area, we should switch to storing the current
 version in our repository from our staging area. This can be done by using the following command in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>git commit -m "message"</code></pre>
 <p>This command creates a new commit from all the staged changes. When committing, it is necessary to store a commit message.
 For a better overview, it is helpful to store in the commit message what was specifically changed. Short and concise is
 the appropriate home remedy for the first line. This is followed by an empty line and then a small, more concrete description.</p>
@@ -254,25 +256,25 @@ this doesn&rsquo;t happen, for example because you don&rsquo;t leave a message, 
 <p><strong>Tip</strong>: If a programming project is growing and other programmers from all over the world may be working on your project,
 it would be advisable to leave all commit messages in English.</p>
 <blockquote>
-<h4 id="good-practice-for-commit-messages--br">Good practice for commit messages  <!-- raw HTML omitted --></h4>
+<h4 id="good-practice-for-commit-messages--br">Good practice for commit messages  <br></h4>
 <p><strong>Short and concise</strong>: The first line of the commit should be a brief summary of the changes. It is often recommended
-that this line should not exceed 50 characters. <!-- raw HTML omitted --><!-- raw HTML omitted -->
+that this line should not exceed 50 characters. <br><br>
 <strong>Imperative form</strong>: Commit messages should be written in the imperative form, for example &ldquo;Fix bug&rdquo; instead of
 &ldquo;Fixed bug&rdquo; or &ldquo;Fixes bug&rdquo;. This convention is followed by Git itself in its automatically generated messages, such
-as &ldquo;Merge pull request #123 from branch&rdquo;. <!-- raw HTML omitted --><!-- raw HTML omitted -->
+as &ldquo;Merge pull request #123 from branch&rdquo;. <br><br>
 <strong>Detail in body</strong>: If the changes require more context or explanation, these should be written in the body of the commit.
 This should follow the summary line and after a blank line. It is often recommended that each line in the body should
-contain no more than 72 characters. <!-- raw HTML omitted --><!-- raw HTML omitted -->
+contain no more than 72 characters. <br><br>
 <strong>What and Why</strong>: It can be helpful to describe not only what has been changed, but also the reason for the change.
-This can be particularly useful when fixing bugs or making complex changes. <!-- raw HTML omitted --><!-- raw HTML omitted -->
+This can be particularly useful when fixing bugs or making complex changes. <br><br>
 <strong>Reference resources</strong>: If your change references an issue or bug report, you should reference it in your commit message.
 Some teams use certain conventions for this, such as adding &ldquo;Fixes #123&rdquo; to the end of the commit message to
-close the issue, which is listed as number 123 in their issue tracking system. <!-- raw HTML omitted --></p>
+close the issue, which is listed as number 123 in their issue tracking system. <br></p>
 </blockquote>
 <p>The <strong>following</strong> parameter is useful if you have committed something and later find out that what you committed doesn&rsquo;t really work.
 Then the original commit gets a new commit ID. This way, you don&rsquo;t have to do another commit.</p>
 <p>To change a commit, use the following command in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>git commit --amend</code></pre>
 <p>This will ensure that the latest changes from your <strong>working directory</strong> are included in the <strong>staging area</strong>.</p>
 <p><strong>Important</strong>: This rewrites the log from the repository. More precisely, the last commit is overwritten. Ideally, you
 should only use this command locally on your computer.</p>
@@ -284,7 +286,7 @@ working on the repository have the same version on their computer.</p>
 by its SHA I hash. These hashes are created on the basis of the corresponding commit so that no two commits can have the
 same checksums.</p>
 <p>To do this, use the following command in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>git log</code></pre>
 <p>The order of the commit history is such that the oldest change is shown at the bottom and the most recent at the top.
 You are shown the individual commits, including the corresponding checksums, author&rsquo;s name, time and, last but not least,
 your commit message. It is important to note here that the most recent commit is referred to as <strong>HEAD</strong>.</p>
@@ -328,13 +330,13 @@ The third commit is then <strong>HEAD~2</strong>, the fourth commit is <strong>H
 <p>These names can also be used instead of the hash values of the individual commits. This makes it a little more
 convenient to work with.</p>
 <p>Example:</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff f759623 HEAD</code></pre>
 <p>or</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff HEAD~1 HEAD</code></pre>
 <p>Another important parameter for the command is <strong>-p</strong>. This displays significantly more information for the commits, such
 as which lines within the code specifically added or removed. If the commit needs to be displayed in less detail, the
 following parameter can be used:</p>
-<!-- raw HTML omitted -->
+<pre><code>git log --oneline</code></pre>
 <p>Example:</p>
 <pre tabindex="0"><code>0fc55f2 (HEAD -&gt; master, origin/master, origin/HEAD) Changes
 0d3407f Changes
@@ -345,22 +347,22 @@ d02ccb6 Add files via upload
 0df2ffe Create README.md
 32e5dca Initial commit
 </code></pre><p>For more information on the parameters use:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre><code>git log -h
+git log --help</code></pre>
 <p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="git-diff---show-differences">git diff - Show differences</h3>
 <p>This command is useful if you are working within your working directory, but you are not sure which changes have already
 been applied to your staging area. With the following command, you can see the relative changes between the working
 directory and the staging area:</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff</code></pre>
 <p>To see the relative changes between the staging area and the repository, use the <strong>&ndash;cached</strong> parameter.</p>
 <p>Example:</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff --cached</code></pre>
 <p>If you want to see specific differences between two individual commits, you need the commit IDs of the two commits and
 the following command:</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff [hash1] [hash2]</code></pre>
 <p>Example:</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff 0d3407f f3a0db4</code></pre>
 <pre tabindex="0"><code>git diff 0d3407f f3a0db4
 
 diff --git a/Program/program.py b/Program/program.py
@@ -372,7 +374,7 @@ index 12b063f..4a669d8 100755
 </code></pre><p>The variables <strong>a</strong> and <strong>b</strong> in front of the individual versions do <strong>not</strong> refer to concrete folders or directories,
 but to the corresponding versions that we put into relation.</p>
 <p>The following output:</p>
-<!-- raw HTML omitted -->
+<pre><code>@@ -1,7 +1,5 @@</code></pre>
 <p>means that in the first file the <strong>first line</strong> has been deleted and a total of <strong>seven lines</strong> are output, therefore
 <strong>-1.7</strong>. Subsequently, with the second file, one is added to the <strong>first line</strong> and a total of <strong>five lines</strong> are output,
 therefore +1.5</p>
@@ -386,26 +388,26 @@ from old to young.</p>
 However, it is often the case that within a project there are several files that are changed within one commit. Then,
 of course, you will see a lot of changes. In order to be able to differentiate this somewhat, use the following important
 parameter to view the changes of a specific file:</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff [hash1] [hash2] -- [dataname]</code></pre>
 <p>Example:</p>
-<!-- raw HTML omitted -->
+<pre><code>git diff 0d3407f f3a0db4 -- program.py</code></pre>
 <p>Note: The <strong>&ndash; [dataname]</strong> parameter can be used with all the git commands presented, such as git log. It is also possible
 to view changes to specific file formats or filenames. A proxy can be used for this.</p>
 <p>Example:</p>
-<!-- raw HTML omitted -->
+<pre><code>git log -- *.py</code></pre>
 <p>or</p>
-<!-- raw HTML omitted -->
+<pre><code>git log -- program.*</code></pre>
 <p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="git-reset---revert-changes">Git reset - revert changes</h3>
 <p>Here we can remove <strong>all</strong> changes from the <strong>staging-area</strong>.  The prerequisite for this command is that changes are
 stored in the staging area at all.For this we use the following command:</p>
-<!-- raw HTML omitted -->
+<pre><code>git reset</code></pre>
 <p>If it is a question of removing <strong>specific</strong> changes, such as from a specific file, then the following command can be
 used in conjunction with the corresponding file parameter in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>git reset [filename]</code></pre>
 <p>But not only all changes marked for a commit can be undone, but also changes that refer specifically to a commit. The
 following command is responsible for this:</p>
-<!-- raw HTML omitted -->
+<pre><code>git reset [commit hash]</code></pre>
 <p>Here, all changes in the workind directory remain, but all commits <strong>after</strong> the commit with the specified commit hash
 are deleted. This means that all changes that have already been committed to the repository with the corresponding
 commits are returned to the working directory after the above command.</p>
@@ -413,7 +415,7 @@ commits are returned to the working directory after the above command.</p>
 <p>Another important parameter, but one that should be used with caution, is the <strong>&ndash;hard</strong> parameter. Here, all commits
 are also deleted after the corresponding commit hash. The difference to the previous command is that <strong>all</strong> changes
 are <strong>discarded</strong>. To do this, use the following command in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>git reset --hard [commit hash]</code></pre>
 <p><strong>Important</strong>: When working with the git reset command, you must be careful, because this command can cause significant
 data loss. Do not use this command when working with remote repositories, such as Github. These repositories are often
 shared with other people and this command automatically changes the git history. If in doubt, always tend to <strong>not</strong> use
@@ -422,7 +424,7 @@ the command.</p>
 want to continue working on your programme based on this current repository. If you are working in your working directory
 and unfortunately find that your changes have led you astray, you can use the following command to overwrite your current
 working directory with the current repository (MASTER):</p>
-<!-- raw HTML omitted -->
+<pre><code>git reset --hard</code></pre>
 <p>But here too, make sure you know what data is in your working directory before you execute the command. This can lead
 to immense data loss.</p>
 <p><a href="#contents"><strong>Back to content</strong></a></p>
@@ -431,7 +433,7 @@ to immense data loss.</p>
 it was in at the specified commit hash. You can view files, compile the project, run tests and even edit files without
 fear of losing the current project state. None of your actions and changes are saved in the repository.</p>
 <p>Type the following command in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>git checkout [hash]</code></pre>
 <p><strong>Important</strong>: Git tries to make local changes here, which can lead to conflicts. Only use this command if your working
 directory is empty or has no changes.</p>
 <p>With the git checkout command, we can check out a previous commit and return the repository to the status. Checking out
@@ -441,13 +443,13 @@ purge. The purge occurs at configured intervals and removes orphaned commits per
 from falling victim to garbage collection, we need to make sure that we are in a branch.</p>
 <p>Once you have finished working on a particular commit, you can jump back to the original version of your project with
 the following command:</p>
-<!-- raw HTML omitted -->
+<pre><code>git checkout master</code></pre>
 <p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="git-stash---cache-changes">Git stash - cache changes</h3>
 <p>In case you want to see the status of your project from a few weeks ago, but you still have changes in your current
 working directory and/or staging area, you can use the command to display the status from that point in time without
 losing the current changes. You can use the following command to cache your current changes:</p>
-<!-- raw HTML omitted -->
+<pre><code>git stash</code></pre>
 <p>In short, git stash allows you to cache the current changes in your working directory and staging area.</p>
 <p>Workflow example:</p>
 <ol>
@@ -467,13 +469,13 @@ is cleaned up:</p>
 nothing to commit, working directory clean
 </code></pre><p>The last saved stash always has the smallest room on the list, as if you were always adding another package to a stack.
 With the following command you can look at all cached stashes:</p>
-<!-- raw HTML omitted -->
+<pre><code>git stash list</code></pre>
 <p>Output:</p>
 <pre tabindex="0"><code>stash@{0}: WIP on master: 016c048 Create file
 stash@{1}: WIP on master: a1370d1 Revert
 stash@{2}: WIP on master: 1cd6015 Change numbers
 </code></pre><p>With the parameter <strong>pop</strong>, you can always restore the last saved stash. What is meant is that with the command</p>
-<!-- raw HTML omitted -->
+<pre><code>git stash pop</code></pre>
 <p><strong>stash@{0}</strong> is restored first, followed by <strong>stash@{1}</strong> and then <strong>stash@{2}</strong>.</p>
 <p>You also have the option of using the already introduced command <strong>git diff</strong> to compare the current stash with what is
 in your current working directory. With the stash command and the previously introduced commands, you have creative ways
@@ -485,7 +487,7 @@ is created that reverts the corresponding changes. You have the option of changi
 above. This was done, for example, with the command <strong>git commit &ndash;amend</strong>, but this only worked as long as the
 repository was local. Here Git offers you the option of making a new commit that undoes all the changes made to an
 existing one.</p>
-<!-- raw HTML omitted -->
+<pre><code>git revert [Commit Hash]</code></pre>
 <p>Instead of removing the commit from the project history, it determines how to reverse changes caused by the commit. A
 new commit is then added with the corresponding reversed content. This prevents Git&rsquo;s history from being truncated,
 which is important for the integrity of your commit history and for reliable collaboration.</p>
@@ -505,10 +507,10 @@ from the commit history or orphaned. git revert is the safer option compared to 
 <p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="git-blame">Git blame</h3>
 <p>With this command you can display changes to a file. It shows line by line in which commit it was last changed.</p>
-<!-- raw HTML omitted -->
+<pre><code>git blame [filename]</code></pre>
 <p>To make working in the terminal more comfortable and to keep an overview, you can also use the following command to
 highlight the same commits in colour:</p>
-<!-- raw HTML omitted -->
+<pre><code>git blame --colour-lines [filename]</code></pre>
 <p>Example:</p>
 <pre tabindex="0"><code>^32e5dca (Joe Blow    2021-07-04 09:38:59 +0200   1) #!/usr/bin/env python
 ^32e5dca (Joe Blow    2021-07-04 09:38:59 +0200   2) 
@@ -539,7 +541,7 @@ f759623a (G. Raymond  2021-07-13 16:25:23 +0200  16)
 </code></pre><p>This can be helpful when working with several people and you want to make sure that if there is a bug, for example,
 that you write to the right person about it.</p>
 <p>For more detailed handling of the <strong>git blame</strong> command, use the following command in the terminal:</p>
-<!-- raw HTML omitted -->
+<pre><code>git blame --help</code></pre>
 <p><a href="#contents"><strong>Back to content</strong></a></p>
 <h3 id="gitignore-data">.gitignore-Data</h3>
 <p>With the so-called gitignore you can have files ignored. The file .gitignore contains a list of paths that are ignored
@@ -547,7 +549,7 @@ by git. Here, changes to this data will have no effect on the commands <strong>g
 <p><strong>Important</strong>: The .gitignore file should always be committed so that certain files, folders, etc. are not included in
 the shared repository in the first place. This can also be very important when working together in a larger team.</p>
 <p>Create a file called .gitignore inside your working directory as follows:</p>
-<!-- raw HTML omitted -->
+<pre><code>nano .gitignore</code></pre>
 <p>Example of the content of a .gitignore file:</p>
 <pre tabindex="0"><code># Byte-compiled / optimized / DLL files
 __pycache__/

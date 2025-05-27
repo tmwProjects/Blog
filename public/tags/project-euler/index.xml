@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project Euler on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/tags/project-euler/</link>
+    <link>https://tmwprojects.github.io/Blog/tags/project-euler/</link>
     <description>Recent content in Project Euler on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Jan 2023 18:45:35 +0100</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/project-euler/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/tags/project-euler/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PROJECT EULER</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/project_euler/</link>
+      <link>https://tmwprojects.github.io/Blog/posts/project_euler/</link>
       <pubDate>Wed, 25 Jan 2023 18:45:35 +0100</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/project_euler/</guid>
+      <guid>https://tmwprojects.github.io/Blog/posts/project_euler/</guid>
       <description>&lt;p&gt;Today I am happy to share a special treat with you: A Jupyter notebook full of solved tasks from&#xA;Project Euler, programmed in Python. For those of you who don&amp;rsquo;t know Project Euler yet: It is&#xA;a collection of challenging math/programming problems designed to develop logical thinking and programming skills.&#xA;thinking and programming skills.&lt;/p&gt;&#xA;&lt;p&gt;You can launch the notebook directly from Binder or download it from GitHub to explore it in your own environment.&#xA;explore it in your own environment. You can find both links below. I look forward to your feedback and your solutions to the tasks of&#xA;Project Euler.&lt;/p&gt;</description>
     </item>
   </channel>

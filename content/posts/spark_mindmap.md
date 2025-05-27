@@ -1,5 +1,5 @@
 +++
-title = "Apache Spark Overview"
+title = "APACHE SPARK OVERVIEW"
 date = 2025-04-13T12:00:00+02:00
 draft = true
 author = "tmwProjects"
@@ -13,4 +13,4 @@ tags = [
 ]
 +++
 
-<iframe src="/static/spark_mindmap.html" width="100%" height="600" style="border: none;"></iframe>
+<iframe src="/Blog/spark_mindmap.html" width="100%" height="600" style="border: none;"></iframe>

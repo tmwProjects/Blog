@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apache Spark on HackSide $</title>
-    <link>https://tmwprojects.github.io/Blog/public/tags/apache-spark/</link>
+    <link>https://tmwprojects.github.io/Blog/tags/apache-spark/</link>
     <description>Recent content in Apache Spark on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Apr 2025 12:00:00 +0200</lastBuildDate>
-    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/apache-spark/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/tags/apache-spark/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Apache Spark Overview</title>
-      <link>https://tmwprojects.github.io/Blog/public/posts/spark_mindmap/</link>
+      <title>APACHE SPARK OVERVIEW</title>
+      <link>https://tmwprojects.github.io/Blog/posts/spark_mindmap/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
-      <guid>https://tmwprojects.github.io/Blog/public/posts/spark_mindmap/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;</description>
+      <guid>https://tmwprojects.github.io/Blog/posts/spark_mindmap/</guid>
+      <description>&lt;iframe src=&#34;https://tmwprojects.github.io/Blog/Blog/spark_mindmap.html&#34; width=&#34;100%&#34; height=&#34;600&#34; style=&#34;border: none;&#34;&gt;&lt;/iframe&gt;</description>
     </item>
   </channel>
 </rss>

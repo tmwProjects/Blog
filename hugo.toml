@@ -1,4 +1,9 @@
-baseURL = "https://tmwprojects.github.io/Blog/public/"
+baseURL = "https://tmwprojects.github.io/Blog/"
 languageCode = 'en-us'
 title = 'HackSide $'
 theme = 'github.com/serkodev/holy'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
