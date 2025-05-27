@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Version Control on HackSide $</title>
-    <link>/tags/version-control/</link>
+    <link>https://tmwprojects.github.io/Blog/public/tags/version-control/</link>
     <description>Recent content in Version Control on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 06 Mar 2022 18:45:35 +0100</lastBuildDate>
-    <atom:link href="/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/version-control/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>COMMON METHODS OF GIT</title>
-      <link>/posts/common-git-methods/</link>
+      <link>https://tmwprojects.github.io/Blog/public/posts/common-git-methods/</link>
       <pubDate>Sun, 06 Mar 2022 18:45:35 +0100</pubDate>
-      <guid>/posts/common-git-methods/</guid>
-      <description>What is Git and Github? Git, launched in 2005, is a complimentary, distributed version control system that facilitates collaborative work on software projects, irrespective of the geographical location of the contributors. It offers the ability for multiple developers to independently integrate their modifications to the project, log and trace these alterations, and, when necessary, access previous versions of the project. Being platform-independent, Git can be utilised across diverse computing environments.</description>
+      <guid>https://tmwprojects.github.io/Blog/public/posts/common-git-methods/</guid>
+      <description>&lt;h2 id=&#34;what-is-git-and-github&#34;&gt;What is Git and Github?&lt;/h2&gt;&#xA;&lt;p&gt;Git, launched in 2005, is a complimentary, distributed version control system that facilitates collaborative work on&#xA;software projects, irrespective of the geographical location of the contributors. It offers the ability for multiple&#xA;developers to independently integrate their modifications to the project, log and trace these alterations, and, when&#xA;necessary, access previous versions of the project. Being platform-independent, Git can be utilised across diverse&#xA;computing environments.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

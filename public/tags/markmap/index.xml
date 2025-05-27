@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markmap on HackSide $</title>
+    <link>https://tmwprojects.github.io/Blog/public/tags/markmap/</link>
+    <description>Recent content in Markmap on HackSide $</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Apr 2025 12:00:00 +0200</lastBuildDate>
+    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/markmap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apache Spark Overview</title>
+      <link>https://tmwprojects.github.io/Blog/public/posts/spark_mindmap/</link>
+      <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
+      <guid>https://tmwprojects.github.io/Blog/public/posts/spark_mindmap/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+  </channel>
+</rss>

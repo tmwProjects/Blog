@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Iris Dataset on HackSide $</title>
-    <link>/tags/iris-dataset/</link>
+    <link>https://tmwprojects.github.io/Blog/public/tags/iris-dataset/</link>
     <description>Recent content in Iris Dataset on HackSide $</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 30 Jan 2024 18:45:35 +0100</lastBuildDate>
-    <atom:link href="/tags/iris-dataset/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tmwprojects.github.io/Blog/public/tags/iris-dataset/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IRIS DATASET</title>
-      <link>/posts/iris_dataset/</link>
+      <link>https://tmwprojects.github.io/Blog/public/posts/iris_dataset/</link>
       <pubDate>Tue, 30 Jan 2024 18:45:35 +0100</pubDate>
-      <guid>/posts/iris_dataset/</guid>
-      <description>In this post, we explore the Iris dataset, a well-known dataset containing information about three Iris species. We start by importing necessary Python modules for data analysis. The dataset includes four numeric attributes for each species: sepal length, sepal width, petal length, and petal width. It contains 150 samples in total and is commonly used for classification tasks.&#xA;We check for missing values in the dataset and find that it&amp;rsquo;s clean, with no null entries.</description>
+      <guid>https://tmwprojects.github.io/Blog/public/posts/iris_dataset/</guid>
+      <description>&lt;p&gt;In this post, we explore the Iris dataset, a well-known dataset containing information about three Iris species. We&#xA;start by importing necessary Python modules for data analysis. The dataset includes four numeric attributes for each&#xA;species: sepal length, sepal width, petal length, and petal width. It contains 150 samples in total and is commonly&#xA;used for classification tasks.&lt;/p&gt;&#xA;&lt;p&gt;We check for missing values in the dataset and find that it&amp;rsquo;s clean, with no null entries. We then calculate summary&#xA;statistics for the attributes, providing insights into their distribution.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
