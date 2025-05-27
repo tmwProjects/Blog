@@ -1,6 +1,4 @@
 baseURL = "https://tmwprojects.github.io/Blog/public/"
-relativeURLs = false
-canonifyURLs = true
 languageCode = 'en-us'
 title = 'HackSide $'
 theme = 'github.com/serkodev/holy'
