@@ -47,12 +47,15 @@ Thank you very much for your support!
 
 [![Donate on Liberapay](https://img.shields.io/badge/Donate-Liberapay-yellow)](https://liberapay.com/tmwProjects/donate) 
 [![Donate on BuyMeACoffee](https://img.shields.io/badge/Donate-BuyMeACoffee-orange)](https://www.buymeacoffee.com/tmwcontactQ) 
-[![Visit my site](https://img.shields.io/badge/Visit%20my%20site-Online-important)](https://tmwprojects.github.io/) 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftmwprojects.github.io%2FBlog%2F&count_bg=%23003366&title_bg=%23555555&icon=&icon_color=%23003366&title=Visits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Visit my portfolio](https://img.shields.io/badge/Visit%20my%20portfolio-Online-important)](https://tmwprojects.github.io/)
+[![hits](https://myhits.vercel.app/api/hit/https%3A%2F%2Ftmwprojects.github.io%2FBlog%2F?color=blue&label=hits&size=small)](https://myhits.vercel.app)
 
 <a href='http://www.catb.org/hacker-emblem/'>
-<img src='http://www.catb.org/hacker-emblem/glider.png' alt='hacker emblem' style="float:left"/></a>
+<img src='http://www.catb.org/hacker-emblem/glider.png' style="float:left"/></a>
 
 
 
 ***
+
+<script data-goatcounter="https://hackside.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
