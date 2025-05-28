@@ -13,7 +13,7 @@
       <link>https://tmwprojects.github.io/Blog/posts/spark_mindmap/</link>
       <pubDate>Sun, 13 Apr 2025 12:00:00 +0200</pubDate>
       <guid>https://tmwprojects.github.io/Blog/posts/spark_mindmap/</guid>
-      <description>&lt;iframe src=&#34;https://tmwprojects.github.io/Blog/Blog/spark_mindmap.html&#34; width=&#34;100%&#34; height=&#34;600&#34; style=&#34;border: none;&#34;&gt;&lt;/iframe&gt;</description>
+      <description>&lt;h2 id=&#34;contents&#34;&gt;Contents&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#context&#34;&gt;Context&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#mindmap-usage--features&#34;&gt;Mindmap Usage &amp;amp; Features&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#license&#34;&gt;License&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h1 id=&#34;context&#34;&gt;Context&lt;/h1&gt;&#xA;&lt;p&gt;As part of a &lt;strong&gt;Data Engineering course&lt;/strong&gt;, I’m currently exploring &lt;strong&gt;Apache Spark&lt;/strong&gt; in depth – a powerful framework for distributed data processing in the Big Data ecosystem. This interactive mind map serves as a &lt;strong&gt;visual summary&lt;/strong&gt; of the key concepts, components, and application areas of Spark – both to reinforce my own learning and to act as a compact reference guide.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
